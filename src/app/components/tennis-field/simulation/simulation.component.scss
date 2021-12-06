@@ -1,0 +1,27 @@
+@import "../../../../assets/scss/variables";
+
+.tab-simulation {
+    position: relative;
+
+    .add-to-report {
+        position: absolute;
+        z-index: 10;
+        top: -56px;
+        right: 0px;
+        padding: 4px 14px;
+        height: auto;
+
+        img {
+            display: block;
+        }
+
+        &.fullscreen {
+            top: 8px;
+            right: 95px;
+        }
+    }
+
+    &.is-fullscreen {
+        padding: 0 25%;
+    }
+}

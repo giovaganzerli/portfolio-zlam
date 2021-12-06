@@ -1,0 +1,325 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+
+        <a class="navbar-item navbar-logo p10-20" href="/dashboard">
+            <img src="../../../assets/icons/svg/icon-logo_dashboard.svg" height="40">
+        </a>
+
+        <!-- HEADER DATASET SELECT -->
+        <div class="navbar-item navbar-select_dataset">
+
+        </div>
+
+        <!-- HEADER INBOX MESSAGES -->
+        <a role="button" class="navbar-item navbar-inbox">
+            <img src="../../../assets/icons/svg/icon-mail.svg" height="40">
+        </a>
+
+        <!-- HEADER PROFILE -->
+        <a role="button" class="navbar-item navbar-profile" href="/profile">
+            {{ user.meta.name +' '+ user.meta.family_name }} <span class="profile-pic" [style.backgroundImage]="'url('+ user.profilePicUrl +')'"></span>
+        </a>
+
+        <!-- HEADER MENU TOGGLE -->
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a role="button" class="navbar-item navbar-link navbar-burger is-arrowless">
+                <i class="fas fa-bars"></i>
+            </a>
+
+            <div class="navbar-dropdown is-right">
+                <a class="navbar-item" href="/dashboard">
+                    Dashboard
+                </a>
+                <a class="navbar-item" href="/profile">
+                    Profile
+                </a>
+                <a class="navbar-item" href="/datasets-management">
+                    Datasets
+                </a>
+                <a class="navbar-item" href="/reports-management">
+                    Reports
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item" (click)="logout()">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="columns page-content has-background-grey">
+
+    <div class="column is-3 column-picture">
+        <div class="pic-container">
+            <div class="profile-pic" [style.backgroundImage]="'url('+ user.profilePicUrl +')'"></div>
+        </div>
+
+        <div class="change-pic cursor-pointer" (click)="toggleModalUpdateUser()">
+            <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-camera.svg'"></i>
+            <span>Change your profile picture</span>
+        </div>
+    </div>
+
+    <div class="column is-9 col-right">
+
+        <div class="columns col-info">
+
+            <div class="column is-5 pr-50 mb-20">
+                <h1>Hello,</h1>
+                <h1 class="has-text-weight-bold">{{ user.meta.name +' '+ user.meta.family_name }}</h1>
+
+                <h4 class="is-italic">{{ user.email }}</h4>
+
+<!--                <div class="plan-type">-->
+<!--                    <span class="tag is-light">Platinum</span>-->
+<!--                    <span class="ml-20">Want to upgrade your plan?</span>-->
+<!--                </div>-->
+            </div>
+
+            <div class="column is-2 has-text-centered">
+                <span class="curr">{{currDatasets}}</span>
+<!--                <span class="tot">/60</span>-->
+                <p class="mt-20">Datasets</p>
+                <a href="/datasets-management">
+                    <button class="button is-grey-light mt-10">
+                        <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-datasets.svg'"></i>
+                        Manage datasets
+                    </button>
+                </a>
+            </div>
+
+            <div class="column is-2 has-text-centered">
+                <span class="curr">{{currReports}}</span>
+<!--                <span class="tot">/100</span>-->
+                <p class="mt-20">Reports</p>
+                <a href="/reports-management">
+                    <button class="button is-grey-light mt-10">
+                        <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-reports.svg'"></i>
+                        Manage reports
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="columns mt-30">
+
+            <div class="column is-3">
+                <h3 class="is-size-4 has-text-weight-bold">
+                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-profile.svg'"></i>
+                    Profile
+                </h3>
+                <p class="pl-30 color-gray-300 cursor-pointer" (click)="toggleModalUpdateUser()">Modify your info</p>
+                <p class="pl-30 color-gray-300 cursor-pointer" (click)="toggleModalUpdatePass()">Change password</p>
+            </div>
+
+            <div class="column is-3">
+                <h3 class="is-size-4 has-text-weight-bold">
+                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-resources.svg'"></i>
+                    Resources
+                </h3>
+                <p class="pl-30 color-gray-300">Read our tutorial</p>
+                <p class="pl-30 color-gray-300">Find your answers in our F.A.Q.</p>
+                <p class="pl-30 color-gray-300">Contact us for help</p>
+            </div>
+
+            <div class="column is-6">
+                <h3 class="is-size-4 has-text-weight-bold">
+                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-activities.svg'"></i>
+                    Activities
+                </h3>
+                <div class="columns">
+                    <div class="column is-6 cursor-pointer">
+                        <i class="mr-10" (click)="toggleModalDataset(true)"><img [src]="'../../../assets/icons/svg/page-profile/upload-dataset.svg'"></i>
+                    </div>
+                    <div class="column is-6">
+                        <a href="/dashboard">
+                            <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/start-analysis.svg'"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="columns">
+
+            <div class="column is-12 border-bottom">
+                <h3 class="is-size-4 has-text-weight-bold">
+                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/icon-mail.svg'"></i>
+                    Messages
+                </h3>
+            </div>
+
+            <div class="column is-6 p0-40">
+
+                <div class="columns">
+                    <div class="column is-2 has-text-centered">
+                        <p class="is-size-2 has-text-weight-bold">22</p>
+                        <p class="is-size-5">LUG</p>
+                    </div>
+                    <div class="column is-10">
+                        <p class="has-text-weight-bold">New Smart data availables!</p>
+                        <p class="color-gray-300">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="column is-6 p0-40">
+
+                <div class="columns">
+                    <div class="column is-2 has-text-centered">
+                        <p class="is-size-2 has-text-weight-bold">22</p>
+                        <p class="is-size-5">LUG</p>
+                    </div>
+                    <div class="column is-3">
+                        <img src="../../../assets/images/placeholder/img-campo-news.png">
+                    </div>
+                    <div class="column is-7">
+                        <p class="has-text-weight-bold">Improved Field view</p>
+                        <p class="color-gray-300">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-uploads-dataset
+        [toggle]="modalUploadsDataset"
+        [datasetToEdit]="false"
+        (toggleEmit)="toggleModalDataset($event)"
+        (datasetEmit)="datasetAdd($event)"
+></app-uploads-dataset>
+
+<div class="modal" [class.is-active]="modalUpdateUser">
+    <div class="modal-background" (click)="toggleModalUpdateUser()"></div>
+    <div class="modal-card">
+
+        <!-- MODAL HEADER -->
+        <header class="modal-card-head">
+            <p class="modal-card-title">Update user</p>
+            <button class="delete" aria-label="close" (click)="toggleModalUpdateUser()"></button>
+        </header>
+
+        <!-- MODAL BODY -->
+        <section class="modal-card-body">
+            <form>
+                <div class="column is-12" *ngIf="errorMessage">
+                    <div class="message is-danger">
+                        <div class="message-body">{{ errorMessage }}</div>
+                    </div>
+                </div>
+
+                <div class="columns form-fields">
+                    <div class="column field is-6">
+                        <p><b>FIRST NAME</b></p>
+                        <div class="control">
+                            <input type="text"
+                                   name="field-first-name"
+                                   class="input"
+                                   placeholder="First name"
+                                   [(ngModel)]="userAttributes.name">
+                        </div>
+
+                        <p class="mt-20"><b>LAST NAME</b></p>
+                        <div class="control">
+                            <input type="text"
+                                   name="field-last-name"
+                                   class="input"
+                                   placeholder="Last name"
+                                   [(ngModel)]="userAttributes.family_name">
+                        </div>
+                    </div>
+
+
+                    <div class="column is-6 field field-dataset-file">
+                        <p><b>PROFILE PICTURE</b></p>
+                        <div class="control">
+                            <div class="file has-name is-boxed is-white">
+                                <label class="file-label" (fileDropped)="imageSelect($event)" appDndFileUpload>
+                                    <input type="file"
+                                           name="field-profile-pic"
+                                           accept="jpg"
+                                           class="file-input"
+                                           (change)="imageSelect($event.target.files)"
+                                           #fileDropRef>
+                                    <span class="file-cta">
+                                        <span class="file-icon"><img src="../../../../assets/icons/svg/icon-upload_file.svg"></span>
+                                        <span class="file-description">DRAG & DROP OR SELECT IMAGE TU UPLOAD</span>
+                                    </span>
+                                    <span class="file-name">
+                                        <p>{{ file.name }}</p>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <footer class="modal-card-foot has-text-right">
+            <button class="button is-info" (click)="submitUpdateUser()">Save</button>
+            <button class="button" (click)="toggleModalUpdateUser()">Cancel</button>
+        </footer>
+
+    </div>
+</div>
+
+<div class="modal" [class.is-active]="modalUpdatePass">
+    <div class="modal-background" (click)="toggleModalUpdatePass()"></div>
+    <div class="modal-card">
+
+        <!-- MODAL HEADER -->
+        <header class="modal-card-head">
+            <p class="modal-card-title">Update password</p>
+            <button class="delete" aria-label="close" (click)="toggleModalUpdatePass()"></button>
+        </header>
+
+        <!-- MODAL BODY -->
+        <section class="modal-card-body">
+            <form id="">
+                <div class="columns form-fields">
+                    <div class="column field is-6">
+                        <p><b>OLD PASSWORD</b></p>
+                        <div class="control">
+                            <input type="password"
+                                   name="field-old-pass"
+                                   class="input"
+                                   placeholder="Old password"
+                                   [(ngModel)]="oldPass">
+                        </div>
+                    </div>
+
+                    <div class="column field is-6">
+                        <p><b>NEW PASSWORD</b></p>
+                        <div class="control">
+                            <input type="password"
+                                   name="field-new-pass"
+                                   class="input"
+                                   placeholder="New password"
+                                   [(ngModel)]="newPass">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <footer class="modal-card-foot has-text-right">
+            <button class="button is-info" (click)="submitUpdatePass()">Save</button>
+            <button class="button" (click)="toggleModalUpdatePass()">Cancel</button>
+        </footer>
+
+    </div>
+</div>

@@ -1,0 +1,287 @@
+<div class="modal" [class.is-active]="toggle">
+    <div class="modal-background" (click)="toggleModal()"></div>
+    <div class="modal-card">
+
+        <!-- MODAL HEADER -->
+        <header class="modal-card-head">
+            <p class="modal-card-title">Dataset upload</p>
+            <button class="delete" aria-label="close" (click)="toggleModal()"></button>
+        </header>
+
+        <!-- MODAL BODY -->
+        <section class="modal-card-body">
+            <form id="uploadDatasetForm" [class.is-disabled]="formData.isSubmit" novalidate>
+                <div class="columns form-fields">
+
+                    <!-- FORM MESSAGE -->
+                    <div class="column is-12" *ngIf="formData.message.text">
+                        <div class="message" [class.is-danger]="formData.message.type == 'danger'">
+                            <div class="message-body">{{ formData.message.text }}</div>
+                        </div>
+                    </div>
+
+                    <!-- DATASET FILE -->
+                    <div class="field column field-dataset-file is-12" *ngIf="!isEditing">
+                        <h5 class="is-size-5">1. Upload your dataset file</h5> <br>
+                        <div class="control">
+                            <div class="file has-name is-boxed is-white">
+                                <label class="file-label" (fileDropped)="onFileDropped($event)" appDndFileUpload>
+                                    <input type="file"
+                                           name="field-dataset-file"
+                                           accept="text/csv"
+                                           class="file-input"
+                                           (change)="onDatasetFileSelect($event.target.files)"
+                                           #fileDropRef>
+                                    <span class="file-cta">
+                                        <span class="file-icon"><img src="../../../../assets/icons/svg/icon-upload_file.svg"></span>
+                                        <span class="file-description">DRAG & DROP OR SELECT DATASET TU UPLOAD</span>
+                                    </span>
+                                    <span class="file-name" *ngFor="let file of datasetSelected.files; let i = index">
+                                        <p>{{ file?.name }} ({{ formatBytes(file?.size) }})</p>
+                                        <span class="icon" (click)="deleteFile(i)">
+                                            <img src="../../../../assets/icons/svg/icon-cross-round_bordered.svg" />
+                                        </span>
+                                        <progress class="progress is-info is-small" [value]="file?.progress" max="100" *ngIf="file && file?.progress < 100">{{ file?.progress }}%</progress>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DATASET META -->
+                    <div *ngIf="datasetSelected.files.length || isEditing" class="field column field-dataset-meta is-12">
+                        <h5 class="is-size-5">2. Review Dataset info</h5> <br>
+                        <div class="columns">
+
+                            <!-- DATASET META / NAME -->
+                            <div class="column field field-dataset-name is-4">
+                                <p><b>NAME</b></p>
+                                <div class="control">
+                                    <input type="text"
+                                           name="field-dataset-name"
+                                           class="input"
+                                           placeholder="Insert Dataset Name"
+                                           [(ngModel)]="datasetSelected.name"
+                                           (change)="onDatasetFieldsChange('name', datasetSelected.name)">
+                                </div>
+                            </div>
+
+                            <!-- DATASET META / DESCRIPTION -->
+                            <div class="column field field-dataset-description is-5">
+                                <p><b>DESCRIPTION</b></p>
+                                <div class="control">
+                                    <input type="text"
+                                           name="field-dataset-description"
+                                           class="input"
+                                           placeholder="Insert Dataset Description"
+                                           [(ngModel)]="datasetSelected.description"
+                                           (change)="onDatasetFieldsChange('description', datasetSelected.description)">
+                                </div>
+                            </div>
+
+                            <!-- DATASET META / FORMAT -->
+                            <div class="column field field-dataset-format is-3">
+                                <p><b>FORMAT</b></p>
+                                <div class="control">
+                                    <angular2-multiselect
+                                            name="field-dataset-format"
+                                            [data]="dataset.format"
+                                            [(ngModel)]="datasetSelected.format"
+                                            [settings]="multiselectOptions.field_dataset_format"
+                                            (onSelect)="onDatasetSelectChange('format', $event, 'select')"
+                                            (onSelectAll)="onDatasetSelectChange('format', $event, 'selectAll')"
+                                            (onDeSelect)="onDatasetSelectChange('format', $event, 'deSelect')"
+                                            (onDeSelectAll)="onDatasetSelectChange('format', $event, 'deSelect')">
+                                    </angular2-multiselect>
+                                </div>
+                            </div>
+
+                            <!-- DATASET META / PLAYER REFERENCE -->
+                            <div *ngIf="datasetSelected.format.length" class="column field field-dataset-player_1 is-5">
+
+                                <p><b>PLAYER REFERENCE</b></p>
+
+                                <!-- DATASET META / PLAYER REFERENCE / NAME -->
+                                <div class="control">
+                                    <angular2-multiselect
+                                            name="field-dataset-player_1-name"
+                                            [data]="dataset.player.player_1"
+                                            [(ngModel)]="datasetSelected.player.player_1.name"
+                                            [settings]="multiselectOptions.field_dataset_player_1_name"
+                                            (onSelect)="onDatasetSelectChange('player-player_1-name', $event, 'select')"
+                                            (onSelectAll)="onDatasetSelectChange('player-player_1-name', $event, 'selectAll')"
+                                            (onDeSelect)="onDatasetSelectChange('player-player_1-name', $event, 'deSelect')"
+                                            (onDeSelectAll)="onDatasetSelectChange('player-player_1-name', $event, 'deSelect')"
+                                            (onAddFilterNewItem)="onDatasetSelectAdd('player-player_1-name', $event, 'player-name')">
+                                    </angular2-multiselect>
+                                </div>
+
+                                <!-- DATASET META / PLAYER REFERENCE / COUNTRY -->
+                                <div class="control">
+                                    <angular2-multiselect
+                                            name="field-dataset-player_1-country"
+                                            [data]="dataset.player.country"
+                                            [(ngModel)]="datasetSelected.player.player_1.country"
+                                            [settings]="multiselectOptions.field_dataset_player_1_country"
+                                            (onSelect)="onDatasetSelectChange('player-player_1-country', $event, 'select')"
+                                            (onSelectAll)="onDatasetSelectChange('player-player_1-country', $event, 'selectAll')"
+                                            (onDeSelect)="onDatasetSelectChange('player-player_1-country', $event, 'deSelect')"
+                                            (onDeSelectAll)="onDatasetSelectChange('player-player_1-country', $event, 'deSelect')">
+                                    </angular2-multiselect>
+                                </div>
+
+                            </div>
+
+                            <!-- DATASET META / TOURNAMENT -->
+                            <div *ngIf="datasetSelected.format.length" class="column field field-dataset-tournament is-7">
+                                <p><b>TOURNAMENT</b></p>
+                                <div class="columns">
+
+                                    <!-- DATASET META / TOURNAMENT / NAME -->
+                                    <div class="column field field-dataset-tournament-name is-12">
+                                        <div class="control">
+                                            <angular2-multiselect
+                                                    name="field-dataset-tournament-name"
+                                                    [data]="dataset.tournament.name"
+                                                    [(ngModel)]="datasetSelected.tournament.name"
+                                                    [settings]="multiselectOptions.field_dataset_tournament_name"
+                                                    (onSelect)="onDatasetSelectChange('tournament-name', $event, 'select')"
+                                                    (onSelectAll)="onDatasetSelectChange('tournament-name', $event, 'selectAll')"
+                                                    (onDeSelect)="onDatasetSelectChange('tournament-name', $event, 'deSelect')"
+                                                    (onDeSelectAll)="onDatasetSelectChange('tournament-name', $event, 'deSelect')"
+                                                    (onAddFilterNewItem)="onDatasetSelectAdd('tournament-name', $event, 'tournament-name')">
+                                            </angular2-multiselect>
+                                        </div>
+                                    </div>
+
+                                    <!-- DATASET META / TOURNAMENT / SURFACE -->
+                                    <div class="column field field-dataset-tournament-surface is-6">
+                                        <div class="control">
+                                            <angular2-multiselect
+                                                    name="field-dataset-tournament-surface"
+                                                    [data]="dataset.tournament.surface"
+                                                    [(ngModel)]="datasetSelected.tournament.surface"
+                                                    [settings]="multiselectOptions.field_dataset_tournament_surface"
+                                                    (onSelect)="onDatasetSelectChange('tournament-surface', $event, 'select')"
+                                                    (onSelectAll)="onDatasetSelectChange('tournament-surface', $event, 'selectAll')"
+                                                    (onDeSelect)="onDatasetSelectChange('tournament-surface', $event, 'deSelect')"
+                                                    (onDeSelectAll)="onDatasetSelectChange('tournament-surface', $event, 'deSelect')"
+                                                    (onAddFilterNewItem)="onDatasetSelectAdd('tournament-surface', $event, 'tournament-surface')">
+                                            </angular2-multiselect>
+                                        </div>
+                                    </div>
+
+                                    <!-- DATASET META / TOURNAMENT / CONDITION -->
+                                    <div class="column field field-dataset-tournament-env is-6">
+                                        <div class="control">
+                                            <angular2-multiselect
+                                                    name="field-dataset-tournament-env"
+                                                    [data]="dataset.tournament.env"
+                                                    [(ngModel)]="datasetSelected.tournament.env"
+                                                    [settings]="multiselectOptions.field_dataset_tournament_env"
+                                                    (onSelect)="onDatasetSelectChange('tournament-env', $event, 'select')"
+                                                    (onSelectAll)="onDatasetSelectChange('tournament-env', $event, 'selectAll')"
+                                                    (onDeSelect)="onDatasetSelectChange('tournament-env', $event, 'deSelect')"
+                                                    (onDeSelectAll)="onDatasetSelectChange('tournament-env', $event, 'deSelect')"
+                                                    (onAddFilterNewItem)="onDatasetSelectAdd('tournament-env', $event, 'tournament-env')">
+                                            </angular2-multiselect>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- DATASET META / PLAYER OPPONENT -->
+                            <div *ngIf="datasetSelected.format.length" class="column field field-dataset-player_2 is-5">
+
+                                <p><b>PLAYER OPPONENT</b></p>
+
+                                <!-- DATASET META / PLAYER OPPONENT / NAME -->
+                                <div class="control">
+                                    <angular2-multiselect
+                                            name="field-dataset-player_2-name"
+                                            [data]="dataset.player.player_2"
+                                            [(ngModel)]="datasetSelected.player.player_2.name"
+                                            [settings]="multiselectOptions.field_dataset_player_2_name"
+                                            (onSelect)="onDatasetSelectChange('player-player_2-name', $event, 'select')"
+                                            (onSelectAll)="onDatasetSelectChange('player-player_2-name', $event, 'selectAll')"
+                                            (onDeSelect)="onDatasetSelectChange('player-player_2-name', $event, 'deSelect')"
+                                            (onDeSelectAll)="onDatasetSelectChange('player-player_2-name', $event, 'deSelect')"
+                                            (onAddFilterNewItem)="onDatasetSelectAdd('player-player_2-name', $event, 'player-name')">
+                                    </angular2-multiselect>
+                                </div>
+
+                                <!-- DATASET META / PLAYER OPPONENT / COUNTRY -->
+                                <div class="control">
+                                    <angular2-multiselect
+                                            name="field-dataset-player_2-country"
+                                            [data]="dataset.player.country"
+                                            [(ngModel)]="datasetSelected.player.player_2.country"
+                                            [settings]="multiselectOptions.field_dataset_player_2_country"
+                                            (onSelect)="onDatasetSelectChange('player-player_2-country', $event, 'select')"
+                                            (onSelectAll)="onDatasetSelectChange('player-player_2-country', $event, 'selectAll')"
+                                            (onDeSelect)="onDatasetSelectChange('player-player_2-country', $event, 'deSelect')"
+                                            (onDeSelectAll)="onDatasetSelectChange('player-player_2-country', $event, 'deSelect')">
+                                    </angular2-multiselect>
+                                </div>
+
+                            </div>
+
+                            <!-- DATASET META / MATCH -->
+                            <div *ngIf="datasetSelected.format.length" class="column field field-dataset-match is-7">
+                                <p><b>MATCH</b></p>
+                                <div class="columns">
+
+                                    <!-- DATASET META / MATCH / DATE -->
+                                    <div class="column field field-dataset-match-date is-6">
+                                        <div class="control has-icons-right is-size-7">
+                                            <input type="text"
+                                                   class="input"
+                                                   placeholder="Select Date"
+                                                   name="filter-dataset-match-date"
+                                                   (click)="dpDateFrom.toggleCalendar()"
+                                                   #dpDateFrom="angular-mydatepicker"
+                                                   [(ngModel)]="datasetSelected.match.date"
+                                                   [options]="datepickerOptions"
+                                                   (change)="onDatasetFieldsChange('date-from', datasetSelected.match.date)"
+                                                   angular-mydatepicker/>
+                                            <span class="icon is-right">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- DATASET META / MATCH / ROUND -->
+                                    <div class="column field field-dataset-match-round is-6">
+                                        <div class="control">
+                                            <angular2-multiselect
+                                                    name="field-dataset-match-round"
+                                                    [data]="dataset.match.round"
+                                                    [(ngModel)]="datasetSelected.match.round"
+                                                    [settings]="multiselectOptions.field_dataset_match_round"
+                                                    (onSelect)="onDatasetSelectChange('match-round', $event)"
+                                                    (onSelectAll)="onDatasetSelectChange('match-round', $event)"
+                                                    (onDeSelect)="onDatasetSelectChange('match-round', $event)"
+                                                    (onDeSelectAll)="onDatasetSelectChange('match-round', $event)"
+                                                    (onAddFilterNewItem)="onDatasetSelectAdd('match-round', $event, 'match-round')">
+                                            </angular2-multiselect>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </section>
+
+        <!-- MODAL FOOTER -->
+        <footer class="modal-card-foot has-text-right">
+            <button class="button is-info" (click)="editDataset()" *ngIf="isEditing">Update</button>
+            <button class="button is-info" (click)="onFormSubmit()" [disabled]="formData.isSubmit || !formData.isValid" *ngIf="!isEditing">Add to datasets</button>
+            <button class="button" (click)="toggleModal()" [disabled]="formData.isSubmit">Cancel</button>
+        </footer>
+    </div>
+</div>

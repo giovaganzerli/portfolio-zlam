@@ -1,0 +1,28 @@
+<div [class.visible]="this.reportSelected.component.status === 'view'" class="columns report_insight-wrap">
+    <div class="column is-6">
+        <div class="report_insight-info columns">
+            <div class="column is-12">
+                <p><b>Smartdata:</b> {{ reportSelected.component.data.smartdata.type[0].itemName }} <b>Sub Type:</b> {{ reportSelected.component.data.smartdata.type[0].subtype[0].itemName }}</p>
+                <p><b>View:</b>
+                    <span *ngIf="reportSelected.component.data.insight.type.id === 'serve_placement' && reportSelected.component.data.insight.side[0] === 'deuce'">SERVE ZONE S1 - S4</span>
+                    <span *ngIf="reportSelected.component.data.insight.type.id === 'serve_placement' && reportSelected.component.data.insight.side[0] === 'ad'">SERVE ZONE S5 - S8</span>
+                    <span *ngIf="reportSelected.component.data.insight.type.id === 'return_contact_depth'">RETURN ZONE Z1 - Z5</span>
+                    <span *ngIf="reportSelected.component.data.insight.type.id === 'return_contact'">RETURN ZONE A, B, C, D</span>
+                </p>
+            </div>
+            <div class="column is-12">
+                <p>Reference Player</p>
+                <h5 *ngIf="reportSelected.component.data" class="is-size-4"><b>{{ reportSelected.component.data.player.player_1[0].itemName }}</b></h5>
+                <hr />
+                <p>Opponent Player</p>
+                <h5 *ngIf="reportSelected.component.data.player.player_2.length === 1" class="is-size-4"><b>{{ reportSelected.component.data.player.player_2[0].itemName }}</b></h5>
+                <h5 *ngIf="reportSelected.component.data.player.player_2.length > 1 && !reportSelected.component.data.player.against_all" class="is-size-4"><b>Multiple players</b></h5>
+                <h5 *ngIf="reportSelected.component.data.player.player_2.length > 1 && reportSelected.component.data.player.against_all" class="is-size-4"><b>All players</b></h5>
+            </div>
+        </div>
+    </div>
+    <div class="column is-6">
+        <div class="report_insight-insight insight-graph_bars" #reportTennisFieldInsightGraphBars></div>
+        <div class="report_insight-insight insight-shot_placement" #reportTennisFieldInsightShotPlacement></div>
+    </div>
+</div>

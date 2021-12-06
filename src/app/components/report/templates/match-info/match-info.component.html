@@ -1,0 +1,189 @@
+<div *ngIf="reportSelected.hasOwnProperty('component') && reportSelected.component.results.length">
+
+    <!-- Info: 1 VS 1 -->
+    <div class="columns is-vcentered" *ngIf="reportSelected.component.player.player_2.length === 1 && reportSelected.component.results.length === 1">
+
+        <div class="column is-6 has-text-right border-right">
+            <h4 class="has-text-grey-lighter">
+                <i><img [src]="'../../../../assets/icons/svg/icon-map-pin.svg'"></i>
+                {{ reportSelected.component.results[0].tournament.name.itemName }}
+            </h4>
+        </div>
+
+        <div class="column is-6 has-text-left">
+            <h4 class="has-text-grey-lighter">
+                <i><img [src]="'../../../../assets/icons/svg/icon-calendar.svg'"></i>
+                {{ reportSelected.component.results[0].match.date.formatted_2 }}
+            </h4>
+        </div>
+
+    </div>
+
+    <div class="columns col-players" *ngIf="reportSelected.component.player.player_2.length === 1 && reportSelected.component.results.length === 1">
+
+        <div class="column is-4 is-offset-1 has-text-right col-player1">
+            <div class="columns is-vcentered">
+                <div class="column is-7">
+                    <h4 class="has-text-weight-bold has-text-grey-lighter is-size-4">
+                        {{ reportSelected.component.player.player_1[0].itemName }}
+                    </h4>
+                    <h4 class="has-text-weight-bold has-text-grey-lighter" *ngIf="reportSelected.component.results[0].match.winner === reportSelected.component.player.player_1[0].id">
+                        WINNER
+                        <i><img [src]="'../../../../assets/icons/svg/icon-trophy.svg'"></i>
+                    </h4>
+                </div>
+                <div class="column is-5 playerimg">
+                    <span *ngIf="reportSelected.component.player.player_1.length && reportSelected.component.player.player_1[0].meta.hasOwnProperty('thumb')" [style]="'background-image: url(' + reportSelected.component.player.player_1[0].meta.thumb + ')'"></span>
+                    <span *ngIf="!reportSelected.component.player.player_1.length || !reportSelected.component.player.player_1[0].meta.hasOwnProperty('thumb')" style="background-image: url(../../../../../assets/icons/svg/icon-player_1.svg)"></span>
+                    <!--<img src="../../../../../assets/images/placeholder/report-player_1.png">-->
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-2 has-text-centered col-vs">
+            <h4 class="has-text-weight-bold has-text-grey-lighter circled is-size-5">VS</h4>
+            <div *ngFor="let set of reportSelected.component.results[0].match.set">
+                <h5 class="mt-5">{{ set.id }}° SET</h5>
+                <h4 class="has-text-weight-bold has-text-grey-lighter is-size-5">
+                    <i class="fas fa-circle" [class.blue]="set.winner === reportSelected.component.player.player_1[0].id" [class.purple]="set.winner === reportSelected.component.player.player_2[0].id"></i> {{ set.score.player_ref + ' - ' + set.score.player_opp }}
+                </h4>
+            </div>
+        </div>
+
+
+        <div class="column is-4 has-text-left col-player2">
+            <div class="columns is-vcentered">
+                <div class="column is-5 playerimg">
+                    <span *ngIf="reportSelected.component.player.player_2.length === 1 && reportSelected.component.player.player_2[0].meta.hasOwnProperty('thumb')" [style]="'background-image: url(' + reportSelected.component.player.player_2[0].meta.thumb + ')'"></span>
+                    <span *ngIf="!reportSelected.component.player.player_2.length || reportSelected.component.player.player_2.length > 1 || !reportSelected.component.player.player_2[0].meta.hasOwnProperty('thumb')" style="background-image: url(../../../../../assets/icons/svg/icon-player_2.svg)"></span>
+                    <!--<img src="../../../../../assets/images/placeholder/report-player_2.png">-->
+                </div>
+                <div class="column is-7">
+                    <h4 class="has-text-weight-bold has-text-grey-lighter is-size-4">
+                        {{ reportSelected.component.player.player_2[0].itemName }}
+                    </h4>
+                    <h4 class="has-text-weight-bold has-text-grey-lighter" *ngIf="reportSelected.component.results[0].match.winner === reportSelected.component.player.player_2[0].id">
+                        WINNER
+                        <i><img [src]="'../../../../assets/icons/svg/icon-trophy.svg'"></i>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Info: 1 VS Molti -->
+    <div class="columns is-vcentered" *ngIf="reportSelected.component.player.player_2.length > 1 || reportSelected.component.results.length > 1">
+
+        <div class="column is-6">
+            <div class="columns has-text-centered is-vcentered">
+
+                <div class="column is-5 p0-20">
+                    <h4 class="has-text-weight-bold has-text-grey-lighter is-size-5">
+                        {{ reportSelected.component.player.player_1[0].itemName }}
+                    </h4>
+                </div>
+
+                <div class="column is-2 p-0 col-vs">
+                    <h4 class="has-text-weight-bold has-text-grey-lighter circled is-size-5">VS</h4>
+                </div>
+
+                <div class="column is-5 p0-20">
+                    <h4 class="has-text-weight-bold has-text-grey-lighter is-size-5 is-uppercase" *ngIf="reportSelected.component.player.player_2.length > 1">
+                        Multiple players
+                    </h4>
+                    <h4 class="has-text-weight-bold has-text-grey-lighter is-size-4" *ngIf="reportSelected.component.player.player_2.length === 1">
+                        {{ reportSelected.component.player.player_2[0].itemName }}
+                    </h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="column is-5">
+            <div class="columns">
+
+                <div class="column is-3">
+                    <h4 class="has-text-grey-lighter is-uppercase">
+                        <i><img [src]="'../../../../assets/icons/svg/icon-ball.svg'"></i>
+                        Set
+                    </h4>
+                </div>
+
+                <div class="column is-3">
+                    <h4 class="has-text-grey-lighter is-uppercase">
+                        <i><img [src]="'../../../../assets/icons/svg/icon-calendar.svg'"></i>
+                        Date
+                    </h4>
+                </div>
+
+                <div class="column is-5">
+                    <h4 class="has-text-grey-lighter is-uppercase">
+                        <i><img [src]="'../../../../assets/icons/svg/icon-map-pin.svg'"></i>
+                        Tournament
+                    </h4>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="columns is-vcentered" *ngIf="reportSelected.component.player.player_2.length > 1 || reportSelected.component.results.length > 1">
+
+        <div class="column is-2 p-0">
+            <div class="p1img p-10">
+                <span *ngIf="reportSelected.component.player.player_1.length && reportSelected.component.player.player_1[0].meta.hasOwnProperty('thumb')" [style]="'background-image: url(' + reportSelected.component.player.player_1[0].meta.thumb + ')'"></span>
+                <span *ngIf="!reportSelected.component.player.player_1.length || !reportSelected.component.player.player_1[0].meta.hasOwnProperty('thumb')" style="background-image: url(../../../../../assets/icons/svg/icon-player_1.svg)"></span>
+                <!--<img src="../../../../../assets/images/placeholder/report-player_1.png">-->
+            </div>
+        </div>
+
+        <div class="column is-10">
+            <div class="columns" *ngFor="let result of reportSelected.component.results">
+
+                <div class="column is-2 border-right has-text-centered mb-5">
+                    <h4 class="has-text-grey-lighter is-uppercase" *ngIf="result.match.winner === reportSelected.component.player.player_1[0].id">
+                        WON
+                        <i><img [src]="'../../../../assets/icons/svg/icon-trophy.svg'"></i>
+                    </h4>
+
+                    <h4 class="has-text-grey-lighter is-uppercase" *ngIf="result.match.winner !== reportSelected.component.player.player_1[0].id">
+                        LOST
+                        <i><img [src]="'../../../../assets/icons/svg/icon-close.svg'"></i>
+                    </h4>
+                </div>
+
+                <div class="column is-3 border-right mb-5">
+                    <h4 class="has-text-grey-lighter" *ngIf="reportSelected.component.player.player_2.length > 1">
+                        {{ (result.player.player_2.id === reportSelected.component.player.player_1[0].id) ? result.player.player_1.itemName : result.player.player_2.itemName }}
+                    </h4>
+                    <h4 class="has-text-grey-lighter" *ngIf="reportSelected.component.player.player_2.length === 1">
+                        {{ result.tournament.name.itemName }}
+                    </h4>
+                </div>
+
+                <div class="column is-2 border-right mb-5">
+                    <span class="has-text-grey-lighter has-text-weight-bold mr-5" *ngFor="let set of result.match.set" style="display: inline-block;">
+                        {{ set.score.player_ref + ' - ' + set.score.player_opp }}
+                    </span>
+                </div>
+
+                <div class="column is-2 border-right mb-5">
+                    <h4 class="has-text-grey-lighter is-uppercase">
+                        {{ (result.match.date.hasOwnProperty('formatted_2')) ? result.match.date.formatted_2 : result.match.date.formatted }}
+                    </h4>
+                </div>
+
+                <div class="column is-3 mb-5">
+                    <h4 class="has-text-grey-lighter is-uppercase is-size-7">
+                        {{ result.tournament.name.itemName }}
+                    </h4>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

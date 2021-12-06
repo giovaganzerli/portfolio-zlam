@@ -1,0 +1,50 @@
+@import "../../../../../assets/scss/variables";
+
+.targhetta {
+    display: flex;
+    border-radius: 25px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+
+    span {
+        display: flex;
+        color: $color-white;
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    &.bg-blue {
+        background-color: $color-blue;
+    }
+
+    &.bg-red {
+        background-color: $color-red;
+    }
+
+    &.bg-purple { 
+        background-color: $color-purple;
+    }
+
+    &.bg-bianco {
+        background-color: $color-white;
+
+        span {
+            color: $color-gray-light-100;
+            &:first-of-type {
+                text-transform: capitalize;
+                text-align: left;
+            }
+            &:last-of-type {
+                text-align: right;
+            }
+        }
+    }
+}
+
+.serve-stats-container.is-fullscreen{
+    .targhetta span{
+        font-size: 16px;
+    }
+}

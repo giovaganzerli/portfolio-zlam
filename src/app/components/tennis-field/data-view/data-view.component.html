@@ -1,0 +1,38 @@
+<div class="tab-dataview is-centered pt-0">
+
+    <button class="button add-to-report is-dark" [class.fullscreen]="fullScreen" [class.is-info]="modeSelected === 'select'" (click)="onModeChange()">
+        <span class="icon"><i><img src="../../../assets/icons/svg/simulation/icon-add_to_report.svg"></i></span>
+    </button>
+
+    <div class="columns">
+        <div class="column is-12 border-bottom p20-0 pt-0">
+            <p>Working on datasets:</p>
+            <div [innerHTML]="initDatasetHTML()"></div>
+        </div>
+        <div class="column is-12 border-bottom p20-0">
+            <div [innerHTML]="initFiltersHTML()"></div>
+        </div>
+        <div class="column is-12 border-bottom p0-0">
+            <div class="columns is-vcentered">
+                <div class="column p-5" style="max-width: 90px;">
+                    <img src="../../../assets/icons/svg/icon-smartdata-{{ filtersSelected.smartdata.type[0].id }}.svg">
+                </div>
+                <div class="column p-5">
+                    <p>Smartdata Type:</p>
+                    <p>{{ filtersSelected.smartdata.type[0].itemName }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="column is-12 border-bottom p20-0 col-data-view">
+            <div class="columns">
+                <div class="column is-12 px-0">
+                    <p *ngFor="let highlight of highlightsData; index as i" (click)="onHighlightSelect(highlight)" [class.active]="modeSelected === 'select' && generalService.findIntoArrayofObject(highlight.description, highlightsSelected, 'description')" class="mb-5 px-5" [innerHTML]="highlight.description"></p>
+                </div>
+            </div>
+            <div class="column is-12 add-to-report" *ngIf="modeSelected === 'select'">
+                <span class="is-size-7">Select elements to include in report</span>
+                <button class="button is-info is-small ml-10" (click)="addToReport()">Add to report</button>
+            </div>
+        </div>
+    </div>
+</div>

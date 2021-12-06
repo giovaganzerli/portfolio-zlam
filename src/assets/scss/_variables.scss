@@ -1,0 +1,38 @@
+/*
+ * COLOR PALETTE
+ */
+
+$color-white: #FFFFFF;
+$color-white-dark-100: #F3f3f3;
+
+$color-gray-light-300: #AFB0B1;
+$color-gray-light-200: #707070;
+$color-gray-light-100: #505050;
+$color-gray: #383A3B;
+$color-gray-dark-100: #303233;
+
+$color-black: #202020;
+$color-black-dark-100: #181717;
+
+$color-red: #E7343F;
+$color-red-dark-100: #CC2D36;
+
+$color-yellow: #FFED01;
+$color-yellow-dark-100: #CCBD00;
+
+$color-green: #39FA00;
+$color-green-dark-100: #01BA46;
+
+$color-blue: #019DBA;
+$color-purple: #8D6DBE;
+
+/** GRID SYSTEM **/
+
+/*** PADDING & MARGIN ***/
+$padding_limit: 20; // number of padding class element (Es. .p-10-30 is padding: 10px 30px)
+$padding_range: 5; // padding class precision - if 10 padding class go like 10 20 30... if 5 go like 5 10 15 20...
+// padding class generated is $padding_limit * $padding_range
+
+$margin_limit: 20; // number of margin class element (Es. .p-10-30 is margin: 10px 30px)
+$margin_range: 5; // margin class precision - if 10 margin class go like 10 20 30... if 5 go like 5 10 15 20...
+// margin class generated is $margin_limit * $margin_range

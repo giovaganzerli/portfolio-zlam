@@ -1,0 +1,23 @@
+@import "../../../../../assets/scss/variables";
+
+.report_insight-wrap {
+    &:not(.visible) {
+        display: none;
+    }
+    .report_insight-insight {
+        width: 420px;
+        padding: 20px;
+        pointer-events: none;
+        background-color: $color-black;
+    }
+    .report_insight-info {
+        height: 100%;
+        .column:last-of-type {
+            margin-top: auto;
+        }
+        hr {
+            border-bottom: solid 1px $color-gray-dark-100;
+        }
+    }
+}
+

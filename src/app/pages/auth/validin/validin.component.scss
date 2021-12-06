@@ -1,0 +1,64 @@
+@import "../../../../assets/scss/variables";
+
+#validin {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    .form-title {
+        margin-bottom: 100px;
+        img {
+            height: 120px;
+        }
+    }
+    .form-fields {
+        .notification {
+            max-width: 295px;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .field {
+            margin-bottom: 20px;
+            &:last-of-type {
+                .control {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    span {
+                        font-size: 12px;
+                        a {
+                            color: $color-red;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+            > .help {
+                margin-bottom: -15px;
+            }
+        }
+    }
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    .col-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: calc(10% - 20px);
+        .link {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            img {
+                display: block;
+                margin: 0px 5px;
+            }
+        }
+    }
+}

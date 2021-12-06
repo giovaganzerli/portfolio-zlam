@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="37.978" height="34.493" viewBox="0 0 37.978 34.493">
+  <g id="Group_221" data-name="Group 221" transform="translate(0.5 0)">
+    <path id="Path_2922" data-name="Path 2922" d="M0,0V3.9" transform="translate(28.768 4.614) rotate(90)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    <path id="Path_2926" data-name="Path 2926" d="M0,0V2.608" transform="translate(31.876 12.119) rotate(90)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    <path id="Path_2923" data-name="Path 2923" d="M422,3945.437v3.9" transform="translate(-395.18 -3942.771)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    <path id="Path_2927" data-name="Path 2927" d="M422,3945.437v2.608" transform="translate(-391.428 -3934.622)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    <g id="Group_218" data-name="Group 218" transform="translate(0 19.07)">
+      <path id="Path_2924" data-name="Path 2924" d="M0,0V6.11" transform="translate(6.11 3.055) rotate(90)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_2925" data-name="Path 2925" d="M422,3945.437v6.109" transform="translate(-418.945 -3945.437)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <g id="Group_217" data-name="Group 217" transform="translate(2.984 13.267) rotate(-45)">
+      <g id="Group_216" data-name="Group 216" transform="translate(0 0)">
+        <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(2.502 2.502)" fill="none" stroke="#707070" stroke-width="1">
+          <circle cx="6.879" cy="6.879" r="6.879" stroke="none"/>
+          <circle cx="6.879" cy="6.879" r="6.379" fill="none"/>
+        </g>
+        <g id="Ellipse_404" data-name="Ellipse 404" transform="translate(0 0)" fill="none" stroke="#707070" stroke-width="1">
+          <circle cx="9.381" cy="9.381" r="9.381" stroke="none"/>
+          <circle cx="9.381" cy="9.381" r="8.881" fill="none"/>
+        </g>
+      </g>
+      <g id="Rectangle_270" data-name="Rectangle 270" transform="translate(7.505 17.511)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="3.752" height="5.003" stroke="none"/>
+        <rect x="0.5" y="0.5" width="2.752" height="4.003" fill="none"/>
+      </g>
+      <g id="Rectangle_271" data-name="Rectangle 271" transform="translate(6.254 21.264)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="6.254" height="15.01" rx="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="5.254" height="14.01" rx="1.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+
+<!--<div id="landing">
+  <img src="../assets/images/login-logo.png" alt="ZLAM - Interactive Smart Data Analysis®" />
+</div>-->
+
+<div [ngClass]="['page', 'page-'+ currRoute.data.slug]">
+    <router-outlet></router-outlet>
+</div>

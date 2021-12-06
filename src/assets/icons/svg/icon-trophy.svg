@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.606" height="18.408" viewBox="0 0 14.606 18.408">
+  <g id="Group_179" data-name="Group 179" transform="translate(-596.5 -730.592)">
+    <path id="Path_2810" data-name="Path 2810" d="M120.963,101.359a3.161,3.161,0,0,1,5.447.011" transform="translate(480.124 642.411)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_2811" data-name="Path 2811" d="M117.513,88.124a2.272,2.272,0,0,1-2.022-1.392,6.8,6.8,0,0,1-.643-2.48.669.669,0,0,1,.664-.7c.674-.009,1.209-.029,1.209-.029" transform="translate(482.153 648.296)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_2812" data-name="Path 2812" d="M131.218,88.4a2.316,2.316,0,0,0,2.024-1.426,6.807,6.807,0,0,0,.643-2.481.67.67,0,0,0-.665-.7c-.673-.009-1.209-.029-1.209-.029" transform="translate(476.72 648.215)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_2813" data-name="Path 2813" d="M127.258,82.436a.228.228,0,0,1,.232.228c-.028,2.765-.6,7.989-4.876,7.989s-4.848-5.225-4.876-7.989a.228.228,0,0,1,.232-.228Z" transform="translate(481.194 648.656)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    <ellipse id="Ellipse_350" data-name="Ellipse 350" cx="0.951" cy="0.951" rx="0.951" ry="0.951" transform="translate(602.857 739.653)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    <g id="Rectangle_226" data-name="Rectangle 226" transform="translate(599 744)" fill="none" stroke="#707070" stroke-linejoin="round" stroke-width="1">
+      <rect width="9" height="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="8" height="4" fill="none"/>
+    </g>
+  </g>
+</svg>

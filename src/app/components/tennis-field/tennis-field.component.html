@@ -1,0 +1,79 @@
+<div class="tennis-field-container">
+
+    <button class="button full-screen is-dark m0-10" (click)="goFullScreen(true)"
+            *ngIf="!fullScreen && formData.isValid && formData.results.smartdata && this.filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && filtersSelected.smartdata.type.length && datasetSelected.length">
+        <span class="icon"><i><img src="../../../assets/icons/svg/simulation/icon-expand.svg"></i></span>
+    </button>
+
+    <button class="button close-full-screen is-dark m0-10" (click)="goFullScreen(false)"
+            *ngIf="fullScreen && formData.isValid && formData.results.smartdata && this.filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && filtersSelected.smartdata.type.length && datasetSelected.length">
+        <span class="icon"><i><img [src]="'../../../../assets/icons/svg/icon-cross-round_bordered.svg'"></i></span>
+        <span>Close</span>
+    </button>
+
+    <div class="columns tabs-container" [class.d-none]="fullScreen">
+        <div class="column is-8">
+            <div class="tabs is-toggle">
+                <ul>
+                    <li [class.is-active]="selectedTab === 'data-view'" (click)="selectedTab = 'data-view'">
+                        <a><span class="is-size-7">DATA VIEW</span></a>
+                    </li>
+                    <li [class.is-active]="selectedTab === 'simulation'" (click)="selectedTab = 'simulation'">
+                        <a><span class="is-size-7">SIMULATION</span></a>
+                    </li>
+                    <li [class.is-active]="selectedTab === 'video'" (click)="selectedTab = 'video'">
+                        <a><span class="is-size-7">VIDEO</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns">
+
+        <div class="column tab-content" [class.active]="selectedTab === 'data-view' || fullScreen">
+
+            <!--<div class="border-bottom titolo-tab" [class.d-none]="!fullScreen">
+                <span class="is-size-4">
+                    Data view
+                </span>
+            </div>-->
+
+            <app-data-view
+                    *ngIf="formData.isValid && formData.results.smartdata && this.filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && filtersSelected.smartdata.type.length && datasetSelected.length"
+                    [filtersSelected]="filtersSelected"
+                    [datasetSelected]="datasetSelected"
+                    [resultsData]="resultsData"
+            ></app-data-view>
+        </div>
+
+        <div class="column tab-content" [class.active]="selectedTab === 'simulation' || fullScreen">
+
+            <!--<div class="border-bottom titolo-tab" [class.d-none]="!fullScreen">
+                <span class="is-size-4">
+                    Simulation
+                </span>
+            </div>-->
+
+            <app-simulation
+                    *ngIf="formData.isValid && formData.results.smartdata && this.filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && filtersSelected.smartdata.type.length && filtersSelected.common.hasOwnProperty('serve_side') && datasetSelected.length"
+                    [filtersSelected]="filtersSelected"
+                    [resultsData]="resultsData"
+            ></app-simulation>
+        </div>
+
+        <div class="column tab-content" [class.active]="selectedTab === 'video'">
+            <app-video-view
+                    *ngIf="formData.isValid && formData.results.smartdata && this.filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && filtersSelected.smartdata.type.length && filtersSelected.common.hasOwnProperty('serve_side') && datasetSelected.length"
+            ></app-video-view>
+        </div>
+
+        <div class="column is-12 has-text-centered" *ngIf="!formData.isValid || !formData.results.smartdata || !filtersSelected.player.player_1.length && !filtersSelected.player.player_2.length || !filtersSelected.smartdata.type.length || !datasetSelected.length">
+            <p class="p20-0"></p>
+            <p class="p20-0"><img src="../../../assets/icons/svg/icon-loader.svg"></p>
+            <p class="is-size-6">WAITING FOR PLAYER SELECTION</p>
+        </div>
+
+    </div>
+
+</div>

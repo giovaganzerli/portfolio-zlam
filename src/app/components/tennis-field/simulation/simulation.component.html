@@ -1,0 +1,27 @@
+<div class="tab-simulation is-centered" [class.is-fullscreen]="fullScreen">
+
+    <button class="button add-to-report is-dark" [class.fullscreen]="fullScreen" [class.is-info]="modeSelected === 'select'" (click)="onModeChange()">
+        <span class="icon"><i><img src="../../../assets/icons/svg/simulation/icon-add_to_report.svg"></i></span>
+    </button>
+<!--    <div class="actions field is-grouped">-->
+<!--        <button class="button is-dark m0-10">-->
+<!--            <span class="icon"><i><img src="../../../assets/icons/svg/simulation/icon-expand.svg"></i></span>-->
+<!--        </button>-->
+<!--    </div>-->
+
+    <img *ngIf="!filtersSelected || (filtersSelected && (!filtersSelected.smartdata.type.length || (filtersSelected.smartdata.type.length && filtersSelected.smartdata.type[0].id !== 'serve')))" src="../../../assets/icons/svg/simulation/icon-field.svg">
+    <app-serve-field
+            *ngIf="filtersSelected && filtersSelected.smartdata.type.length && filtersSelected.smartdata.type[0].id === 'serve'"
+            [modeSelected]="modeSelected"
+            [filtersSelected]="filtersSelected"
+            [resultsData]="resultsData"
+            (modeSelectedEmit)="modeSelected = 'view'"
+    ></app-serve-field>
+
+    <br><br>
+    <p class="is-size-7"><i><b>Reference player:</b> {{ filtersSelected.player.player_1[0].itemName }}</i></p>
+    <p *ngIf="filtersSelected.player.player_2.length === 1" class="is-size-7"><i><b>Opponent player:</b> {{ filtersSelected.player.player_2[0].itemName }}</i></p>
+    <p *ngIf="filtersSelected.player.player_2.length > 1 && !filtersSelected.player.against_all" class="is-size-7"><i><b>Opponent player:</b> Multiple players</i></p>
+    <p *ngIf="filtersSelected.player.player_2.length > 1 && filtersSelected.player.against_all" class="is-size-7"><i><b>Opponent player:</b> All players</i></p>
+
+</div>

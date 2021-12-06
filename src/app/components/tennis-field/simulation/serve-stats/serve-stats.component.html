@@ -1,0 +1,48 @@
+<div class="serve-stats-container" [class.is-fullscreen]="fullScreen">
+
+    <div *ngIf="simulationFiltersHistory.length >= 3" class="targhetta bg-bianco has-text-centered mb-5">
+        <span>{{ simulationFiltersHistory[2].itemName }}</span>
+        <span><b>{{ simulationFiltersHistory[2].value[simulationFiltersHistory[2].value.length - 1].itemName }}</b></span>
+    </div>
+    <div *ngIf="simulationFiltersHistory.length >= 2" class="targhetta bg-bianco has-text-centered mb-5">
+        <span>{{ simulationFiltersHistory[1].itemName }}</span>
+        <span><b>{{ simulationFiltersHistory[1].value[simulationFiltersHistory[1].value.length - 1].itemName }}</b></span>
+    </div>
+    <div *ngIf="simulationFiltersHistory.length >= 1" class="targhetta bg-bianco has-text-centered mb-5">
+        <span>{{ simulationFiltersHistory[0].itemName }}</span>
+        <span><b>{{ simulationFiltersHistory[0].value[simulationFiltersHistory[0].value.length - 1].itemName }}</b></span>
+    </div>
+
+    <div *ngIf="generalService.findIntoArrayofObject('fault', filtersSelected.common.serve_outcome.values, 'id')" class="targhetta bg-red mb-5">
+        <span>Fault</span>
+        <span><b>{{ this.filtersSelected.common.serve_type.values.lenght == 1 ? statsSelected[this.filtersSelected.common.serve_type.values[0].id].fault : statsSelected['1st'].fault + statsSelected['2nd'].fault }}</b></span>
+    </div>
+
+    <div *ngIf="generalService.findIntoArrayofObject('ace', filtersSelected.common.serve_outcome.values, 'id')" class="targhetta bg-blue mb-5">
+        <span>Ace</span>
+        <span><b>{{ statsSelected.ace }}</b></span>
+    </div>
+
+    <div *ngFor="let serve_type of filtersSelected.common.serve_type.values">
+        <div class="targhetta bg-blue has-text-centered">
+            <span>{{ statsSelected[serve_type.id].itemName }}</span>
+        </div>
+        <app-round-percentage
+                *ngIf="statsSelected[serve_type.id].counts"
+                [color]="'dark'"
+                [title]="(statsSelected[serve_type.id].points * 100 / statsSelected[serve_type.id].counts).toFixed(0) + '%'"
+                [subtitle]="statsSelected[serve_type.id].points + '/' + statsSelected[serve_type.id].counts"
+                [current]="statsSelected[serve_type.id].points * 100 / statsSelected[serve_type.id].counts"
+                [max]="100">
+        </app-round-percentage>
+        <app-round-percentage
+                *ngIf="!statsSelected[serve_type.id].counts"
+                [color]="'dark'"
+                [title]="'0%'"
+                [subtitle]="'0/0'"
+                [current]="0"
+                [max]="100">
+        </app-round-percentage>
+    </div>
+
+</div>

@@ -1,0 +1,74 @@
+.columns {
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    &:not(:last-child),
+    &:first-of-type,
+    &:last-of-type {
+        margin: 0;
+        padding: 0;
+    }
+    &.no-wrap {
+        flex-wrap: nowrap;
+    }
+    .column {
+        //flex-grow: 1; //TODO capire perchè manda in banana la grid
+    }
+}
+
+// PADDING & MARGIN
+
+@for $a from 0 through $padding_limit {
+    @for $b from 0 through $padding_limit {
+        $aa: $a * $padding_range;
+        $bb: $b * $padding_range;
+        .p#{$aa}-#{$bb} {
+            padding: #{$aa}px #{$bb}px;
+        }
+    }
+}
+
+@for $a from 0 through $margin_limit {
+    $aa: $a * $margin_range;
+    @for $b from 0 through $margin_limit {
+        $bb: $b * $margin_range;
+        .m#{$aa}-#{$bb} { margin: #{$aa}px #{$bb}px; }
+    }
+    .m#{$aa}-auto { margin: #{$aa}px auto; }
+}
+
+//Padding top/right/bottom/left/x/y, sintassi: pr-10 = padding right 10px
+@for $a from 0 through $padding_limit {
+    $aa: $a * $padding_range;
+    .p-#{$aa} { padding: #{$aa}px; }
+    .pt-#{$aa} { padding-top: #{$aa}px; }
+    .pb-#{$aa} { padding-bottom: #{$aa}px; }
+    .pl-#{$aa} { padding-left: #{$aa}px; }
+    .pr-#{$aa} { padding-right: #{$aa}px; }
+    .px-#{$aa} {
+        padding-right: #{$aa}px;
+        padding-left: #{$aa}px;
+    }
+    .py-#{$aa} {
+        padding-top: #{$aa}px;
+        padding-bottom: #{$aa}px;
+    }
+}
+
+//Margin top/right/bottom/left/x/y, sintassi: mr-10 = margin right 10px
+@for $a from 0 through $margin_limit {
+    $aa: $a * $margin_range;
+    .m-#{$aa} { margin: #{$aa}px; }
+    .mt-#{$aa} { margin-top: #{$aa}px; }
+    .mb-#{$aa} { margin-bottom: #{$aa}px; }
+    .ml-#{$aa} { margin-left: #{$aa}px; }
+    .mr-#{$aa} { margin-right: #{$aa}px; }
+    .mx-#{$aa} {
+        margin-right: #{$aa}px;
+        margin-left: #{$aa}px;
+    }
+    .my-#{$aa} {
+        margin-top: #{$aa}px;
+        margin-bottom: #{$aa}px;
+    }
+}

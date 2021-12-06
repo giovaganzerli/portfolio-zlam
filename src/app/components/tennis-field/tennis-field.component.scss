@@ -1,0 +1,56 @@
+@import "../../../assets/scss/variables";
+
+.tennis-field-container {
+    position: relative;
+
+    .full-screen {
+        position: absolute;
+        top: 10px;
+        right: 45px;
+        padding: 4px 14px;
+        height: auto;
+        img {
+            display: block;
+        }
+    }
+
+    .close-full-screen {
+        position: absolute;
+        z-index: 20;
+        right: 10px;
+        top: 20px;
+        padding: 4px 14px;
+        margin: 0;
+        height: auto;
+        img {
+            width: 20px;
+            display: block;
+        }
+    }
+}
+
+.tabs-container {
+    &.d-none {
+        display: none;
+    }
+
+    .tabs {
+        a {
+            padding: 5px 8px;
+        }
+    }
+}
+
+.tab-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    .titolo-tab {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+}

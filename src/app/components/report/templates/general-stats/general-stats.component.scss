@@ -1,0 +1,35 @@
+@import "../../../../../assets/scss/variables";
+
+.general_stats-subtypes {
+    column-count: 4;
+    column-rule-style: dashed;
+    column-rule-color: $color-white-dark-100;
+    .general_stats-subtype {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 0;
+        label {
+            display: block;
+            text-align: left;
+            > span {
+                display: block;
+                padding: 8px 20px;
+                border-radius: 5px;
+                &:hover {
+                    color: $color-white;
+                    background-color: $color-blue;
+                }
+                i {
+                    font-size: 10px !important;
+                    line-height: 10px !important;
+                }
+            }
+            input[type="checkbox"]:checked {
+                & ~ span {
+                    color: $color-white;
+                    background-color: $color-blue;
+                }
+            }
+        }
+    }
+}

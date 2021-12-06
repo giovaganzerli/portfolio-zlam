@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+  <g id="Raggruppa_636" data-name="Raggruppa 636" transform="translate(-1122 -519)">
+    <g id="Raggruppa_630" data-name="Raggruppa 630" transform="translate(1128.477 529.203)">
+      <path id="Tracciato_3397" data-name="Tracciato 3397" d="M163.392,122.922a4.667,4.667,0,0,0-4.667,4.645c0,.014,0,.028,0,.042.03.379.424,6.029-2.214,6.515a.448.448,0,0,0-.375.436v1.569a.441.441,0,0,0,.441.441h7.24" transform="translate(-148.913 -116.839)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Tracciato_3398" data-name="Tracciato 3398" d="M217.035,122.922a4.667,4.667,0,0,1,4.667,4.645c0,.014,0,.028,0,.042-.03.379-.424,6.029,2.214,6.515a.448.448,0,0,1,.375.436v1.569a.441.441,0,0,1-.441.441h-6.575" transform="translate(-202.564 -116.839)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Tracciato_3399" data-name="Tracciato 3399" d="M200.751,244.448a2.461,2.461,0,1,1-4.923,0Z" transform="translate(-183.745 -224.704)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Tracciato_3402" data-name="Tracciato 3402" d="M0,0A9.146,9.146,0,0,1,3.176,7.02,9.221,9.221,0,0,1,.611,13.471" transform="translate(21.721 1.034) rotate(-19)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Tracciato_3404" data-name="Tracciato 3404" d="M0,13.471a9.146,9.146,0,0,0,3.176-7.02A9.221,9.221,0,0,0,.611,0" transform="translate(3.003 13.773) rotate(-161)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Tracciato_3403" data-name="Tracciato 3403" d="M0,0A6.823,6.823,0,0,1,2.369,5.237,6.879,6.879,0,0,1,.456,10.049" transform="translate(19.972 3.3) rotate(-19)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Tracciato_3405" data-name="Tracciato 3405" d="M0,10.049A6.823,6.823,0,0,0,2.369,4.813,6.879,6.879,0,0,0,.456,0" transform="translate(5.866 12.802) rotate(-161)" fill="none" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <g id="Ellisse_650" data-name="Ellisse 650" transform="translate(12.523 2.797)" fill="none" stroke="#707070" stroke-width="2">
+        <circle cx="2" cy="2" r="2" stroke="none"/>
+        <circle cx="2" cy="2" r="1" fill="none"/>
+      </g>
+    </g>
+    <g id="Ellisse_649" data-name="Ellisse 649" transform="translate(1122 519)" fill="none" stroke="#707070" stroke-width="2">
+      <circle cx="21" cy="21" r="21" stroke="none"/>
+      <circle cx="21" cy="21" r="20" fill="none"/>
+    </g>
+  </g>
+</svg>

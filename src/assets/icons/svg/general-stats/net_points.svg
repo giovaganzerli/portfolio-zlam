@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55.58" height="61.933" viewBox="0 0 55.58 61.933">
+  <g id="Group_697" data-name="Group 697" transform="translate(-80.503 -2823.122)">
+    <g id="Rectangle_765" data-name="Rectangle 765" transform="translate(91.983 2884.645) rotate(-90)" fill="none" stroke="#707070" stroke-width="2">
+      <rect width="61.46" height="31.558" stroke="none"/>
+      <rect x="1" y="1" width="59.46" height="29.558" fill="none"/>
+    </g>
+    <path id="Path_3800" data-name="Path 3800" d="M0,0V33.325" transform="translate(91.275 2854.18) rotate(-90)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="2"/>
+    <path id="Path_3801" data-name="Path 3801" d="M2372.057,223.428v1.245" transform="translate(2480.268 3048.795) rotate(180)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="2"/>
+    <path id="Path_3802" data-name="Path 3802" d="M2372.057,223.428v1.245" transform="translate(2480.268 3107.482) rotate(180)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="2"/>
+    <path id="Path_3803" data-name="Path 3803" d="M3302.78,13717.055h23.256" transform="translate(3422.062 16554.912) rotate(180)" fill="none" stroke="#707070" stroke-width="2"/>
+    <path id="Path_3804" data-name="Path 3804" d="M3302.78,13717.055h23.256" transform="translate(3422.062 16587.834) rotate(180)" fill="none" stroke="#707070" stroke-width="2"/>
+    <path id="Path_3805" data-name="Path 3805" d="M0,0H16.442" transform="translate(108.131 2854.258) rotate(-90)" fill="none" stroke="#707070" stroke-width="2"/>
+    <path id="Path_3806" data-name="Path 3806" d="M0,0H16.442" transform="translate(108.131 2870.48) rotate(-90)" fill="none" stroke="#707070" stroke-width="2"/>
+    <path id="Path_3807" data-name="Path 3807" d="M3300.521,13624.482v60.332" transform="translate(3419.926 16508.42) rotate(180)" fill="none" stroke="#707070" stroke-width="2"/>
+    <path id="Path_3808" data-name="Path 3808" d="M3300.521,13624.482v60.332" transform="translate(3397.023 16508.42) rotate(180)" fill="none" stroke="#707070" stroke-width="2"/>
+    <path id="Path_3809" data-name="Path 3809" d="M0,0V53.58" transform="translate(135.083 2842.63) rotate(90)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="2" stroke-dasharray="4 4"/>
+    <path id="Path_3810" data-name="Path 3810" d="M0,0V53.58" transform="translate(135.083 2866.63) rotate(90)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="2" stroke-dasharray="4 4"/>
+    <g id="Ellipse_709" data-name="Ellipse 709" transform="translate(98 2836)" fill="#fff" stroke="#707070" stroke-width="2">
+      <circle cx="9" cy="9" r="9" stroke="none"/>
+      <circle cx="9" cy="9" r="8" fill="none"/>
+    </g>
+    <g id="Ellipse_710" data-name="Ellipse 710" transform="translate(110 2855)" fill="#fff" stroke="#707070" stroke-width="2">
+      <circle cx="9" cy="9" r="9" stroke="none"/>
+      <circle cx="9" cy="9" r="8" fill="none"/>
+    </g>
+    <g id="Ellipse_711" data-name="Ellipse 711" transform="translate(109.812 2844.691) rotate(180)" fill="#fff" stroke="#707070" stroke-width="2">
+      <circle cx="2.609" cy="2.609" r="2.609" stroke="none"/>
+      <circle cx="2.609" cy="2.609" r="1.609" fill="none"/>
+    </g>
+    <g id="Ellipse_712" data-name="Ellipse 712" transform="translate(121.812 2863.691) rotate(180)" fill="#fff" stroke="#707070" stroke-width="2">
+      <circle cx="2.609" cy="2.609" r="2.609" stroke="none"/>
+      <circle cx="2.609" cy="2.609" r="1.609" fill="none"/>
+    </g>
+    <path id="Path_3811" data-name="Path 3811" d="M47.63,114.988l-.2-1.469a5.652,5.652,0,0,0-3.117-1.4,4.276,4.276,0,0,0-3.1,1.334l-.251,1.539,1.2.292v1.506h4.331V115.28Z" transform="translate(62.698 2732.576)" fill="#fff" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_3812" data-name="Path 3812" d="M47.63,114.988l-.2-1.469a5.652,5.652,0,0,0-3.117-1.4,4.276,4.276,0,0,0-3.1,1.334l-.251,1.539,1.2.292v1.506h4.331V115.28Z" transform="translate(74.698 2751.576)" fill="#fff" stroke="#707070" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>

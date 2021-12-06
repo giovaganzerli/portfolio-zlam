@@ -1,0 +1,26 @@
+<div class="progress-container {{color}}">
+    <div class="current has-text-centered">
+        <span class="is-size-1 has-text-weight-bold">{{title}}</span>
+        <span class="is-size-5">{{subtitle}}</span>
+    </div>
+    <round-progress
+            [current]="current"
+            [max]="max"
+            [responsive]="true"
+            [color]="'#ffffff'"
+            [background]="'#019DBA'"
+            [stroke]="25">
+    </round-progress>
+</div>
+
+<!-- ESEMPIO DI UTILIZZO:
+
+<app-round-percentage
+        [color]="component.s1.color"
+        [title]="component.s1.percentage + '%'"
+        [subtitle]="component.s1.curr + '/' + component.s1.max"
+        [current]="component.s1.curr"
+        [max]="component.s1.max">
+</app-round-percentage>
+
+-->

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="158.946" height="163" viewBox="0 0 158.946 163">
+  <defs>
+    <clipPath id="clip-path">
+      <ellipse id="Ellisse_789" data-name="Ellisse 789" cx="18.5" cy="18" rx="18.5" ry="18" transform="translate(-0.231 0.144)" fill="#fff" stroke="#707070" stroke-width="5"/>
+    </clipPath>
+  </defs>
+  <g id="Raggruppa_1300" data-name="Raggruppa 1300" transform="translate(-1560.844 -556)">
+    <text id="Start_Analysis" data-name="Start
+Analysis" transform="translate(1694 690)" fill="#fff" font-size="18" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="-39.34" y="0">Start</tspan><tspan x="-67.843" y="24">Analysis</tspan></text>
+    <g id="Raggruppa_1298" data-name="Raggruppa 1298">
+      <g id="Ellisse_791" data-name="Ellisse 791" transform="translate(1605 568)" fill="#019dba" stroke="#019dba" stroke-width="6">
+        <ellipse cx="42" cy="41.5" rx="42" ry="41.5" stroke="none"/>
+        <ellipse cx="42" cy="41.5" rx="39" ry="38.5" fill="none"/>
+      </g>
+      <g id="Ellisse_790" data-name="Ellisse 790" transform="translate(1593 556)" fill="none" stroke="#019dba" stroke-width="5">
+        <ellipse cx="53.5" cy="54" rx="53.5" ry="54" stroke="none"/>
+        <ellipse cx="53.5" cy="54" rx="51" ry="51.5" fill="none"/>
+      </g>
+      <path id="Tracciato_4123" data-name="Tracciato 4123" d="M13996.984-10616.368s58.726,17.424,140.145,107.536" transform="translate(-12420.869 11181.406)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5" stroke-dasharray="27 27"/>
+      <ellipse id="Ellisse_788" data-name="Ellisse 788" cx="24.655" cy="24.655" rx="24.655" ry="24.655" transform="translate(1621.826 584.692)" fill="#019dba" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+      <path id="Tracciato_4122" data-name="Tracciato 4122" d="M176.965,54.926s-2.343,15.994-16.9,11.788c-10.5-3.035-22.6,6.164-21.428,19.012" transform="translate(1487.495 537.547)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+      <g id="Raggruppa_848" data-name="Raggruppa 848" transform="translate(1626.389 598.785) rotate(45)">
+        <g id="Ellisse_2" data-name="Ellisse 2" transform="translate(0 0)" fill="#383a3b" stroke="#fff" stroke-width="5">
+          <circle cx="30.244" cy="30.244" r="30.244" stroke="none"/>
+          <circle cx="30.244" cy="30.244" r="27.744" fill="none"/>
+        </g>
+      </g>
+      <g id="Rettangolo_903" data-name="Rettangolo 903" transform="translate(1594.797 660.128) rotate(45)" fill="none" stroke="#fff" stroke-width="5">
+        <rect width="20.155" height="48.016" rx="10.077" stroke="none"/>
+        <rect x="2.5" y="2.5" width="15.155" height="43.016" rx="7.577" fill="none"/>
+      </g>
+      <path id="Tracciato_4124" data-name="Tracciato 4124" d="M0,0V12.281" transform="translate(1605.481 659.286) rotate(45)" fill="none" stroke="#fff" stroke-width="5"/>
+      <path id="Tracciato_4125" data-name="Tracciato 4125" d="M0,0V12.421" transform="translate(1609.986 663.791) rotate(45)" fill="none" stroke="#fff" stroke-width="5"/>
+      <g id="Raggruppa_849" data-name="Raggruppa 849" transform="translate(1626.388 613.269) rotate(45)">
+        <g id="Ellisse_2-2" data-name="Ellisse 2" transform="translate(0 0)" fill="#383a3b" stroke="#fff" stroke-width="5">
+          <ellipse cx="20.002" cy="20.002" rx="20.002" ry="20.002" stroke="none"/>
+          <ellipse cx="20.002" cy="20.002" rx="17.502" ry="17.502" fill="none"/>
+        </g>
+      </g>
+      <g id="Gruppo_di_maschere_16" data-name="Gruppo di maschere 16" transform="translate(1608.231 622.855)" clip-path="url(#clip-path)">
+        <text id="_0IIII0_00000III0II0_0II_0I0I0I0000I0I0_0I000_0III000I" data-name="0IIII0++00000III0II0
+0II+0I0I0I0000I0I0
+0I000+0III000I" transform="translate(-0.231 0.144)" fill="#fff" font-size="12" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="13">0IIII0+</tspan><tspan x="0" y="29">+00000III0II0</tspan><tspan x="0" y="45">0II</tspan><tspan x="0" y="61">+0I0I0I0000I0I</tspan></text>
+      </g>
+      <path id="Tracciato_4126" data-name="Tracciato 4126" d="M14107.768-10304.3l13.551,13.549" transform="translate(-12521.8 10973.845)" fill="none" stroke="#fff" stroke-width="5"/>
+      <path id="Tracciato_4127" data-name="Tracciato 4127" d="M14107.768-10304.3l13.551,13.549" transform="translate(-12527.279 10979.324)" fill="none" stroke="#fff" stroke-width="5"/>
+    </g>
+  </g>
+</svg>

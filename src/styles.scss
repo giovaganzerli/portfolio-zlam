@@ -1,0 +1,656 @@
+/*
+ * CONFIG SASS Stylesheet
+ */
+
+// Import Variabili e Mixin
+@import 'assets/scss/variables';
+@import 'assets/scss/bulma';
+@import 'assets/scss/mixin';
+
+// Import the Fonts
+@import 'assets/scss/fonts';
+
+// Import the Grid System
+@import 'assets/scss/grid';
+@import 'assets/scss/borders';
+
+// Import the Text Style
+@import 'assets/scss/typography';
+
+// Import the Comonents
+@import 'assets/scss/components/datepicker';
+@import 'assets/scss/components/multiselect';
+@import 'assets/scss/components/datatable';
+@import 'assets/scss/components/resaizable';
+@import 'assets/scss/components/modals';
+
+// Import the Serve Field
+// @import 'app/components/tennis-field/simulation/serve-field/serve-field.components.scss';
+
+//Import ngx-datatable icons
+@import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";
+
+/*
+ * TEMPLATES SASS Stylesheet
+ */
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    @include prefix(transition, all 0.4s ease);
+}
+
+html, body {
+    min-width: 1680px;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: $color-gray-dark-100;
+}
+
+// DASHBOARD PAGE
+
+app-dashboard {
+    padding: 0px;
+
+    // HEADER
+    .navbar {
+        .navbar-item.navbar-select_dataset {
+            .select-advanced {
+                min-width: 200px !important;
+            }
+        }
+    }
+
+    app-players-advanced-select {
+        .modal .modal-card-body {
+            .ngx-datatable {
+                .datatable-body {
+                    .datatable-row-wrapper {
+                        .datatable-body-row {
+                            &.is-active {
+                                .datatable-row-center .datatable-body-cell:nth-of-type(3)::before {
+                                    opacity: 1;
+                                }
+                            }
+                            .datatable-row-center {
+                                .datatable-body-cell:nth-of-type(3)::before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 20px;
+                                    height: 20px;
+                                    opacity: 0;
+                                    border-radius: 100%;
+                                    background-color: $color-green;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // BOARD
+    .row-board .board-left {
+
+        // BOARD FILTERS
+        .row-filters {
+            #filterForm {
+
+                &.is-disabled {
+                    .filter-options {
+                        .select-advanced {
+                            pointer-events: none;
+                            .selected-list {
+                                color: $color-gray-light-100;
+                                background-color: $color-gray-light-300 !important;
+                            }
+                        }
+                    }
+                }
+
+                // FILTER OPTIONS
+                .filter-options {
+
+                    .form-fields {
+                        &.is-disabled {
+                            .select-advanced {
+                                pointer-events: none;
+                                .selected-list {
+                                    color: $color-gray-light-100;
+                                    background-color: $color-gray-light-300 !important;
+                                }
+                            }
+                        }
+                        .control {
+                            &.is-danger {
+                                .select-advanced {
+                                    .selected-list {
+                                        color: $color-white !important;
+                                        background-color: $color-red !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .filter-player_1 .select-advanced .selected-list {
+                        background-color: $color-blue;
+                    }
+
+                    .filter-player_2 .select-advanced {
+                        .selected-list {
+                            background-color: $color-purple;
+                        }
+
+                        .dropdown-list .list-area ul li {
+                            &:hover,
+                            &.selected-item {
+                                background-color: $color-purple;
+                            }
+                        }
+                    }
+                }
+
+                // FILTER SMARTDATA
+                .filter-smartdata {
+                    .radio input[type="radio"]:checked ~ .select-advanced .dropdown-list {
+                        display: block !important;
+                    }
+
+                    .select-advanced {
+                        .selected-list {
+                            display: none;
+                        }
+
+                        .dropdown-list {
+                            position: relative;
+                            top: 0px;
+                            left: 0px;
+                            padding-top: 0px;
+                            padding-left: 10px;
+                            .lazyContainer {
+                                max-height: 115px;
+                                overflow: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // BOARD REPORT
+        .row-report {
+            .report-board {
+                .report-board-head {
+                    .head-title {
+                        h3 {
+                            input:focus {
+                                & + .select-advanced {
+                                    .dropdown-list {
+                                        display: block;
+                                        width: 100%;
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                }
+                            }
+                            .select-advanced {
+                                position: absolute;
+                                top: 55px;
+                                left: 20px;
+                                width: calc(100% - 130px);
+                                .selected-list {
+                                    display: none;
+                                }
+                                .dropdown-list {
+                                    .arrow-up {
+                                        display: block;
+                                        border-bottom-color: #ECECEC;
+                                    }
+                                    &:hover {
+                                        display: block;
+                                        width: 100%;
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                    .list-area {
+                                        margin-top: 10px;
+                                        background-color: #ECECEC;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*.select-report {
+                        .selected-list {
+                            color: $color-black;
+                            background-color: #ECECEC;
+                            span.c-angle-down,
+                            span.c-angle-up,
+                            span.c-remove {
+                                filter: brightness(0);
+                            }
+                        }
+                    }*/
+                }
+            }
+        }
+    }
+
+    // REPORT
+    .row-report .report-board {
+        .report-board-body {
+            app-smartdata {
+                .report_smartdata-tennis_field {
+
+                    #tennis-field-wrap {
+                        overflow: visible;
+
+                        #tennis-field {
+                            path.error,
+                            rect.error {
+                                fill: red;
+                                opacity: 0.7;
+                            }
+
+                            #field-area {
+                                #area-serve-ad,
+                                #area-serve-deuce {
+                                    opacity: 0;
+                                    cursor: pointer;
+
+                                    &:hover,
+                                    &.active {
+                                        opacity: 1;
+
+                                        *[id^="bounce-"] {
+                                            opacity: 1;
+                                        }
+                                    }
+
+                                    *[id^="bounce-"] {
+                                        opacity: 0;
+                                    }
+                                }
+
+                                #area-opp-2-group,
+                                #area-opp-3-group {
+                                    display: none;
+                                    pointer-events: none;
+
+                                    &.enabled {
+                                        display: block;
+                                        pointer-events: auto;
+                                    }
+
+                                    #area-opp-3-filled-s1,
+                                    #area-opp-3-filled-s2,
+                                    #area-opp-3-filled-s3,
+                                    #area-opp-3-filled-s4,
+                                    #area-opp-2-filled-s5,
+                                    #area-opp-2-filled-s6,
+                                    #area-opp-2-filled-s7,
+                                    #area-opp-2-filled-s8 {
+                                        opacity: 0;
+                                        cursor: pointer;
+                                        pointer-events: none;
+
+                                        &:hover,
+                                        &.active {
+                                            opacity: 1;
+
+                                            > *[id^="bounce-"] {
+                                                opacity: 1;
+                                            }
+                                        }
+
+                                        &.enabled {
+                                            pointer-events: auto;
+                                        }
+                                    }
+
+                                    #area-opp-2-filled,
+                                    #area-opp-3-filled {
+                                        opacity: 0;
+
+                                        &:hover,
+                                        &.active {
+                                            opacity: 0.23;
+
+                                            & ~ *[id^="bounce-"] {
+                                                opacity: 1;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                *[id^="bounce-"] {
+                                    opacity: 0;
+                                }
+                            }
+
+                            #field-area-filled {
+                                #area-opp-a-filled,
+                                #area-opp-b-filled,
+                                #area-opp-c-filled,
+                                #area-opp-d-filled {
+                                    opacity: 0;
+                                    pointer-events: none;
+
+                                    &:hover,
+                                    &.active {
+                                        opacity: 0.23;
+                                    }
+
+                                    &.enabled {
+                                        cursor: pointer;
+                                        pointer-events: auto;
+                                    }
+                                }
+
+                                #area-opp-z1-filled,
+                                #area-opp-z2-filled,
+                                #area-opp-z3-filled,
+                                #area-opp-z4-filled,
+                                #area-opp-z5-filled {
+                                    opacity: 0;
+                                    cursor: pointer;
+
+                                    &:hover,
+                                    &.active {
+                                        opacity: 0.23;
+                                    }
+                                }
+                            }
+
+                            #player_1_ad,
+                            #player_1_deuce {
+                                display: none;
+
+                                &.active {
+                                    display: block;
+                                }
+                            }
+
+                            #player_1_ad {
+                                transform: translate(-1451px, -8px);
+                            }
+
+                            #player_1_deuce {
+                                transform: translate(-1321px, -8px);
+                            }
+
+                            $player_2_coords_x: 'ad' 62px, 'd' 0px, 'c' -60px, 'middle' -123px, 'b' -185px, 'a' -245px, 'deuce' -305px;
+                            $player_2_coords_y: 'z1' 250px, 'z2' 133px, 'z3' 57px, 'z4' -3px, 'z5' -53px;
+
+                            #player_2_ad,
+                            #player_2_deuce {
+                                display: none;
+
+                                &.active {
+                                    display: block;
+                                }
+
+                                @each $y in $player_2_coords_y {
+                                    @each $x in $player_2_coords_x {
+                                        &.position-#{nth($x, 1)}-#{nth($y, 1)} {
+                                            transform: translate(nth($x, 2), nth($y, 2));
+                                        }
+                                    }
+                                }
+
+                                #player_2_ad-icon-border:hover,
+                                #player_2_deuce-icon-border:hover {
+                                    cursor: pointer;
+
+                                    & ~ #player_2_ad-bh,
+                                    & ~ #player_2_ad-fh,
+                                    & ~ #player_2_deuce-bh,
+                                    & ~ #player_2_deuce-fh {
+                                        opacity: 1;
+                                    }
+                                }
+
+                                #player_2_ad-bh,
+                                #player_2_ad-fh,
+                                #player_2_deuce-bh,
+                                #player_2_deuce-fh {
+                                    opacity: 0;
+                                    cursor: pointer;
+
+                                    &:hover,
+                                    &.active {
+                                        opacity: 1;
+
+                                        *[id^="bounce-"] {
+                                            opacity: 1;
+                                        }
+                                    }
+
+                                    *[id^="bounce-"] {
+                                        opacity: 0;
+                                    }
+                                }
+
+                                #player_2_ad-icon-image,
+                                #player_2_deuce-icon-image {
+                                    pointer-events: none;
+                                }
+
+                                > *[id^="bounce-"] {
+                                    opacity: 1;
+                                }
+                            }
+
+                            #bounces {
+                                > *[id^="bounce-"] {
+                                    opacity: 0;
+                                    pointer-events: none;
+
+                                    &:hover,
+                                    &.active {
+                                        opacity: 1;
+                                    }
+
+                                    &.enabled {
+                                        pointer-events: auto;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+
+                            > *[id^="trajectory-"] {
+                                pointer-events: none;
+                            }
+                        }
+                    }
+
+                    .serve-stats {
+                        display: none;
+                        position: absolute;
+                        bottom: 120px;
+                        width: 35%;
+                        transform: scale(0.7);
+
+                        &.active {
+                            display: block;
+                        }
+
+                        &.serve-stats-ad {
+                            right: 0px;
+                            transform-origin: right bottom;
+                        }
+
+                        &.serve-stats-deuce {
+                            left: 0px;
+                            transform-origin: left bottom;
+                        }
+
+                        app-serve-stats {
+                            width: 100%;
+                        }
+                    }
+
+                    .serve-insight {
+                        display: none;
+                        position: absolute;
+                        z-index: 20;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        padding: 15px;
+                        background-color: rgba($color-black, 0.95);
+
+                        &.active {
+                            display: block;
+                        }
+                    }
+
+                    .button-insight {
+                        position: absolute;
+                        z-index: 10;
+                        top: 0;
+                        left: 0;
+                        opacity: 0;
+                        pointer-events: none;
+                        transform: translate(-50%, -50%);
+
+                        &.active {
+                            opacity: 1;
+                            pointer-events: auto;
+                        }
+
+                        &.button-insight-s1_s4 {
+                            top: calc(50% - 5px);
+                            left: calc(50% - 56px);
+                        }
+
+                        &.button-insight-s5_s8 {
+                            top: calc(50% - 5px);
+                            left: calc(50% + 43px);
+                        }
+
+                        &.button-insight-z1_z5 {
+                            top: calc(50% - 5px);
+                            left: calc(50% - 56px);
+                        }
+
+                        &.button-insight-a_d {
+                            top: calc(50% - 5px);
+                            left: calc(50% - 56px);
+                        }
+                    }
+                }
+                .report_smartdata-tennis_field_stats-wrap {
+
+                    .progress-container {
+                        border-radius: 100%;
+                        padding: 0.5rem;
+                        position: relative;
+
+                        &.green {
+                            background-color: $color-green-dark-100;
+                        }
+
+                        &.yellow {
+                            background-color: $color-yellow-dark-100;
+                        }
+
+                        &.red {
+                            background-color: $color-red-dark-100;
+                        }
+
+                        &.blue {
+                            background-color: $color-blue;
+                        }
+
+                        &.purple {
+                            background-color: $color-purple;
+                        }
+
+                        &.dark {
+                            background-color: $color-black;
+                        }
+
+                        .current {
+                            color: $color-white;
+                            position: absolute;
+                            top: 50%;
+                            bottom: auto;
+                            left: 50%;
+                            transform: translateY(-50%) translateX(-50%);
+                        }
+                    }
+
+                    .targhetta {
+                        display: flex;
+                        border-radius: 25px;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 5px 15px;
+
+                        span {
+                            display: flex;
+                            color: $color-white;
+                            font-weight: 400;
+                            font-size: 17px;
+                        }
+
+                        &.bg-blue {
+                            background-color: $color-blue;
+                        }
+
+                        &.bg-purple {
+                            background-color: $color-purple;
+                        }
+
+                        &.bg-bianco {
+                            background-color: $color-white;
+
+                            span {
+                                color: $color-gray-light-100;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Spinner Animation
+
+.is-spinning {
+    transform-origin: center center;
+    animation: 1s linear infinite spinner;
+}
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+// Colori dei tag
+
+span.tag{
+    color: $color-white;
+    &.blue{ background-color: $color-blue; }
+    &.purple{ background-color: $color-purple; }
+}
+
+// Bottoni aggiuntivi
+.button.is-grey-light{
+    background-color: $color-gray-light-100;
+    color: $color-white;
+    border: none;
+
+    &:hover{
+        background-color: $color-gray-dark-100;
+    }
+}

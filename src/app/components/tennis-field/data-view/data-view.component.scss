@@ -1,0 +1,62 @@
+@import "../../../../assets/scss/variables";
+
+.add-to-report {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+    padding: 4px 14px;
+    height: auto;
+
+    img {
+        display: block;
+    }
+
+    &.fullscreen {
+        right: calc(50% + 10px);
+        top: 20px;
+    }
+}
+
+.column.border-bottom {
+    border-bottom: 1px solid $color-white;
+}
+
+.col-data-view {
+    position: relative;
+    max-height: calc(100vh - 400px);
+    padding-bottom: 0px;
+    overflow: hidden;
+
+    > .columns {
+        width: calc(100% + 40px);
+        height: 100%;
+        padding-right: 40px;
+        overflow-y: auto;
+    }
+
+    p {
+        padding: 5px 8px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        cursor: pointer;
+        background: $color-black-dark-100;
+
+        &.active {
+            background-color: $color-blue;
+            border-radius: 4px;
+        }
+
+        &:last-of-type {
+            margin-bottom: 40px;
+        }
+    }
+
+    .add-to-report {
+        position: sticky;
+        bottom: 0px;
+        left: 0;
+        background-color: $color-black;
+    }
+}

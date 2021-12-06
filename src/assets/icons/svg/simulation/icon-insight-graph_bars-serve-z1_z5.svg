@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="426" height="442" viewBox="0 0 426 442">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="graph-line-mask" width="426" height="420" stroke-width="1" fill="#fff" stroke="#707070" transform="translate(-0.243 -0.08)"/>
+    </clipPath>
+  </defs>
+  <g id="icon-insight-graph_bars-serve-z1_z5" transform="translate(-1457.757 -212.92)">
+    <g id="graph-line-mask-wrap" transform="translate(1458 235)" clip-path="url(#clip-path)">
+      <g id="tennis-field" transform="translate(39.258 88.156)">
+        <g id="tennis-field-area-right" transform="translate(337.609) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+          <rect width="625.153" height="44.365" stroke="none"/>
+          <rect x="0.5" y="0.5" width="624.153" height="43.365" fill="none"/>
+        </g>
+        <g id="tennis-field-area-left" transform="translate(60.552) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+          <rect width="625.153" height="44.365" stroke="none"/>
+          <rect x="0.5" y="0.5" width="624.153" height="43.365" fill="none"/>
+        </g>
+        <g id="tennis-field-area-ref-3" transform="translate(294.326 312.091) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+          <rect width="169.171" height="117.947" stroke="none"/>
+          <rect x="0.5" y="0.5" width="168.171" height="116.947" fill="none"/>
+        </g>
+        <g id="tennis-field-area-opp-3" transform="translate(177.461 143.892) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+          <rect width="169.171" height="117.947" stroke="none"/>
+          <rect x="0.5" y="0.5" width="168.171" height="116.947" fill="none"/>
+        </g>
+        <g id="tennis-field-area-ref-2" transform="translate(177.461 312.091) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+          <rect width="169.171" height="117.947" stroke="none"/>
+          <rect x="0.5" y="0.5" width="168.171" height="116.947" fill="none"/>
+        </g>
+        <g id="tennis-field-area-opp-1" transform="translate(294.326) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+          <rect width="144.864" height="234.812" stroke="none"/>
+          <rect x="0.5" y="0.5" width="143.864" height="233.812" fill="none"/>
+        </g>
+        <g id="tennis-field-area-ref-1" transform="translate(294.326 480.289) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+          <rect width="144.864" height="234.812" stroke="none"/>
+          <rect x="0.5" y="0.5" width="143.864" height="233.812" fill="none"/>
+        </g>
+        <path id="tennis-field-net" d="M0,0V338.971" transform="translate(344.382 312.091) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+        <g id="tennis-field-net-pole-right" transform="translate(350.594 309.174) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+          <circle cx="3.246" cy="3.246" r="3.246" stroke="none"/>
+          <circle cx="3.246" cy="3.246" r="2.246" fill="none"/>
+        </g>
+        <g id="tennis-field-net-pole-left" transform="translate(6.492 309.174) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+          <circle cx="3.246" cy="3.246" r="3.246" stroke="none"/>
+          <circle cx="3.246" cy="3.246" r="2.246" fill="none"/>
+        </g>
+        <path id="tennis-field-decoration-ref" d="M2372.057,223.428v5.133" transform="translate(-2195.075 396.156)" fill="none" stroke="#fff" stroke-width="1"/>
+        <path id="tennis-field-decoration-opp" d="M2372.057,223.428v5.133" transform="translate(-2195.075 -222.794)" fill="none" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="graph-bar-perc-line-5" transform="translate(1420.757 -1.08)">
+      <path id="graph-bar-perc-line-base-5" d="M0,0H31.679" transform="translate(93.015 247.363) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+      <rect id="graph-bar-perc-line-bg-5" width="405" height="40" rx="4" transform="translate(45 243)" fill="#fff" opacity="0.2"/>
+      <text id="graph-bar-perc-line-pretitle-5" transform="translate(53 254)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 5</tspan></text>
+      <text id="graph-bar-perc-line-subtitle-5" transform="translate(53.318 279.64)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">0/173</tspan></text>
+      <rect id="graph-bar-perc-line-active-5" width="17.021" height="68.946" transform="translate(161.874 253.756) rotate(90)" fill="#019dba"/>
+      <text id="graph-bar-perc-line-title-5" transform="translate(52.318 268.565)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">0</tspan></text>
+      <text id="graph-bar-perc-line-title-perc-5" transform="translate(61.828 268.021)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+    </g>
+    <g id="graph-bar-perc-line-4" transform="translate(1420.757 -1.08)">
+      <path id="graph-bar-perc-line-base-4" d="M0,0H31.679" transform="translate(93.015 288.023) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+      <rect id="graph-bar-perc-line-active-4" width="17.021" height="68.946" transform="translate(161.874 295.756) rotate(90)" fill="#019dba"/>
+      <rect id="graph-bar-perc-line-bg-4" width="405" height="40" rx="4" transform="translate(45 284)" fill="#fff" opacity="0.2"/>
+      <text id="graph-bar-perc-line-pretitle-4" transform="translate(53 295)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 4</tspan></text>
+      <text id="graph-bar-perc-line-subtitle-4" transform="translate(53.318 320.3)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">0/173</tspan></text>
+      <text id="graph-bar-perc-line-title-4" transform="translate(52.318 309.225)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">10</tspan></text>
+      <text id="graph-bar-perc-line-title-perc-4" transform="translate(71.828 308.681)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+    </g>
+    <g id="graph-bar-perc-line-3">
+      <rect id="graph-bar-perc-line-bg-3" width="405" height="74" rx="4" transform="translate(1465.757 323.92)" fill="#fff" opacity="0.2"/>
+      <text id="graph-bar-perc-line-pretitle-3" transform="translate(1473.757 350.92)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 3</tspan></text>
+      <text id="graph-bar-perc-line-subtitle-3" transform="translate(1474.075 375.956)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">69/173</tspan></text>
+      <rect id="graph-bar-perc-line-active-3" width="17.021" height="175.879" transform="translate(1689.564 349.521) rotate(90)" fill="#019dba"/>
+      <text id="graph-bar-perc-line-title-3" transform="translate(1474.075 364.881)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">40</tspan></text>
+      <text id="graph-bar-perc-line-title-perc-3" transform="translate(1493.095 364.337)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+    </g>
+    <g id="graph-bar-perc-line-2">
+      <rect id="graph-bar-perc-line-bg-2" width="405" height="68" rx="4" transform="translate(1465.757 398.92)" fill="#fff" opacity="0.2"/>
+      <text id="graph-bar-perc-line-pretitle-2" transform="translate(1473.757 422.92)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 2</tspan></text>
+      <text id="graph-bar-perc-line-subtitle-2" transform="translate(1474.075 447.82)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">95/173</tspan></text>
+      <path id="graph-bar-perc-line-active-2" d="M0,0H17.021V254.363H0Z" transform="translate(1768.048 422.331) rotate(90)" fill="#019dba"/>
+      <text id="graph-bar-perc-line-title-2" transform="translate(1474.075 436.745)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">55</tspan></text>
+      <text id="graph-bar-perc-line-title-perc-2" transform="translate(1493.095 436.201)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+    </g>
+    <g id="graph-bar-perc-line-1">
+      <rect id="graph-bar-perc-line-bg-1" width="405" height="164" rx="4" transform="translate(1465.757 467.92)" fill="#fff" opacity="0.2"/>
+      <text id="graph-bar-perc-line-pretitle" transform="translate(1473.757 536.92)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 1</tspan></text>
+      <text id="graph-bar-perc-line-subtitle-1" transform="translate(1474.075 562.236)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">9/173</tspan></text>
+      <path id="graph-bar-perc-line-active-1" d="M0,0H17.021V39.715H0Z" transform="translate(1553.4 536.747) rotate(90)" fill="#019dba"/>
+      <text id="graph-bar-perc-line-title-1" transform="translate(1473.075 552.161)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">5</tspan></text>
+      <text id="graph-bar-perc-line-title-perc-1" transform="translate(1482.585 550.617)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+    </g>
+    <path id="graph-perc-step-0" d="M0,0H426.716" transform="translate(1514.257 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-10" d="M0,0H426.716" transform="translate(1543.256 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-20" d="M0,0H426.716" transform="translate(1572.257 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-30" d="M0,0H426.716" transform="translate(1609.828 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-40" d="M0,0H426.716" transform="translate(1642.783 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-50" d="M0,0H426.716" transform="translate(1674.641 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-60" d="M0,0H426.716" transform="translate(1706.497 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-70" d="M0,0H426.716" transform="translate(1738.354 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-80" d="M0,0H426.716" transform="translate(1770.211 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-90" d="M0,0H426.716" transform="translate(1806.023 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path id="graph-perc-step-100" d="M0,0H426.716" transform="translate(1835.024 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <text id="graph-perc-txt-0" transform="translate(1508.757 224.92)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">0%</tspan></text>
+    <text id="graph-perc-txt-50" transform="translate(1651.757 220.92)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">50%</tspan></text>
+    <text id="graph-perc-txt-100" transform="translate(1823.757 220.92)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">100%</tspan></text>
+  </g>
+</svg>

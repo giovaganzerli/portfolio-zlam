@@ -1,0 +1,65 @@
+<form id="login" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onSubmit(loginForm)" novalidate>
+    <h1 class="form-title"><img src="../../../../assets/icons/svg/icon-logo_login.svg" alt="ZLAM - Interactive Smart Data Analysis®" /></h1>
+    <div class="form-fields">
+
+        <div *ngIf="formData.message" class="notification" [class.is-danger]="formData.status === 3" [class.is-success]="formData.status === 2">
+            <p>{{ formData.message }}</p>
+        </div>
+
+        <div class="field">
+            <div class="control has-icons-left">
+                <input class="input" type="email" name="email" [(ngModel)]="formData.data.email" #email="ngModel" [ngClass]="{ 'is-danger': loginForm.submitted && email.invalid }" required placeholder="Email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope-open"></i>
+                </span>
+            </div>
+            <p *ngIf="loginForm.submitted && email.invalid" class="help is-danger">Email address not valid</p>
+        </div>
+
+        <div class="field">
+            <div class="control has-icons-left">
+                <input class="input" type="password" name="password" [(ngModel)]="formData.data.password" #password="ngModel" [ngClass]="{ 'is-danger': loginForm.submitted && password.invalid }" required placeholder="Password">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </div>
+            <p *ngIf="loginForm.submitted && password.invalid" class="help is-danger">Password is invalid</p>
+            <p class="is-size-7" style="margin-top: 5px"><a href="/auth/password-forgot" style="color: #E7343F"><u>Forgot Password?</u></a></p>
+        </div>
+
+        <div class="field">
+            <div class="control has-text-right">
+                <span class="has-text-left">
+                    Not a member? <br>
+                    <a href="/auth/signin">Sign in</a> or <a href="/auth/validin">Activate your account</a>
+                </span>
+                <button class="button is-danger has-text-white" [ngClass]="{ 'is-loading': loginForm.submitted && formData.status == 1 }">Login</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="page-footer">
+    <div class="columns row-ai-top">
+        <div class="column col-info is-4">
+            <h5><b>Mas-Tech srl</b></h5>
+            <p>P. Iva 03487790366 <br>Via Cantone, 96 41032 Cavezzo (MO)</p>
+        </div>
+        <div class="column col-links is-8">
+            <a class="link has-text-white" href="#">Need help?</a>
+            <a class="link has-text-white" href="#">
+                <img src="../../../../assets/icons/svg/icon-book.svg" />
+                Tutorial
+            </a>
+            <a class="link has-text-white" href="#">
+                <img src="../../../../assets/icons/svg/icon-help.svg" />
+                HELP
+            </a>
+            <span class="link">
+                Follow us
+                <a href="#" target="_blank"><img src="../../../../assets/icons/svg/icon-social-fb.svg" /></a>
+                <a href="#" target="_blank"><img src="../../../../assets/icons/svg/icon-social-In.svg" /></a>
+            </span>
+        </div>
+    </div>
+</div>

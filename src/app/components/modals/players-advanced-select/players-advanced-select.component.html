@@ -1,0 +1,43 @@
+<div class="modal" [class.is-active]="toggle">
+    <div class="modal-background" (click)="toggleModal()"></div>
+    <div class="modal-card">
+
+        <!-- MODAL HEADER -->
+        <header class="modal-card-head">
+            <p class="modal-card-title">Select Opponent</p>
+            <button class="delete" aria-label="close" (click)="toggleModal()"></button>
+        </header>
+
+        <!-- MODAL BODY -->
+        <section class="modal-card-body">
+            <form id="playersForm" novalidate>
+                <div class="table-container">
+                    <ngx-datatable
+                            class="material player-select-table"
+                            [rows]="dataPlayersList.rows"
+                            [columns]="dataPlayersList.columns"
+                            [rowClass]="getRowClass"
+                            headerHeight="auto"
+                            rowHeight="auto"
+                            [selected]="this.playersSelected.player_2"
+                            [selectCheck]="checkRowSelectable"
+                            [columnMode]="datatableOptions.columnMode.flex"
+                            [selectionType]="datatableOptions.selectionType.multiClick"
+                            (select)="onRowSelect($event)"
+                    ></ngx-datatable>
+                </div>
+            </form>
+        </section>
+
+        <!-- MODAL FOOTER -->
+        <footer class="modal-card-foot">
+            <button class="button" (click)="onFormReset()">
+                <span class="icon is-small">
+                    <i class="fas fa-undo"></i>
+                </span>
+                <span>Reset selection</span>
+            </button>
+            <button class="button" (click)="onFormSubmit()">Select</button>
+        </footer>
+    </div>
+</div>

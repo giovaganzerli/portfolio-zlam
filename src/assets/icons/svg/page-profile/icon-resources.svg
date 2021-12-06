@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" viewBox="0 0 26 28">
+  <g id="Raggruppa_940" data-name="Raggruppa 940" transform="translate(-704 -560.512)">
+    <g id="Raggruppa_939" data-name="Raggruppa 939" transform="translate(704 564.512)">
+      <g id="Rettangolo_50" data-name="Rettangolo 50" transform="translate(0 1.095)" fill="none" stroke="#fff" stroke-width="2">
+        <rect width="12.889" height="22.905" stroke="none"/>
+        <rect x="1" y="1" width="10.889" height="20.905" fill="none"/>
+      </g>
+      <g id="Rettangolo_51" data-name="Rettangolo 51" transform="translate(12.257 1.095)" fill="none" stroke="#fff" stroke-width="2">
+        <rect width="13.743" height="22.905" stroke="none"/>
+        <rect x="1" y="1" width="11.743" height="20.905" fill="none"/>
+      </g>
+      <g id="Tracciato_2343" data-name="Tracciato 2343" transform="translate(12.298 2.365)" fill="none">
+        <path d="M0-.3,10.1-6.365V15.565L0,21.635Z" stroke="none"/>
+        <path d="M 8.103916168212891 -2.830909729003906 L 1.999996185302734 0.8357295989990234 L 1.999996185302734 18.10013580322266 L 8.103916168212891 14.43349647521973 L 8.103916168212891 -2.830909729003906 M 10.10391712188721 -6.36541748046875 L 10.10391712188721 15.56519317626953 L -3.814697265625e-06 21.6346435546875 L -3.814697265625e-06 -0.2959671020507813 L 10.10391712188721 -6.36541748046875 Z" stroke="none" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

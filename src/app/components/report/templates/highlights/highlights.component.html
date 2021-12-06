@@ -1,0 +1,35 @@
+
+<div class="column is-12" *ngIf="reportSelected.component.status === 'edit'">
+    <p class="has-text-weight-bold has-text-grey-dark">Select highlight</p>
+</div>
+
+<div *ngIf="reportSelected.component.status === 'edit' && reportSelected.component.data.length" class="column-scroll">
+    <div class="columns" *ngFor="let highlight of reportSelected.component.data; index as i" (click)="onComponentInsert(highlight)" [class.active]="generalService.findIntoArrayofObject(highlight.description, reportSelected.component.selected, 'description')">
+        <div class="column is-2 has-text-centered p-5">
+            <i><img [src]="'../../../../assets/icons/svg/icon-star-circle.svg'"></i>
+        </div>
+        <div class="column is-10 p-5">
+            <p class="has-text-dark" [innerHTML]="highlight.description"></p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="reportSelected.component.status === 'edit' && !reportSelected.component.data.length">
+    <p *ngIf="!filtersSelected.smartdata.type.length || (filtersSelected.smartdata.type && !filtersSelected.smartdata.type[0].subtype.length)" class="has-text-grey-dark p0-10">Select smartdata first.</p>
+    <p *ngIf="filtersSelected.smartdata.type.length && filtersSelected.smartdata.type[0].subtype.length && !resultsData.smartdata" class="has-text-grey-dark p0-10">No highlights for current selection.</p>
+</div>
+
+<div *ngIf="reportSelected.component.status === 'view'">
+    <div class="columns" *ngFor="let highlight of reportSelected.component.selected; index as i">
+        <div class="column is-2 has-text-centered p-5">
+            <i><img [src]="'../../../../assets/icons/svg/icon-star-circle.svg'"></i>
+        </div>
+        <div class="column is-10 p-5">
+            <p class="has-text-dark" [innerHTML]="highlight.description"></p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="reportSelected.component.status === 'edit' && reportSelected.component.data.length" class="column is-12 has-text-right">
+    <button class="button is-primary" (click)="onComponentSave()">Apply</button>
+</div>

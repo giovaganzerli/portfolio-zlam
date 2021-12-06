@@ -1,0 +1,41 @@
+@import "../../../../../assets/scss/variables";
+
+.tabs {
+    margin-top: 10px;
+    li {
+        &.is-active a {
+            color: $color-white;
+            .icon {
+                background-color: $color-blue;
+            }
+        }
+        a {
+            &:hover {
+                border-bottom-color: $color-white;
+                color: $color-white;
+            }
+
+
+            .icon {
+                width: 30px;
+                height: 30px;
+                padding: 3px;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+.tab-content {
+    display: none;
+    &.is-active {
+        display: block;
+    }
+    .settings {
+        margin-bottom: 30px;
+        padding-left: 20px;
+        .radio {
+            color: $color-white !important;
+        }
+    }
+}

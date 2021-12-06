@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Raggruppa_775" data-name="Raggruppa 775" transform="translate(-214 -206)">
+    <path id="Tracciato_3127" data-name="Tracciato 3127" d="M17655.406,4448.763v-5.517" transform="translate(-17417.123 -4230.783)" fill="none" stroke="#fff" stroke-width="1"/>
+    <ellipse id="Ellisse_556" data-name="Ellisse 556" cx="7.34" cy="7.339" rx="7.34" ry="7.339" transform="translate(230.941 222.588)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Tracciato_3126" data-name="Tracciato 3126" d="M138.56,54.926s.7,4.761,5.03,3.509a5.238,5.238,0,0,1,6.379,5.659" transform="translate(94.367 169.979)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+    <ellipse id="Ellisse_558" data-name="Ellisse 558" cx="11.581" cy="11.58" rx="11.581" ry="11.58" transform="translate(226.699 218.347)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="4 2"/>
+    <g id="Ellisse_561" data-name="Ellisse 561" transform="translate(214 206)" fill="none" stroke="#fff" stroke-width="1">
+      <circle cx="24" cy="24" r="24" stroke="none"/>
+      <circle cx="24" cy="24" r="23.5" fill="none"/>
+    </g>
+    <path id="Tracciato_3128" data-name="Tracciato 3128" d="M17655.406,4448.763v-5.517" transform="translate(-17417.123 -4201.938)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Tracciato_3129" data-name="Tracciato 3129" d="M0,5.517V0" transform="translate(255.464 229.643) rotate(90)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Tracciato_3130" data-name="Tracciato 3130" d="M0,5.517V0" transform="translate(226.619 229.643) rotate(90)" fill="none" stroke="#fff" stroke-width="1"/>
+  </g>
+</svg>

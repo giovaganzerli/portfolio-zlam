@@ -1,0 +1,656 @@
+<div #tennisField>
+    <svg id="tennis-field-wrap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 474 827.5">
+        <defs>
+            <pattern id="player_2-image-pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 600 400">
+                <image *ngIf="filtersSelected.player.player_2.length && filtersSelected.player.player_2.length === 1 && filtersSelected.player.player_2[0].meta.hasOwnProperty('thumb')" width="600" height="400" [attr.xlink:href]="filtersSelected.player.player_2[0].meta.thumb"/>
+                <image *ngIf="!filtersSelected.player.player_2.length || filtersSelected.player.player_2.length > 1 || !filtersSelected.player.player_2[0].meta.hasOwnProperty('thumb')" width="600" height="400" xlink:href="../../../../assets/icons/svg/icon-player_2.svg"/>
+            </pattern>
+            <pattern id="player_1-image-pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 899 632">
+                <image *ngIf="filtersSelected.player.player_1.length && filtersSelected.player.player_1[0].meta.hasOwnProperty('thumb')" width="899" height="632" [attr.xlink:href]="filtersSelected.player.player_1[0].meta.thumb"/>
+                <image *ngIf="!filtersSelected.player.player_1.length || !filtersSelected.player.player_1[0].meta.hasOwnProperty('thumb')" width="899" height="632" xlink:href="../../../../assets/icons/svg/icon-player_1.svg"/>
+            </pattern>
+        </defs>
+        <g id="tennis-field" transform="translate(-19 -54.5)">
+            <g id="field-area-filled">
+                <rect id="area-opp-z1-filled" [class.error]="!validateFieldSelected.return_contact_depth.z1" [class.enabled]="enableFieldSelected.return_contact_depth.z1" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z1', fieldSelected.ad.filters.return_contact_depth.values, 'id') || fieldSelected.deuce.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z1', fieldSelected.deuce.filters.return_contact_depth.values, 'id')" (click)="onFieldFiltersSelect('return_contact_depth', 'z1', (!filtersSelected.common.serve_side.values.length) ? ['ad', 'deuce'] : generalService.mapArray(filtersSelected.common.serve_side.values, 'id'))" width="173" height="406" rx="2" transform="translate(47.5 466.5) rotate(-90)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-z2-filled" [class.error]="!validateFieldSelected.return_contact_depth.z2" [class.enabled]="enableFieldSelected.return_contact_depth.z2" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z2', fieldSelected.ad.filters.return_contact_depth.values, 'id') || fieldSelected.deuce.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z2', fieldSelected.deuce.filters.return_contact_depth.values, 'id')" (click)="onFieldFiltersSelect('return_contact_depth', 'z2', (!filtersSelected.common.serve_side.values.length) ? ['ad', 'deuce'] : generalService.mapArray(filtersSelected.common.serve_side.values, 'id'))" width="73" height="406" rx="2" transform="translate(47.5 291.5) rotate(-90)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-z3-filled" [class.error]="!validateFieldSelected.return_contact_depth.z3" [class.enabled]="enableFieldSelected.return_contact_depth.z3" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z3', fieldSelected.ad.filters.return_contact_depth.values, 'id') || fieldSelected.deuce.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z3', fieldSelected.deuce.filters.return_contact_depth.values, 'id')" (click)="onFieldFiltersSelect('return_contact_depth', 'z3', (!filtersSelected.common.serve_side.values.length) ? ['ad', 'deuce'] : generalService.mapArray(filtersSelected.common.serve_side.values, 'id'))" width="75" height="406" rx="2" transform="translate(47.5 216.5) rotate(-90)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-z4-filled" [class.error]="!validateFieldSelected.return_contact_depth.z4" [class.enabled]="enableFieldSelected.return_contact_depth.z4" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z4', fieldSelected.ad.filters.return_contact_depth.values, 'id') || fieldSelected.deuce.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z4', fieldSelected.deuce.filters.return_contact_depth.values, 'id')" (click)="onFieldFiltersSelect('return_contact_depth', 'z4', (!filtersSelected.common.serve_side.values.length) ? ['ad', 'deuce'] : generalService.mapArray(filtersSelected.common.serve_side.values, 'id'))" width="46" height="406" rx="2" transform="translate(47.5 140.5) rotate(-90)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-z5-filled" [class.error]="!validateFieldSelected.return_contact_depth.z5" [class.enabled]="enableFieldSelected.return_contact_depth.z5" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z5', fieldSelected.ad.filters.return_contact_depth.values, 'id') || fieldSelected.deuce.filters.hasOwnProperty('return_contact_depth') && generalService.findIntoArrayofObject('z5', fieldSelected.deuce.filters.return_contact_depth.values, 'id')" (click)="onFieldFiltersSelect('return_contact_depth', 'z5', (!filtersSelected.common.serve_side.values.length) ? ['ad', 'deuce'] : generalService.mapArray(filtersSelected.common.serve_side.values, 'id'))" width="39" height="406" rx="2" transform="translate(47.5 93.5) rotate(-90)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-a-filled" [class.error]="!validateFieldSelected.deuce.return_contact.a" [class.enabled]="enableFieldSelected.deuce.return_contact.a" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('return_contact') && generalService.findIntoArrayofObject('a', fieldSelected.deuce.filters.return_contact.values, 'id')" (click)="onFieldFiltersSelect('return_contact', 'a', ['deuce'])" width="59" height="324" rx="2" transform="translate(126 143)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-b-filled" [class.error]="!validateFieldSelected.deuce.return_contact.b" [class.enabled]="enableFieldSelected.deuce.return_contact.b" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('return_contact') && generalService.findIntoArrayofObject('b', fieldSelected.deuce.filters.return_contact.values, 'id')" (click)="onFieldFiltersSelect('return_contact', 'b', ['deuce'])" width="59" height="324" rx="2" transform="translate(187 143)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-c-filled" [class.error]="!validateFieldSelected.ad.return_contact.c" [class.enabled]="enableFieldSelected.ad.return_contact.c" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_contact') && generalService.findIntoArrayofObject('c', fieldSelected.ad.filters.return_contact.values, 'id')" (click)="onFieldFiltersSelect('return_contact', 'c', ['ad'])" width="59" height="324" rx="2" transform="translate(249 143)" fill="#fff" opacity="0.23"/>
+                <rect id="area-opp-d-filled" [class.error]="!validateFieldSelected.ad.return_contact.d" [class.enabled]="enableFieldSelected.ad.return_contact.d" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_contact') && generalService.findIntoArrayofObject('d', fieldSelected.ad.filters.return_contact.values, 'id')" (click)="onFieldFiltersSelect('return_contact', 'd', ['ad'])" width="59" height="324" rx="2" transform="translate(310 143)" fill="#fff" opacity="0.23"/>
+            </g>
+            <g id="field-area">
+                <g id="area-serve-ad" [class.active]="filtersSelected.common.serve_side.values.length && generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id')" (click)="onFieldSideSelect('ad')">
+                    <ellipse id="bounce-serve-ad" cx="204.105" cy="811.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_1Ad/>
+                    <path id="area" [class.error]="!validateFieldSelected.ad.serve_side" d="M0,0H124a0,0,0,0,1,0,0V17a3,3,0,0,1-3,3H3a3,3,0,0,1-3-3V0A0,0,0,0,1,0,0Z" transform="translate(123 801)" fill="#fff" opacity="0.31"/>
+                    <text id="area-text" transform="translate(131 814)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">AD</tspan></text>
+                </g>
+                <g id="area-serve-deuce" [class.active]="filtersSelected.common.serve_side.values.length && generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id')" (click)="onFieldSideSelect('deuce')">
+                    <ellipse id="bounce-serve-deuce" cx="280.105" cy="811.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_1Deuce/>
+                    <path id="area-2" [class.error]="!validateFieldSelected.deuce.serve_side" data-name="area" d="M0,0H124a0,0,0,0,1,0,0V17a3,3,0,0,1-3,3H3a3,3,0,0,1-3-3V0A0,0,0,0,1,0,0Z" transform="translate(249 801)" fill="#fff" opacity="0.31"/>
+                    <text id="area-text-2" data-name="area-text" transform="translate(334 814)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">DEUCE</tspan></text>
+                </g>
+                <g id="area-opp-1" transform="translate(371.779 140.229) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="153.2" height="248.324" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="152.2" height="247.324" fill="none"/>
+                </g>
+                <g id="area-opp-2-group" [class.enabled]="!filtersSelected.common.serve_side.values.length || generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id')">
+                    <path id="area-opp-2-filled" [class.active]="generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id') && (!fieldSelected.ad.filters.hasOwnProperty('serve_placement') || (fieldSelected.ad.filters.hasOwnProperty('serve_placement') && !generalService.findIntoArrayofObject(['s5', 's6', 's7', 's8'], fieldSelected.ad.filters.serve_placement.values, 'id').length)) && (generalService.findIntoArrayofObject('in', filtersSelected.common.serve_outcome.values, 'id') || generalService.findIntoArrayofObject('ace', filtersSelected.common.serve_outcome.values, 'id'))" d="M1.633,1.158l167.94-.037a2,2,0,0,1,2,2l-.016,113.031a2,2,0,0,1-2,2l-168,.021a2,2,0,0,1-2-2L-.367,3.158A2,2,0,0,1,1.633,1.158Z" transform="translate(368.191 295.4) rotate(90)" fill="#fff" opacity="0.23"/>
+                    <g id="area-opp-2-filled-group">
+                        <g id="area-opp-2-filled-s5" [class.enabled]="enableFieldSelected.ad.serve_placement.s5" [class.active]="fieldSelected.ad.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s5', fieldSelected.ad.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's5', ['ad'])">
+                            <path id="area-5" [class.error]="!validateFieldSelected.ad.serve_placement.s5" data-name="area" d="M2,0H27a2,2,0,0,1,2,2V170a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2V2A2,2,0,0,1,2,0Z" transform="translate(250 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-5" data-name="area-text" transform="translate(261 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">5</tspan></text>
+                            <g id="bounce-s5-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s5" cx="264.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS5/>
+                                <g transform="translate(124 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="area-opp-2-filled-s6" [class.enabled]="enableFieldSelected.ad.serve_placement.s6" [class.active]="fieldSelected.ad.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s6', fieldSelected.ad.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's6', ['ad'])">
+                            <rect id="area-6" [class.error]="!validateFieldSelected.ad.serve_placement.s6" data-name="area" width="28" height="172" rx="2" transform="translate(280 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-6" data-name="area-text" transform="translate(292 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">6</tspan></text>
+                            <g id="bounce-s6-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s6" cx="294.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS6/>
+                                <g transform="translate(154 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="area-opp-2-filled-s7" [class.enabled]="enableFieldSelected.ad.serve_placement.s7" [class.active]="fieldSelected.ad.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s7', fieldSelected.ad.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's7', ['ad'])">
+                            <rect id="area-7" [class.error]="!validateFieldSelected.ad.serve_placement.s7" data-name="area" width="29" height="172" rx="2" transform="translate(309 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-7" data-name="area-text" transform="translate(322 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">7</tspan></text>
+                            <g id="bounce-s7-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s7" cx="324.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS7/>
+                                <g transform="translate(184 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="area-opp-2-filled-s8" [class.enabled]="enableFieldSelected.ad.serve_placement.s8" [class.active]="fieldSelected.ad.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s8', fieldSelected.ad.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's8', ['ad'])">
+                            <rect id="area-8" [class.error]="!validateFieldSelected.ad.serve_placement.s8" data-name="area" width="28" height="172" rx="2" transform="translate(339 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-8" data-name="area-text" transform="translate(351 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">8</tspan></text>
+                            <g id="bounce-s1-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s8" cx="354.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS8/>
+                                <g transform="translate(214 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="area-opp-2" transform="translate(372.191 292.4) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                        <rect width="178.905" height="124.734" stroke="none"/>
+                        <rect x="0.5" y="0.5" width="177.905" height="123.734" fill="none"/>
+                    </g>
+                    <g id="bounce-s5_8-wrap" transform="translate(1 0)">
+                        <ellipse id="bounce-s5_8" cx="304.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS5_8/>
+                        <g transform="translate(164 0)">
+                            <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                            <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                            </g>
+                            <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="area-opp-3-group" [class.enabled]="!filtersSelected.common.serve_side.values.length || generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id')">
+                    <path id="area-opp-3-filled" [class.active]="generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id') && (!fieldSelected.deuce.filters.hasOwnProperty('serve_placement') || (fieldSelected.deuce.filters.hasOwnProperty('serve_placement') && !generalService.findIntoArrayofObject(['s1', 's2', 's3', 's4'], fieldSelected.deuce.filters.serve_placement.values, 'id').length)) && (generalService.findIntoArrayofObject('in', filtersSelected.common.serve_outcome.values, 'id') || generalService.findIntoArrayofObject('ace', filtersSelected.common.serve_outcome.values, 'id'))" d="M1.653.15,169.61.182a2,2,0,0,1,2,2l-.034,112.959a2,2,0,0,1-2,2L1.6,117.162a2,2,0,0,1-2-2L-.347,2.15A2,2,0,0,1,1.653.15Z" transform="translate(244.191 295.4) rotate(90)" fill="#fff" opacity="0.23"/>
+                    <g id="area-opp-3-group-2" data-name="area-opp-3-group">
+                        <g id="area-opp-3-filled-s1" [class.enabled]="enableFieldSelected.deuce.serve_placement.s1" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s1', fieldSelected.deuce.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's1', ['deuce'])">
+                            <path id="area-7" [class.error]="!validateFieldSelected.deuce.serve_placement.s1" data-name="area" d="M2,0H27a2,2,0,0,1,2,2V170a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2V2A2,2,0,0,1,2,0Z" transform="translate(127 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-7" data-name="area-text" transform="translate(138 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+                            <g id="bounce-s1-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s1" cx="140.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS1/>
+                                <g transform="translate(0 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="area-opp-3-filled-s2" [class.enabled]="enableFieldSelected.deuce.serve_placement.s2" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s2', fieldSelected.deuce.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's2', ['deuce'])">
+                            <rect id="area-8" [class.error]="!validateFieldSelected.deuce.serve_placement.s2" data-name="area" width="28" height="172" rx="2" transform="translate(157 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-8" data-name="area-text" transform="translate(169 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">2</tspan></text>
+                            <g id="bounce-s2-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s2" cx="170.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS2/>
+                                <g transform="translate(30 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="area-opp-3-filled-s3" [class.enabled]="enableFieldSelected.deuce.serve_placement.s3" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s3', fieldSelected.deuce.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's3', ['deuce'])">
+                            <rect id="area-9" [class.error]="!validateFieldSelected.deuce.serve_placement.s3" data-name="area" width="29" height="172" rx="2" transform="translate(186 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-9" data-name="area-text" transform="translate(199 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">3</tspan></text>
+                            <g id="bounce-s3-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s3" cx="200.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS3/>
+                                <g transform="translate(60 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="area-opp-3-filled-s4" [class.enabled]="enableFieldSelected.deuce.serve_placement.s4" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('serve_placement') && generalService.findIntoArrayofObject('s4', fieldSelected.deuce.filters.serve_placement.values, 'id')" (click)="onFieldFiltersSelect('serve_placement', 's4', ['deuce'])">
+                            <rect id="area-10" [class.error]="!validateFieldSelected.deuce.serve_placement.s4" data-name="area" width="28" height="172" rx="2" transform="translate(216 295)" fill="#fff" opacity="0.23"/>
+                            <text id="area-text-10" data-name="area-text" transform="translate(228 311)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">4</tspan></text>
+                            <g id="bounce-s4-wrap" transform="translate(1 0)">
+                                <ellipse id="bounce-s4" cx="229.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS4/>
+                                <g transform="translate(89 0)">
+                                    <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                                    </g>
+                                    <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                        <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="area-opp-3" transform="translate(248.191 292.4) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                        <rect width="178.905" height="124.734" stroke="none"/>
+                        <rect x="0.5" y="0.5" width="177.905" height="123.734" fill="none"/>
+                    </g>
+                    <g id="bounce-s1_4-wrap" transform="translate(1 0)">
+                        <ellipse id="bounce-s1_4" cx="182.355" cy="377.708" rx="4.577" ry="4.577" fill="#fff" #bounceS1_4/>
+                        <g transform="translate(42 0)">
+                            <ellipse _ngcontent-gou-c73="" cx="8.01" cy="8.01" rx="8.01" ry="8.01" fill="#fff" opacity="0.23" transform="translate(132.3 369.4)"></ellipse>
+                            <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.75" transform="translate(130 367.1)">
+                                <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.299" ry="10.299" stroke="none"></ellipse>
+                                <ellipse _ngcontent-gou-c73="" cx="10.299" cy="10.299" rx="10.049" ry="10.049" fill="none"></ellipse>
+                            </g>
+                            <g _ngcontent-gou-c73="" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.21" transform="translate(126.5 363.5)">
+                                <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.732" ry="13.732" stroke="none"></ellipse>
+                                <ellipse _ngcontent-gou-c73="" cx="13.732" cy="13.732" rx="13.482" ry="13.482" fill="none"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="area-opp-4" transform="translate(417.555 140.229) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="331.127" height="46.918" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="330.127" height="45.918" fill="none"/>
+                </g>
+                <g id="area-opp-5" transform="translate(124.555 140.229) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="331.127" height="46.918" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="330.127" height="45.918" fill="none"/>
+                </g>
+                <g id="area-ref-1" transform="translate(371.779 648.155) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="153.2" height="248.324" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="152.2" height="247.324" fill="none"/>
+                </g>
+                <g id="area-ref-2" transform="translate(248.191 470.278) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="178.905" height="124.734" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="177.905" height="123.734" fill="none"/>
+                </g>
+                <g id="area-ref-3" transform="translate(372.191 470.278) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="178.905" height="124.734" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="177.905" height="123.734" fill="none"/>
+                </g>
+                <g id="area-ref-4" transform="translate(124.555 470.229) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="331.127" height="46.918" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="330.127" height="45.918" fill="none"/>
+                </g>
+                <g id="area-ref-5" transform="translate(417.555 470.229) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                    <rect width="331.127" height="46.918" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="330.127" height="45.918" fill="none"/>
+                </g>
+            </g>
+            <g id="field-decorations">
+                <g id="field-decoration-net">
+                    <path id="field-decoration-net-net" d="M0,0V358.477" transform="translate(424.717 470.278) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                    <g id="field-decoration-net-stake-right" transform="translate(431.285 467.193) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                        <circle cx="3.433" cy="3.433" r="3.433" stroke="none"/>
+                        <circle cx="3.433" cy="3.433" r="2.433" fill="none"/>
+                    </g>
+                    <g id="field-decoration-net-stake-left" transform="translate(67.383 467.193) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                        <circle cx="3.433" cy="3.433" r="3.433" stroke="none"/>
+                        <circle cx="3.433" cy="3.433" r="2.433" fill="none"/>
+                    </g>
+                </g>
+                <path id="field-decoration-ref" d="M2372.057,223.428v5.429" transform="translate(-2124.373 572.038)" fill="none" stroke="#fff" stroke-width="1"/>
+                <path id="field-decoration-opp" d="M2372.057,223.428v5.429" transform="translate(-2124.373 -82.529)" fill="none" stroke="#fff" stroke-width="1"/>
+            </g>
+            <g id="bounces">
+                <g id="bounce-ace-1-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s1-s1', fieldSelected.deuce.trajectory, 'id') || generalService.findIntoArrayofObject('ace-df-df', fieldSelected.deuce.trajectory, 'id')">
+                    <g _ngcontent-qqs-c73="" id="bounce-ace-1-label" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1" transform="translate(15 37)">
+                        <rect _ngcontent-qqs-c73="" width="49" height="21" rx="10.5" stroke="none"></rect>
+                        <rect _ngcontent-qqs-c73="" x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"></rect>
+                    </g>
+                    <text _ngcontent-qqs-c73="" id="bounce-ace-1-text" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300" transform="translate(40 51)">
+                        <tspan _ngcontent-qqs-c73="" x="-14.546" y="0">ACE </tspan>
+                        <tspan _ngcontent-qqs-c73="" y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.deuce.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-1" cx="40" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce1/>
+                </g>
+                <g id="bounce-ace-2-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s2-s2', fieldSelected.deuce.trajectory, 'id')">
+                    <g _ngcontent-qqs-c73="" id="bounce-ace-2-label" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1" transform="translate(35 37)">
+                        <rect _ngcontent-qqs-c73="" width="49" height="21" rx="10.5" stroke="none"></rect>
+                        <rect _ngcontent-qqs-c73="" x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"></rect>
+                    </g>
+                    <text _ngcontent-qqs-c73="" id="bounce-ace-2-text" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300" transform="translate(60 51)">
+                        <tspan _ngcontent-qqs-c73="" x="-14.546" y="0">ACE </tspan>
+                        <tspan _ngcontent-qqs-c73="" y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.deuce.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-2" cx="60" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce2/>
+                </g>
+                <g id="bounce-ace-3-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s3-s3', fieldSelected.deuce.trajectory, 'id')">
+                    <g _ngcontent-qqs-c73="" id="bounce-ace-3-label" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1" transform="translate(157 37)">
+                        <rect _ngcontent-qqs-c73="" width="49" height="21" rx="10.5" stroke="none"></rect>
+                        <rect _ngcontent-qqs-c73="" x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"></rect>
+                    </g>
+                    <text _ngcontent-qqs-c73="" id="bounce-ace-3-text" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300" transform="translate(182 51)">
+                        <tspan _ngcontent-qqs-c73="" x="-14.546" y="0">ACE </tspan>
+                        <tspan _ngcontent-qqs-c73="" y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.deuce.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-3" cx="180" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce3/>
+                </g>
+                <g id="bounce-ace-4-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s4-s4', fieldSelected.deuce.trajectory, 'id')">
+                    <g _ngcontent-qqs-c73="" id="bounce-ace-4-label" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1" transform="translate(190 37)">
+                        <rect _ngcontent-qqs-c73="" width="49" height="21" rx="10.5" stroke="none"></rect>
+                        <rect _ngcontent-qqs-c73="" x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"></rect>
+                    </g>
+                    <text _ngcontent-qqs-c73="" id="bounce-ace-4-text" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300" transform="translate(215 51)">
+                        <tspan _ngcontent-qqs-c73="" x="-14.546" y="0">ACE </tspan>
+                        <tspan _ngcontent-qqs-c73="" y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.deuce.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-4" cx="215" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce4/>
+                </g>
+                <g id="bounce-ace-5-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s5-s5', fieldSelected.ad.trajectory, 'id')">
+                    <g id="bounce-ace-5-label" transform="translate(253 37)" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1">
+                        <rect width="49" height="21" rx="10.5" stroke="none"/>
+                        <rect x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"/>
+                    </g>
+                    <text id="bounce-ace-5-text" transform="translate(277 51)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300">
+                        <tspan x="-14.546" y="0">ACE </tspan>
+                        <tspan y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.ad.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-5" cx="273" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce5/>
+                </g>
+                <g id="bounce-ace-6-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s6-s6', fieldSelected.ad.trajectory, 'id')">
+                    <g id="bounce-ace-6-label" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1" transform="translate(285 37)">
+                        <rect width="49" height="21" rx="10.5" stroke="none"></rect>
+                        <rect x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"></rect>
+                    </g>
+                    <text id="bounce-ace-6-text" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300" transform="translate(310 51)">
+                        <tspan x="-14.546" y="0">ACE </tspan>
+                        <tspan y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.ad.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-6" cx="310" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce6/>
+                </g>
+                <g id="bounce-ace-7-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s7-s7', fieldSelected.ad.trajectory, 'id')">
+                    <g id="bounce-ace-7-label" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1" transform="translate(410 37)">
+                        <rect width="49" height="21" rx="10.5" stroke="none"></rect>
+                        <rect x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"></rect>
+                    </g>
+                    <text id="bounce-ace-7-text" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300" transform="translate(435 51)">
+                        <tspan x="-14.546" y="0">ACE </tspan>
+                        <tspan y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.ad.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-7" cx="435" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce7/>
+                </g>
+                <g id="bounce-ace-8-wrap" [class.active]="generalService.findIntoArrayofObject('ace-s8-s8', fieldSelected.ad.trajectory, 'id')  || generalService.findIntoArrayofObject('ace-df-df', fieldSelected.ad.trajectory, 'id')">
+                    <g id="bounce-ace-8-label" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1" transform="translate(430 37)">
+                        <rect width="49" height="21" rx="10.5" stroke="none"></rect>
+                        <rect x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"></rect>
+                    </g>
+                    <text id="bounce-ace-8-text" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300" transform="translate(455 51)">
+                        <tspan x="-14.546" y="0">ACE </tspan>
+                        <tspan y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.ad.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-8" cx="455" cy="66.874" rx="4.577" ry="4.577" fill="#fff" #bounceAce8/>
+                </g>
+                <g id="bounce-ace-ad-wrap" [class.active]="generalService.findIntoArrayofObject('ace-df-nd', fieldSelected.ad.trajectory, 'id')" transform="translate(30 300)">
+                    <g id="bounce-ace-ad-label" transform="translate(253 47)" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1">
+                        <rect width="49" height="21" rx="10.5" stroke="none"/>
+                        <rect x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"/>
+                    </g>
+                    <text id="bounce-ace-ad-text" transform="translate(277 61.223)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300">
+                        <tspan x="-14.546" y="0">ACE </tspan>
+                        <tspan y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.ad.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-ad" cx="304.355" cy="377.708" rx="4.577" ry="4.577" transform="translate(-30 -300)" fill="#fff" #bounceAceAd/>
+                </g>
+                <g id="bounce-ace-deuce-wrap" [class.active]="generalService.findIntoArrayofObject('ace-df-nd', fieldSelected.deuce.trajectory, 'id')" transform="translate(-95 300)">
+                    <g id="bounce-ace-deuce-label" transform="translate(253 47)" fill="#019dba" stroke="rgba(0,0,0,0.37)" stroke-width="1">
+                        <rect width="49" height="21" rx="10.5" stroke="none"/>
+                        <rect x="-0.5" y="-0.5" width="50" height="22" rx="11" fill="none"/>
+                    </g>
+                    <text id="bounce-ace-deuce-text" transform="translate(277 61.223)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300">
+                        <tspan x="-14.546" y="0">ACE </tspan>
+                        <tspan y="0" xml:space="preserve" font-family="Roboto-Bold, Roboto" font-weight="700">{{ statsSelected.deuce.ace }}</tspan>
+                    </text>
+                    <ellipse id="bounce-ace-deuce" cx="182.355" cy="377.708" rx="4.577" ry="4.577" transform="translate(95 -300)" fill="#fff" #bounceAceDeuce/>
+                </g>
+                <!-- BOUNCE ROSSO DI FAULT, COMMENTATO PERCHè SARà COMODO PER IL RETURN -->
+                <!-- <g id="bounce-fault-ad-wrap" [class.active]="generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id') && generalService.findIntoArrayofObject('fault', filtersSelected.common.serve_outcome.values, 'id')">
+                    <ellipse id="bounce-fault-ad" cx="432" cy="379" rx="4.577" ry="4.577" fill="#fff" #bounceFaultAd/>
+                    <g transform="translate(451 358)">
+                        <path d="M2.3,4.591,0,2.3,2.3,0" transform="translate(-5.714 18.524)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                        <circle cx="20.5" cy="20.5" r="20.5" fill="#e7343f"/>
+                        <g>
+                            <line y1="1.299" x2="1.299" transform="matrix(-1, -0.017, 0.017, -1, 31.135, 9.957)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="4 4 5"/>
+                            <line y1="3.149" x2="3.15" transform="matrix(-1, -0.017, 0.017, -1, 28.576, 14.246)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="4 4 5"/>
+                            <circle cx="4.726" cy="4.726" r="4.726" transform="translate(15.835 15.04)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M187.419,103s2.824-1.272,3.647,1.512a3.372,3.372,0,0,0,5.282,1.5" transform="translate(-171.438 -84.395)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            <line x1="19.186" transform="translate(10.754 24.491)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <line x2="5.65" y2="5.65" transform="translate(6.823 14.319)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <line x1="5.65" y2="5.65" transform="translate(6.823 14.319)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                        </g>
+                        <text transform="translate(10 36)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="10" y="0" text-anchor="middle" alignment-baseline="central">{{ statsSelected.ad['1st'].fault + statsSelected.ad['2nd'].fault }}</tspan></text>
+                    </g>
+                </g> -->             
+                <!-- <g id="bounce-fault-deuce-wrap" [class.active]="generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id') && generalService.findIntoArrayofObject('fault', filtersSelected.common.serve_outcome.values, 'id')">
+                    <ellipse id="bounce-fault-ad" cx="65" cy="379" rx="4.577" ry="4.577" fill="#fff" #bounceFaultDeuce/>
+                    <g transform="translate(5 358)">
+                        <path d="M0,4.591,2.3,2.3,0,0" transform="translate(44.286 18.524)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                        <circle cx="20.5" cy="20.5" r="20.5" fill="#e7343f"/>
+                        <g>
+                            <line y1="1.299" x2="1.299" transform="matrix(-1, -0.017, 0.017, -1, 31.135, 9.957)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="4 4 5"/>
+                            <line y1="3.149" x2="3.15" transform="matrix(-1, -0.017, 0.017, -1, 28.576, 14.246)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="4 4 5"/>
+                            <circle cx="4.726" cy="4.726" r="4.726" transform="translate(15.835 15.04)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M187.419,103s2.824-1.272,3.647,1.512a3.372,3.372,0,0,0,5.282,1.5" transform="translate(-171.438 -84.395)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            <line x1="19.186" transform="translate(10.754 24.491)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <line x2="5.65" y2="5.65" transform="translate(6.823 14.319)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <line x1="5.65" y2="5.65" transform="translate(6.823 14.319)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                        </g>
+                        <text transform="translate(10 36)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="10" y="0" text-anchor="middle" alignment-baseline="central">{{ statsSelected.deuce['1st'].fault + statsSelected.deuce['2nd'].fault }}</tspan></text>
+                    </g>
+                </g> -->
+            </g>
+            <g id="player_2_ad" [class.active]="generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id')" [style]="'transform: translate(' + (fieldSelected.ad.player_2.x + fieldSelected.ad.player_2.offx) + 'px, ' + (fieldSelected.ad.player_2.y + fieldSelected.ad.player_2.offy) + 'px)'">
+                <g id="player_2_ad-icon-border" transform="translate(348 86)" fill="#8d6dbe" stroke="#8d6dbe" stroke-width="5">
+                    <circle cx="22" cy="22" r="22" stroke="none"/>
+                    <circle cx="22" cy="22" r="19.5" fill="none"/>
+                </g>
+                <g id="player_2_ad-bh" [class.enabled]="enableFieldSelected.ad.return_type.backhand_return" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_type') && generalService.findIntoArrayofObject('backhand_return', fieldSelected.ad.filters.return_type.values, 'id')" (click)="onFieldFiltersSelect('return_type', 'backhand_return', ['ad'])">
+                    <rect id="player_2_ad-bh-bg" [class.error]="!validateFieldSelected.ad.return_type.backhand_return" width="61" height="32" rx="4" transform="translate(370 93)" fill="#8d6dbe"/>
+                    <g id="player_2-bh-text">
+                        <text id="player_2_ad-bh-text-bh" transform="translate(407 117)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">BH</tspan></text>
+                        <g id="player_2_ad-bh-text-icon" transform="translate(393.611 108.982)">
+                            <path d="M183.367,132.2l-3.3,3.3a.2.2,0,0,1-.282,0l-.383-.383a.2.2,0,0,1,0-.282l3.3-3.3" transform="translate(-179.341 -125.414)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M187.87,126.711c-.755-.738-.562-2.124.432-3.095a2.337,2.337,0,0,1,3.165-.422" transform="translate(-182.748 -121.7)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M188.207,127.04a2.338,2.338,0,0,0,3.165-.422c.994-.971,1.187-2.357.432-3.1" transform="translate(-183.085 -122.029)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M191.181,121.639l-.007-.007c-1.105-1.106-3.138-.865-4.54.537a3.766,3.766,0,0,0-1.162,3.373,1.543,1.543,0,0,1-.438,1.573.087.087,0,0,0,0,.121l.545.545a.087.087,0,0,0,.121,0,1.542,1.542,0,0,1,1.572-.438,3.766,3.766,0,0,0,3.373-1.162C192.046,124.777,192.287,122.744,191.181,121.639Z" transform="translate(-181.734 -120.938)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                        </g>
+                        <text id="player_2_ad-bh-text-return" transform="translate(392 106)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Return</tspan></text>
+                    </g>
+                    <ellipse id="bounce-player_2_ad-bh" cx="408.105" cy="124.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_2AdBH/>
+                </g>
+                <g id="player_2_ad-fh" [class.enabled]="enableFieldSelected.ad.return_type.forehand_return" [class.active]="fieldSelected.ad.filters.hasOwnProperty('return_type') && generalService.findIntoArrayofObject('forehand_return', fieldSelected.ad.filters.return_type.values, 'id')" (click)="onFieldFiltersSelect('return_type', 'forehand_return', ['ad'])">
+                    <rect id="player_2_ad-fh-bg" [class.error]="!validateFieldSelected.ad.return_type.forehand_return" width="60" height="32" rx="4" transform="translate(310 93)" fill="#8d6dbe"/>
+                    <g id="player_2_ad-fh-text">
+                        <text id="player_2_ad-fh-text-fh" transform="translate(321 117)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">FH</tspan></text>
+                        <g id="player_2_ad-fh-text-icon" transform="translate(337.383 108.982)">
+                            <path d="M179.341,132.2l3.3,3.3a.2.2,0,0,0,.282,0l.383-.383a.2.2,0,0,0,0-.282l-3.3-3.3" transform="translate(-173.226 -125.413)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M191.006,126.711c.755-.738.562-2.124-.432-3.095a2.337,2.337,0,0,0-3.165-.422" transform="translate(-185.987 -121.7)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M192.264,127.04a2.338,2.338,0,0,1-3.165-.422c-.994-.971-1.187-2.357-.432-3.1" transform="translate(-187.245 -122.029)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M185.7,121.639l.007-.007c1.105-1.106,3.138-.865,4.54.537a3.766,3.766,0,0,1,1.162,3.373,1.543,1.543,0,0,0,.438,1.573.087.087,0,0,1,0,.121l-.545.545a.087.087,0,0,1-.121,0,1.542,1.542,0,0,0-1.572-.438,3.766,3.766,0,0,1-3.373-1.162C184.838,124.777,184.6,122.744,185.7,121.639Z" transform="translate(-185.009 -120.938)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                        </g>
+                        <text id="player_2_ad-fh-text-return" transform="translate(315 106)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Return</tspan></text>
+                    </g>
+                    <ellipse id="bounce-player_2_ad-fh" cx="332.105" cy="124.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_2AdFH/>
+                </g>
+                <circle id="player_2_ad-icon-image" cx="19" cy="19" r="19" transform="translate(351 89)" fill="url(#player_2-image-pattern)"/>
+                <ellipse id="bounce-player_2_ad" cx="370.105" cy="128.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_2Ad/>
+            </g>
+            <g id="player_2_deuce" [class.active]="!filtersSelected.common.serve_side.values.length || generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id')" [style]="'transform: translate(' + (fieldSelected.deuce.player_2.x + fieldSelected.deuce.player_2.offx) + 'px, ' + (fieldSelected.deuce.player_2.y + fieldSelected.deuce.player_2.offy) + 'px)'">
+                <g id="player_2_deuce-icon-border" transform="translate(348 86)" fill="#8d6dbe" stroke="#8d6dbe" stroke-width="5">
+                    <circle cx="22" cy="22" r="22" stroke="none"/>
+                    <circle cx="22" cy="22" r="19.5" fill="none"/>
+                </g>
+                <g id="player_2_deuce-bh" [class.enabled]="enableFieldSelected.deuce.return_type.backhand_return" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('return_type') && generalService.findIntoArrayofObject('backhand_return', fieldSelected.deuce.filters.return_type.values, 'id')" (click)="onFieldFiltersSelect('return_type', 'backhand_return', ['deuce'])">
+                    <rect id="player_2_deuce-bh-bg" [class.error]="!validateFieldSelected.deuce.return_type.backhand_return" width="61" height="32" rx="4" transform="translate(370 93)" fill="#8d6dbe"/>
+                    <g id="player_2_deuce-bh-text">
+                        <text id="player_2_deuce-bh-text-bh" transform="translate(407 117)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">BH</tspan></text>
+                        <g id="player_2_deuce-bh-text-icon" transform="translate(393.611 108.982)">
+                            <path d="M183.367,132.2l-3.3,3.3a.2.2,0,0,1-.282,0l-.383-.383a.2.2,0,0,1,0-.282l3.3-3.3" transform="translate(-179.341 -125.414)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M187.87,126.711c-.755-.738-.562-2.124.432-3.095a2.337,2.337,0,0,1,3.165-.422" transform="translate(-182.748 -121.7)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M188.207,127.04a2.338,2.338,0,0,0,3.165-.422c.994-.971,1.187-2.357.432-3.1" transform="translate(-183.085 -122.029)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M191.181,121.639l-.007-.007c-1.105-1.106-3.138-.865-4.54.537a3.766,3.766,0,0,0-1.162,3.373,1.543,1.543,0,0,1-.438,1.573.087.087,0,0,0,0,.121l.545.545a.087.087,0,0,0,.121,0,1.542,1.542,0,0,1,1.572-.438,3.766,3.766,0,0,0,3.373-1.162C192.046,124.777,192.287,122.744,191.181,121.639Z" transform="translate(-181.734 -120.938)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                        </g>
+                        <text id="player_2_deuce-bh-text-return" transform="translate(392 106)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Return</tspan></text>
+                    </g>
+                    <ellipse id="bounce-player_2_deuce-bh" cx="408.105" cy="124.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_2DeuceBH/>
+                </g>
+                <g id="player_2_deuce-fh" [class.enabled]="enableFieldSelected.deuce.return_type.forehand_return" [class.active]="fieldSelected.deuce.filters.hasOwnProperty('return_type') && generalService.findIntoArrayofObject('forehand_return', fieldSelected.deuce.filters.return_type.values, 'id')" (click)="onFieldFiltersSelect('return_type', 'forehand_return', ['deuce'])">
+                    <rect id="player_2_deuce-fh-bg" [class.error]="!validateFieldSelected.ad.return_type.forehand_return" width="60" height="32" rx="4" transform="translate(310 93)" fill="#8d6dbe"/>
+                    <g id="player_2_deuce-fh-text">
+                        <text id="player_2_deuce-fh-text-fh" transform="translate(321 117)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">FH</tspan></text>
+                        <g id="player_2_deuce-fh-text-icon" transform="translate(337.383 108.982)">
+                            <path d="M179.341,132.2l3.3,3.3a.2.2,0,0,0,.282,0l.383-.383a.2.2,0,0,0,0-.282l-3.3-3.3" transform="translate(-173.226 -125.413)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M191.006,126.711c.755-.738.562-2.124-.432-3.095a2.337,2.337,0,0,0-3.165-.422" transform="translate(-185.987 -121.7)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M192.264,127.04a2.338,2.338,0,0,1-3.165-.422c-.994-.971-1.187-2.357-.432-3.1" transform="translate(-187.245 -122.029)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path d="M185.7,121.639l.007-.007c1.105-1.106,3.138-.865,4.54.537a3.766,3.766,0,0,1,1.162,3.373,1.543,1.543,0,0,0,.438,1.573.087.087,0,0,1,0,.121l-.545.545a.087.087,0,0,1-.121,0,1.542,1.542,0,0,0-1.572-.438,3.766,3.766,0,0,1-3.373-1.162C184.838,124.777,184.6,122.744,185.7,121.639Z" transform="translate(-185.009 -120.938)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                        </g>
+                        <text id="player_2_deuce-fh-text-return" transform="translate(315 106)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Return</tspan></text>
+                    </g>
+                    <ellipse id="bounce-player_2_deuce-fh" cx="332.105" cy="124.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_2DeuceFH/>
+                </g>
+                <circle id="player_2_deuce-icon-image" cx="19" cy="19" r="19" transform="translate(351 89)" fill="url(#player_2-image-pattern)"/>
+                <ellipse id="bounce-player_2_deuce" cx="370.105" cy="128.874" rx="4.577" ry="4.577" fill="#fff" #bouncePlayer_2Deuce/>
+            </g>
+            <g id="player_1_ad" class="position_ad" [class.active]="generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id')">
+                <g id="player_1_ad-stats">
+                    <rect id="player_1_ad-stats-bg" width="107" height="39" rx="4" transform="translate(1620 845)" fill="#019dba"/>
+                    <g id="player_1_ad-stats-smartdata_subtype">
+                        <g id="player_1_ad-stats-smartdata_subtype-icon" transform="translate(1446 248)">
+                            <path d="M120.963,101.181a1.9,1.9,0,0,1,3.65.01" transform="translate(69.775 524.312)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M116.634,86.605a1.522,1.522,0,0,1-1.355-.933,4.558,4.558,0,0,1-.431-1.662.448.448,0,0,1,.445-.47c.452-.006.81-.019.81-.019" transform="translate(73.153 533.965)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M131.218,86.872a1.552,1.552,0,0,0,1.356-.955,4.562,4.562,0,0,0,.431-1.662.449.449,0,0,0-.445-.47c-.451-.006-.81-.019-.81-.019" transform="translate(64.111 533.83)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M124.117,82.436a.153.153,0,0,1,.155.153c-.019,1.853-.405,5.354-3.267,5.354s-3.248-3.5-3.267-5.354a.153.153,0,0,1,.155-.153Z" transform="translate(71.556 534.564)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <ellipse cx="0.637" cy="0.637" rx="0.637" ry="0.637" transform="translate(191.924 622.736)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <g transform="translate(189 625)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="1">
+                                <rect width="7" height="3" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="6" height="2" fill="none"/>
+                            </g>
+                        </g>
+                        <text id="player_1_ad-stats-smartdata_subtype-text" transform="translate(1649 874)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ filtersSelected.smartdata.type[0].itemName }}</tspan></text>
+                    </g>
+                    <g id="player_1_ad-stats-common">
+                        <g id="player_1_ad-stats-common-icon" transform="translate(1477 226)">
+                            <path d="M.977,0l.979.973L0,2.929" transform="translate(163.135 629.061) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="1"/>
+                            <circle cx="1.5" cy="1.5" r="1.5" transform="translate(164 627)" fill="#fff"/>
+                            <path d="M5048.089,477.777l1.719,1.717" transform="translate(-4891.101 148.033)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                            <path d="M5051.82,483.965h6.278" transform="translate(-4893.293 147.673)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                        </g>
+                        <text id="player_1_ad-stats-common-text" transform="translate(1649 859)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ getCommonFiltersSelectedString('serve_type') }}</tspan></text>
+                    </g>
+                </g>
+                <g id="player_1_ad-icon">
+                    <g id="player_1_ad-icon-bg" transform="translate(1584 840)" fill="none" stroke="#019dba" stroke-width="6">
+                        <circle cx="25" cy="25" r="25" stroke="none"/>
+                        <circle cx="25" cy="25" r="22" fill="none"/>
+                    </g>
+                    <circle id="player_1_ad-icon-image" cx="19" cy="19" r="19" transform="translate(1590 846)" fill="url(#player_1-image-pattern)"/>
+                </g>
+            </g>
+            <g id="player_1_deuce" class="player_1 position-deuce" [class.active]="!filtersSelected.common.serve_side.values.length || generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id')">
+                <g id="player_1_deuce-stats">
+                    <rect id="player_1_deuce-stats-bg" width="107" height="39" rx="4" transform="translate(1620 845)" fill="#019dba"/>
+                    <g id="player_1_deuce-stats-smartdata_subtype">
+                        <g id="player_1_deuce-stats-smartdata_subtype-icon" transform="translate(1446 248)">
+                            <path d="M120.963,101.181a1.9,1.9,0,0,1,3.65.01" transform="translate(69.775 524.312)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M116.634,86.605a1.522,1.522,0,0,1-1.355-.933,4.558,4.558,0,0,1-.431-1.662.448.448,0,0,1,.445-.47c.452-.006.81-.019.81-.019" transform="translate(73.153 533.965)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M131.218,86.872a1.552,1.552,0,0,0,1.356-.955,4.562,4.562,0,0,0,.431-1.662.449.449,0,0,0-.445-.47c-.451-.006-.81-.019-.81-.019" transform="translate(64.111 533.83)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <path d="M124.117,82.436a.153.153,0,0,1,.155.153c-.019,1.853-.405,5.354-3.267,5.354s-3.248-3.5-3.267-5.354a.153.153,0,0,1,.155-.153Z" transform="translate(71.556 534.564)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <ellipse cx="0.637" cy="0.637" rx="0.637" ry="0.637" transform="translate(191.924 622.736)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                            <g transform="translate(189 625)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="1">
+                                <rect width="7" height="3" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="6" height="2" fill="none"/>
+                            </g>
+                        </g>
+                        <text id="player_1_deuce-stats-smartdata_subtype-text" transform="translate(1649 874)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ filtersSelected.smartdata.type[0].itemName }}</tspan></text>
+                    </g>
+                    <g id="player_1_deuce-stats-common">
+                        <g id="player_1_deuce-stats-common-icon" transform="translate(1477 226)">
+                            <path d="M.977,0l.979.973L0,2.929" transform="translate(163.135 629.061) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="1"/>
+                            <circle cx="1.5" cy="1.5" r="1.5" transform="translate(164 627)" fill="#fff"/>
+                            <path d="M5048.089,477.777l1.719,1.717" transform="translate(-4891.101 148.033)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                            <path d="M5051.82,483.965h6.278" transform="translate(-4893.293 147.673)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                        </g>
+                        <text id="player_1_deuce-stats-common-text" transform="translate(1649 859)" fill="#fff" font-size="10" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ getCommonFiltersSelectedString('serve_type') }}</tspan></text>
+                    </g>
+                </g>
+                <g id="player_1_deuce-icon">
+                    <g id="player_1_deuce-icon-bg" transform="translate(1584 840)" fill="none" stroke="#019dba" stroke-width="6">
+                        <circle cx="25" cy="25" r="25" stroke="none"/>
+                        <circle cx="25" cy="25" r="22" fill="none"/>
+                    </g>
+                    <circle id="player_1_deuce-icon-image" cx="19" cy="19" r="19" transform="translate(1590 846)" fill="url(#player_1-image-pattern)"/>
+                </g>
+            </g>
+            <g id="trajectories-ad" *ngFor="let trajectory of fieldSelected.ad.trajectory; index as i">
+                <path [id]="'trajectory-ad-' + i + '-A'" [attr.d]="'M' + trajectory.start.x + ' ' + trajectory.start.y + ' Q ' + trajectory.control.c1.x + ' ' + trajectory.control.c1.y + ' ' + trajectory.middle.x + ' ' + trajectory.middle.y" [attr.stroke]="(trajectory.id.indexOf('fault') !== -1) ? 'red' : '#39FA00'" stroke-width="2" stroke-linecap="round" fill="transparent"></path>
+                <path *ngIf="trajectory.end" [id]="'trajectory-ad-' + i + '-B'" [attr.d]="'M' + trajectory.middle.x + ' ' + trajectory.middle.y + ' Q ' + trajectory.control.c2.x + ' ' + trajectory.control.c2.y + ' ' + trajectory.end.x + ' ' + trajectory.end.y" stroke="#39FA00" stroke-width="2" stroke-linecap="round" fill="transparent"></path>
+            </g>
+            <g id="trajectories-deuce" *ngFor="let trajectory of fieldSelected.deuce.trajectory; index as i">
+                <path [id]="'trajectory-deuce-' + i + '-A'" [attr.d]="'M' + trajectory.start.x + ' ' + trajectory.start.y + ' Q ' + trajectory.control.c1.x + ' ' + trajectory.control.c1.y + ' ' + trajectory.middle.x + ' ' + trajectory.middle.y" [attr.stroke]="(trajectory.id.indexOf('fault') !== -1) ? 'red' : '#39FA00'" stroke-width="2" stroke-linecap="round" fill="transparent"></path>
+                <path *ngIf="trajectory.end" [id]="'trajectory-deuce-' + i + '-B'" [attr.d]="'M' + trajectory.middle.x + ' ' + trajectory.middle.y + ' Q ' + trajectory.control.c2.x + ' ' + trajectory.control.c2.y + ' ' + trajectory.end.x + ' ' + trajectory.end.y" stroke="#39FA00" stroke-width="2" stroke-linecap="round" fill="transparent"></path>
+            </g>
+        </g>
+    </svg>
+</div>
+
+<div *ngIf="filtersSelected.hasOwnProperty('common') && generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id') && (generalService.findIntoArrayofObject('in', filtersSelected.common.serve_outcome.values, 'id') || generalService.findIntoArrayofObject('ace', filtersSelected.common.serve_outcome.values, 'id'))" class="button-insight-wrap side-ad">
+    <button class="button button-insight button-insight-s5_s8 is-outlined is-light is-inverted is-small active"
+            (click)="onInsightSelect(['ad'], 'serve_placement')">
+        <span>Insight (S5-S8)</span>
+        <span class="icon">
+            <i class="fas fa-search"></i>
+        </span>
+    </button>
+    <button class="button button-insight button-insight-c_d is-outlined is-light is-inverted is-small active"
+            (click)="onInsightSelect(['ad'], 'return_contact')">
+        <span>Insight (C-D)</span>
+        <span class="icon">
+            <i class="fas fa-search"></i>
+        </span>
+    </button>
+    <button class="button button-insight button-insight-z1_z5 is-outlined is-light is-inverted is-small active"
+            (click)="onInsightSelect(['ad'], 'return_contact_depth')">
+        <span>Insight (Z1-Z5)</span>
+        <span class="icon">
+            <i class="fas fa-search"></i>
+        </span>
+    </button>
+</div>
+
+<div *ngIf="filtersSelected.hasOwnProperty('common') && generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id') && (generalService.findIntoArrayofObject('in', filtersSelected.common.serve_outcome.values, 'id') || generalService.findIntoArrayofObject('ace', filtersSelected.common.serve_outcome.values, 'id'))" class="button-insight-wrap side-deuce">
+    <button class="button button-insight button-insight-s1_s4 is-outlined is-light is-inverted is-small active"
+            (click)="onInsightSelect(['deuce'], 'serve_placement')">
+        <span>Insight (S1-S4)</span>
+        <span class="icon">
+            <i class="fas fa-search"></i>
+        </span>
+    </button>
+    <button class="button button-insight button-insight-a_b is-outlined is-light is-inverted is-small active"
+            (click)="onInsightSelect(['deuce'], 'return_contact')">
+        <span>Insight (A-B)</span>
+        <span class="icon">
+            <i class="fas fa-search"></i>
+        </span>
+    </button>
+    <button class="button button-insight button-insight-z1_z5 is-outlined is-light is-inverted is-small active"
+            (click)="onInsightSelect(['deuce'], 'return_contact_depth')">
+        <span>Insight (Z1-Z5)</span>
+        <span class="icon">
+            <i class="fas fa-search"></i>
+        </span>
+    </button>
+</div>
+
+<div class="serve-stats serve-stats-ad" [class.is-fullscreen]="fullScreen"
+     [class.active]="filtersSelected.common.serve_side.values.length && generalService.findIntoArrayofObject('ad', filtersSelected.common.serve_side.values, 'id')"
+     #tennisFieldStatsAd>
+    <app-serve-stats
+            [filtersSelected]="filtersSelected"
+            [resultsData]="resultsData"
+            [side]="'ad'"
+            (statsSelectedEmit)="onStatsUpdate($event)"
+    ></app-serve-stats>
+</div>
+
+<div class="serve-stats serve-stats-deuce" [class.is-fullscreen]="fullScreen"
+     [class.active]="filtersSelected.common.serve_side.values.length && generalService.findIntoArrayofObject('deuce', filtersSelected.common.serve_side.values, 'id')"
+     #tennisFieldStatsDeuce>
+    <app-serve-stats
+            [filtersSelected]="filtersSelected"
+            [resultsData]="resultsData"
+            [side]="'deuce'"
+            (statsSelectedEmit)="onStatsUpdate($event)"
+    ></app-serve-stats>
+</div>
+
+<div class="serve-insight" [class.is-fullscreen]="fullScreen"
+     *ngIf="insightSelected.type.id">
+    <app-serve-insight
+            [insightSelected]="insightSelected"
+            [filtersSelected]="filtersSelected"
+            [modeSelected]="modeSelected"
+            [resultsData]="resultsData"
+            [report]="report"
+            (insightEmit)="onInsightClose()"
+            (modeSelectedEmit)="modeSelectedEmit.emit()"
+    ></app-serve-insight>
+</div>

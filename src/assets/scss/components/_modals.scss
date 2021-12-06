@@ -1,0 +1,123 @@
+
+.modal {
+
+    .modal-card-body {
+        * {
+            color: $color-gray-light-200;
+        }
+
+        .field {
+            p {
+                margin-bottom: 10px;
+            }
+
+            input {
+                border: solid 1px $color-gray-light-300;
+            }
+        }
+
+        #uploadDatasetForm {
+
+            &.disabled {
+                cursor: not-allowed;
+
+                .form-fields {
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+            }
+            .field-dataset-meta {
+                > .columns {
+                    margin: 0px -10px;
+                }
+                .field {
+                    p {
+                        margin-bottom: 10px;
+                    }
+                    input {
+                        border: solid 1px $color-gray-light-300;
+                    }
+                }
+                .field-dataset-player_1,
+                .field-dataset-player_2 {
+                    .control {
+                        margin-bottom: 10px;
+                    }
+                }
+                .field-dataset-tournament,
+                .field-dataset-match {
+                    padding: 10px;
+                    > p {
+                        padding: 0 5px;
+                        margin-bottom: 7px;
+                    }
+                    .columns {
+                        padding: 0;
+                        .column {
+                            margin-bottom: 0;
+                            padding: 5px;
+                        }
+                    }
+                }
+                .field-dataset-tournament-date {
+                    .icon {
+                        top: 6px;
+                    }
+                }
+            }
+        }
+
+        .field-dataset-file {
+
+            .file {
+
+                .file-label {
+                    width: 100%;
+                    border-radius: 5px;
+                    border: dashed 2px $color-gray-light-200;
+                    .file-cta {
+                        padding: 40px;
+                        .file-icon {
+                            width: 50px;
+                            height: 50px;
+                            margin-bottom: 20px;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .file-name {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        width: 100%;
+                        height: auto;
+                        max-width: unset;
+                        border: 0;
+                        border-radius: 0;
+                        text-align: center;
+                        color: $color-gray-dark-100;
+                        background-color: $color-white-dark-100;
+                        .icon {
+                            width: 16px;
+                            margin-left: auto;
+                            margin-right: 5px;
+                            filter: invert(1);
+                        }
+                        progress {
+                            margin-top: 5px;
+                            height: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-card-foot {
+        .button:nth-of-type(2) {
+            border-color: $color-purple !important;
+            background-color: $color-purple !important;
+        }
+    }
+}

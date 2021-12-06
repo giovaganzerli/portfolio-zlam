@@ -1,0 +1,94 @@
+@import "../../../../../assets/scss/variables";
+
+.playerimg {
+    border-radius: 100%;
+    display: flex;
+}
+
+.col-player1 .playerimg {
+    span {
+        display: inline-block;
+        max-width: 110px;
+        min-width: 110px;
+        height: 110px;
+        border-radius: 100%;
+        border: solid 7px $color-blue;
+        background-color: $color-blue;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+
+.col-player2 .playerimg {
+    span {
+        display: inline-block;
+        max-width: 110px;
+        min-width: 110px;
+        height: 110px;
+        border-radius: 100%;
+        border: solid 7px $color-purple;
+        background-color: $color-purple;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+
+.p1img {
+    display: flex;
+    justify-content: center;
+    span {
+        display: inline-block;
+        width: 110px;
+        width: 110px;
+        height: 110px;
+        border-radius: 100%;
+        border: solid 7px $color-blue;
+        background-color: $color-blue;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+
+.col-vs {
+    .circled {
+        border: 1px solid $color-gray-light-300;
+        border-radius: 100%;
+        margin: 0 auto;
+        width: 55px;
+        line-height: 50px;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            background-color: $color-gray-light-300;
+            width: 25px;
+            left: -27px;
+            top: 50%;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            background-color: $color-gray-light-300;
+            width: 25px;
+            right: -27px;
+            top: 50%;
+        }
+    }
+
+    .fas.fa-circle {
+        &.blue {
+            color: $color-blue;
+        }
+
+        &.purple {
+            color: $color-purple;
+        }
+    }
+}

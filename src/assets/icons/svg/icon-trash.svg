@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.012" height="19.92" viewBox="0 0 17.012 19.92">
+  <g id="Group_511" data-name="Group 511" transform="translate(-1377.597 -418.728)">
+    <g id="Group_490" data-name="Group 490" transform="translate(1381.294 419.228)">
+      <rect id="Rectangle_468" data-name="Rectangle 468" width="12.815" height="2.1" rx="0.473" transform="translate(0 1.591)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Rectangle_469" data-name="Rectangle 469" d="M0,0H11.091a0,0,0,0,1,0,0V13.833a1.4,1.4,0,0,1-1.4,1.4H1.4a1.4,1.4,0,0,1-1.4-1.4V0A0,0,0,0,1,0,0Z" transform="translate(0.862 3.69)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Path_3218" data-name="Path 3218" d="M0,0H3.649V1.591H0Z" transform="translate(4.634)" fill="none" stroke="#fff" stroke-width="1"/>
+    </g>
+    <path id="Path_3219" data-name="Path 3219" d="M2710.888,45.772v10.2" transform="translate(-1320.396 379.324)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <path id="Path_3220" data-name="Path 3220" d="M2710.888,45.772v10.2" transform="translate(-1323.148 379.324)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <path id="Path_3221" data-name="Path 3221" d="M2710.888,45.772v10.2" transform="translate(-1325.9 379.324)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <ellipse id="Ellipse_586" data-name="Ellipse 586" cx="4.059" cy="4.059" rx="4.059" ry="4.059" transform="translate(1378.097 425.296)" fill="#e7343f" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_100" data-name="Line 100" x1="2.442" y2="2.442" transform="translate(1380.977 428.134)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_101" data-name="Line 101" x1="2.442" y1="2.442" transform="translate(1380.977 428.134)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

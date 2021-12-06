@@ -1,0 +1,42 @@
+
+<div class="columns" *ngFor="let summary of reportSelected.component.data">
+    <div class="column is-2 has-text-centered p-5">
+        <i class="fas fa-circle" [class]="summary.color"></i>
+    </div>
+    <div class="column is-10 p-5">
+        <p class="has-text-dark">{{summary.description}}</p>
+    </div>
+</div>
+
+<div class="columns" *ngIf="reportSelected.component.status === 'edit'">
+    <div class="column is-2 has-text-centered p-5">
+        <div class="dropdown sel-color" [class.is-active]="dataSummarySelected.dropdown">
+            <div class="dropdown-trigger">
+                <button class="button is-white p-0" (click)="dataSummarySelected.dropdown = !dataSummarySelected.dropdown">
+                    <span><i class="fas fa-circle" [class]="dataSummarySelected.color"></i></span>
+                </button>
+            </div>
+            <div class="dropdown-menu">
+                <div class="dropdown-content">
+                    <button class="button is-white p-0" (click)="dataSummarySelected.color = 'green'; dataSummarySelected.dropdown = false" [class.is-active]="dataSummarySelected.color === 'green'">
+                        <i class="fas fa-circle green"></i>
+                    </button>
+                    <button class="button is-white p-0" (click)="dataSummarySelected.color = 'yellow'; dataSummarySelected.dropdown = false" [class.is-active]="dataSummarySelected.color === 'yellow'">
+                        <i class="fas fa-circle yellow"></i>
+                    </button>
+                    <button class="button is-white p-0" (click)="dataSummarySelected.color = 'red'; dataSummarySelected.dropdown = false" [class.is-active]="dataSummarySelected.color === 'red'">
+                        <i class="fas fa-circle red"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-10 p-5">
+        <input class="input" type="text" [(ngModel)]="dataSummarySelected.description" placeholder="Add note here">
+    </div>
+
+    <div class="column is-12 has-text-right" *ngIf="reportSelected.component.status === 'edit'">
+        <button class="button is-info mr-10" (click)="onDataInsert(dataSummarySelected)">Insert</button>
+        <button class="button is-primary" (click)="onComponentSave()">Apply</button>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+.myDpSelector {
+    margin-top: -7px;
+    box-shadow: none;
+    border: 0px;
+
+    &:before,
+    &:after {
+        display: none;
+    }
+
+    .myDpMonthYearSelBar {
+        border-radius: 0px;
+        background-color: $color-gray-dark-100;
+
+        * {
+            font-size: 12px;
+            color: $color-white;
+        }
+    }
+
+    .myDpCalTable {
+        thead {
+            .myDpWeekDayTitle {
+                text-align: center;
+                color: $color-blue;
+            }
+        }
+
+        tbody {
+            .myDpDaycell {
+                text-align: center;
+                background-color: transparent !important;
+
+                &.myDpDisabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+                }
+            }
+
+            .myDpDaycell:not(.myDpDisabled) {
+                &:hover {
+                    span.myDpDayValue {
+                        background-color: $color-white-dark-100;
+                    }
+                }
+
+                &.myDpSelectedDay {
+                    span.myDpDayValue {
+                        color: $color-white !important;
+                        background-color: $color-blue;
+                    }
+                }
+
+                span.myDpDayValue {
+                    display: block;
+                    width: 28px;
+                    height: 28px;
+                    padding: 5px;
+                    margin: 0 auto;
+                    color: $color-gray-light-200;
+                    border-radius: 100%;
+                    border: solid 1px transparent;
+
+                    &.myDpMarkCurrDay {
+                        border: solid 1px $color-blue;
+                        color: $color-blue;
+                    }
+                }
+            }
+        }
+    }
+
+    .myDpMonthTable {
+        tbody {
+            .myDpMonthcell {
+                text-align: center;
+                background-color: transparent;
+
+                &.myDpDisabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+                }
+
+                .myDpMonthNbr {
+                    display: none;
+                }
+            }
+
+            .myDpMonthcell:not(.myDpDisabled) {
+                &.myDpSelectedMonth {
+                    background-color: $color-blue;
+
+                    .myDpMonthValue {
+                        color: $color-white;
+                    }
+                }
+
+                &:hover:not(.myDpSelectedMonth) {
+                    background-color: $color-white-dark-100;
+                }
+
+                .myDpMonthValue {
+                    color: $color-gray-light-200;
+                    border-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .myDpYearTable {
+        tbody {
+            .myDpYearcell {
+                text-align: center;
+                background-color: transparent;
+
+                &.myDpDisabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+                }
+            }
+
+            .myDpYearcell:not(.myDpDisabled) {
+                &.myDpSelectedYear {
+                    background-color: $color-blue;
+
+                    .myDpYearValue {
+                        color: $color-white;
+                    }
+                }
+
+                &:hover:not(.myDpSelectedYear) {
+                    background-color: $color-white-dark-100;
+                }
+
+                .myDpYearValue {
+                    color: $color-gray-light-200;
+                    border-bottom: 0px;
+                }
+            }
+        }
+    }
+}

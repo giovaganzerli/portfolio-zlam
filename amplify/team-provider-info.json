@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-zlam-dev-171706-authRole",
+            "UnauthRoleArn": "arn:aws:iam::290144505429:role/amplify-zlam-dev-171706-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::290144505429:role/amplify-zlam-dev-171706-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-zlam-dev-171706-deployment",
+            "UnauthRoleName": "amplify-zlam-dev-171706-unauthRole",
+            "StackName": "amplify-zlam-dev-171706",
+            "StackId": "arn:aws:cloudformation:eu-central-1:290144505429:stack/amplify-zlam-dev-171706/93bb3750-ccf7-11ea-8fa6-0a3ffba78ed8",
+            "AmplifyAppId": "d3r80l41srvxkh"
+        },
+        "categories": {
+            "auth": {
+                "zlam805ff3b9": {}
+            }
+        }
+    }
+}

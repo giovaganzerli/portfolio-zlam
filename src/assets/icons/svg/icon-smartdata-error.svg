@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+    <g transform="translate(-533 -379)">
+        <g transform="translate(3)">
+            <g transform="translate(538 387)" fill="none" stroke="#fff" stroke-width="2">
+                <circle cx="36" cy="36" r="36" stroke="none"/>
+                <circle cx="36" cy="36" r="35" fill="none"/>
+            </g>
+            <g transform="translate(562 426)" fill="none" stroke="#fff" stroke-width="1.2">
+                <circle cx="4" cy="4" r="4" stroke="none"/>
+                <circle cx="4" cy="4" r="3.4" fill="none"/>
+            </g>
+            <g transform="translate(561 404)" fill="none" stroke="#fff" stroke-width="1.2">
+                <circle cx="4" cy="4" r="4" stroke="none"/>
+                <circle cx="4" cy="4" r="3.4" fill="none"/>
+            </g>
+            <g transform="translate(566 438)" fill="none" stroke="#fff" stroke-width="1.2">
+                <circle cx="4" cy="4" r="4" stroke="none"/>
+                <circle cx="4" cy="4" r="3.4" fill="none"/>
+            </g>
+            <g transform="translate(589.293 425.293)">
+                <line x1="5.65" y2="5.65" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round"
+                      stroke-miterlimit="10" stroke-width="1.2"/>
+                <line x2="5.65" y2="5.65" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round"
+                      stroke-miterlimit="10" stroke-width="1.2"/>
+            </g>
+            <path d="M154.01,1577.884v37.743" transform="translate(428 -1159)" fill="none" stroke="#fff"
+                  stroke-width="1"/>
+            <path d="M103.051,1580h69.256" transform="translate(436 -1161)" fill="none" stroke="#fff" stroke-width="1"/>
+            <path d="M6.041,1565.165a62.655,62.655,0,0,1,13.156,12.8"
+                  transform="translate(-949.648 887.934) rotate(-106)" fill="none" stroke="#fff" stroke-linecap="round"
+                  stroke-width="1.2" stroke-dasharray="4"/>
+            <path d="M0,5.81A41.383,41.383,0,0,0,9.088,0" transform="translate(569.715 456.27) rotate(-74)" fill="none"
+                  stroke="#fff" stroke-linecap="round" stroke-width="1.2" stroke-dasharray="4"/>
+            <path d="M0,0A98.731,98.731,0,0,1,20.147,10.1" transform="translate(587.22 454.872) rotate(-106)"
+                  fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.2" stroke-dasharray="4"/>
+            <path d="M6.041,1565.165A115.864,115.864,0,0,1,30.6,1588.481"
+                  transform="translate(-957.648 880.934) rotate(-106)" fill="none" stroke="#fff" stroke-linecap="round"
+                  stroke-width="1.2" stroke-dasharray="4"/>
+        </g>
+    </g>
+</svg>

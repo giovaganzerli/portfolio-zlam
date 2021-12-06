@@ -1,0 +1,900 @@
+
+<!-- HEADER -->
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+
+        <a class="navbar-item navbar-logo p10-20">
+            <img src="../../../assets/icons/svg/icon-logo_dashboard.svg" height="40">
+        </a>
+
+        <!-- HEADER DATASET SELECT -->
+        <div class="navbar-item navbar-select_dataset">
+            <form id="datasetForm" novalidate>
+                <div class="columns form-fields">
+
+                    <div class="field column dataset-data">
+                        <span class="is-size-7">Dataset:</span>
+                        <div class="control is-size-7">
+                            <angular2-multiselect
+                                    name="dataset-data"
+                                    [class.is-active]="datasetSelected.length > 0"
+                                    [data]="dataset"
+                                    [(ngModel)]="datasetSelected"
+                                    [settings]="multiselectOptions.dataset_data"
+                                    (onSelect)="onDatasetSelect($event, 'select')"
+                                    (onSelectAll)="onDatasetSelect($event, 'selectAll')"
+                                    (onDeSelect)="onDatasetSelect($event, 'deSelect')"
+                                    (onDeSelectAll)="onDatasetSelect($event, 'deSelectAll')">
+                            </angular2-multiselect>
+                        </div>
+                    </div>
+
+                    <div class="field column dataset-remove" *ngIf="datasetSelected.length == 1">
+                        <div class="control is-size-7">
+                            <button role="button" class="button is-small is-danger" (click)="onDatasetRemove()"><img src="../../../assets/icons/svg/icon-trash.svg" width="12px" /></button>
+                        </div>
+                    </div>
+
+                    <div class="field column dataset-upload">
+                        <div class="control is-size-7">
+                            <button role="button" class="button is-small" (click)="toggleModal('uploadsDataset', !this.modals.uploadsDataset)"><i class="fas fa-cloud-upload-alt"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="field column dataset-sync">
+                        <div class="control is-size-7">
+                            <button role="button" class="button is-small is-info" (click)="onDatasetSync(false)"><i class="fas fa-sync" [class.is-spinning]="syncDatasets"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <!-- HEADER INBOX MESSAGES -->
+        <a role="button" class="navbar-item navbar-inbox">
+            <img src="../../../assets/icons/svg/icon-mail.svg" height="40">
+        </a>
+
+        <!-- HEADER PROFILE -->
+        <a role="button" class="navbar-item navbar-profile" href="/profile">
+            {{ user.meta.name +' '+ user.meta.family_name }} <span class="profile-pic" [style.backgroundImage]="'url('+ user.profilePicUrl +')'"></span>
+        </a>
+
+        <!-- HEADER MENU TOGGLE -->
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a role="button" class="navbar-item navbar-link navbar-burger is-arrowless">
+                <i class="fas fa-bars"></i>
+            </a>
+
+            <div class="navbar-dropdown is-right">
+                <a class="navbar-item" href="/dashboard">
+                    Dashboard
+                </a>
+                <a class="navbar-item" href="/profile">
+                    Profile
+                </a>
+                <a class="navbar-item" href="/datasets-management">
+                    Datasets
+                </a>
+                <a class="navbar-item" href="/reports-management">
+                    Reports
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item" (click)="onLogout()">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- UPLOAD DATASET -->
+<app-uploads-dataset
+        [toggle]="modals.uploadsDataset"
+        [datasetToEdit]="false"
+        (toggleEmit)="toggleModal('uploadsDataset', $event)"
+        (datasetEmit)="onDatasetAdd($event)"
+></app-uploads-dataset>
+
+<!-- PLAYERS ADVANCED SELECT -->
+<!--<app-players-advanced-select
+        [toggle]="modals.playersAdvancedSelect"
+        (toggleEmit)="toggleModal('playersAdvancedSelect', $event)"
+        [dataDataset]="dataDataset"
+        [dataPlayers]="dataFilters.player"
+        [dataPlayersSelected]="dataFiltersSelected.player"
+        (dataPlayersSelectedEmit)="onAdvancedSelect($event)"
+></app-players-advanced-select>-->
+
+<!-- BOARD -->
+<div class="columns row-board">
+
+    <div class="column board-left is-8 p0-0" [class.d-none]="fullScreen">
+
+        <!-- BOARD FILTERS -->
+        <div class="row-filters">
+            <form id="filterForm" [class.is-disabled]="!datasetSelected.length" novalidate>
+
+                <!-- FILTER OPTIONS -->
+                <input type="checkbox" id="toggle-filter-options" hidden>
+                <div class="columns filter-options">
+
+                    <div class="column is-3 p0-10 border-r"> <!-- INFO PRIMA COLONNA -->
+
+                        <!-- FILTERS PLAYER -->
+                        <h5><b>Players</b></h5>
+                        <div class="columns form-fields fields-player">
+
+                            <!-- FILTER PLAYER / REFERENCE -->
+                            <div class="field column filter-player_1 is-12 p0-0">
+                                <p class="is-size-7">Reference player</p>
+                                <div class="control" [class.is-danger]="!validateFiltersSelected.player.player_1">
+                                    <angular2-multiselect
+                                            name="filter-player_1"
+                                            [data]="filters.player.player_1"
+                                            [(ngModel)]="filtersSelected.player.player_1"
+                                            [settings]="multiselectOptions.filter_player_1"
+                                            (onSelect)="onFiltersSelectChange('player-player_1', $event, 'select')"
+                                            (onSelectAll)="onFiltersSelectChange('player-player_1', $event, 'selectAll')"
+                                            (onDeSelect)="onFiltersSelectChange('player-player_1', $event, 'deSelect')"
+                                            (onDeSelectAll)="onFiltersSelectChange('player-player_1', $event, 'deSelectAll')">
+                                    </angular2-multiselect>
+                                    <div class="player-icon">
+                                        <span *ngIf="filtersSelected.player.player_1.length && filtersSelected.player.player_1[0].meta.hasOwnProperty('thumb')" [style.background-image]="'url(' + filtersSelected.player.player_1[0].meta.thumb + ')'"></span>
+                                        <span *ngIf="!filtersSelected.player.player_1.length || !filtersSelected.player.player_1[0].meta.hasOwnProperty('thumb')" style="background-image: url(../../../assets/icons/svg/icon-player_1.svg)"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FILTER PLAYER / OPPONENT -->
+                            <div class="field column filter-player_2 is-12 p0-0">
+                                <p class="is-size-7">Opponent player</p>
+                                <div class="control" [class.is-danger]="!validateFiltersSelected.player.player_2">
+                                    <angular2-multiselect
+                                            name="filter-player_2"
+                                            [data]="filters.player.player_2"
+                                            [(ngModel)]="filtersSelected.player.player_2"
+                                            [settings]="multiselectOptions.filter_player_2"
+                                            (onSelect)="onFiltersSelectChange('player-player_2', $event, 'select')"
+                                            (onSelectAll)="onFiltersSelectChange('player-player_2', $event, 'selectAll')"
+                                            (onDeSelect)="onFiltersSelectChange('player-player_2', $event, 'deSelect')"
+                                            (onDeSelectAll)="onFiltersSelectChange('player-player_2', $event, 'deSelectAll')"
+                                            (onClose)="onFiltersSelectClose('player-player_2')">
+                                    </angular2-multiselect>
+                                    <div class="player-icon">
+                                        <span *ngIf="filtersSelected.player.player_2.length === 1 && filtersSelected.player.player_2[0].meta.hasOwnProperty('thumb')" [style.background-image]="'url(' + filtersSelected.player.player_2[0].meta.thumb + ')'"></span>
+                                        <span *ngIf="!filtersSelected.player.player_2.length || filtersSelected.player.player_2.length > 1 || !filtersSelected.player.player_2[0].meta.hasOwnProperty('thumb')" style="background-image: url(../../../assets/icons/svg/icon-player_2.svg)"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FILTER PLAYER / ADVANCED-->
+                            <!--
+                            <div class="field column filter-player-advanced is-12 p0-0">
+                                <input type="checkbox" id="toggle-select-player-advanced" hidden>
+                                <div class="control has-icons-right is-size-7" [class.is-disabled]="!dataFiltersSelected.player.player_1.length">
+                                    <label for="toggle-select-player-advanced" class="input has-icons-right is-small" (click)="toggleModal('playersAdvancedSelect', !modals.playersAdvancedSelect)">
+                                        Advanced selection
+                                        <span class="icon is-right">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            -->
+
+                            <!-- FILTER PLAYER / AGAINST ALL -->
+                            <div class="field column filter-player-against_all is-12 p0-0">
+                                <div class="control" [class.is-disabled]="!filtersSelected.player.player_1.length">
+                                    <label class="checkbox is-size-7">
+                                        <input type="checkbox"
+                                               name="filter-player-against_all"
+                                               [(ngModel)]="filtersSelected.player.against_all"
+                                               (change)="onFiltersFieldChange('player-against_all', filtersSelected.player.against_all)">
+                                        Against all Players
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <!-- INFO FINE prima colonna -->
+
+                    <div class="column is-3 p0-10 border-r"> <!-- INFO SECONDA COLONNA -->
+
+                        <!-- FILTERS TIME -->
+                        <h5><b>Time filter</b></h5>
+                        <div class="columns form-fields fields-match-date">
+
+                            <!-- FILTER DATE / FROM -->
+                            <div class="field column filter-match-date-from is-6 p0-0">
+                                <div class="control has-icons-right is-size-7" [class.is-danger]="!validateFiltersSelected.match.date.from">
+                                    <input type="text"
+                                           class="input is-small"
+                                           placeholder="From date"
+                                           name="filter-match-date-from"
+                                           (click)="dpDateFrom.toggleCalendar()"
+                                           #dpDateFrom="angular-mydatepicker"
+                                           [(ngModel)]="filtersSelected.match.date.from"
+                                           [options]="datepickerOptions"
+                                           (dateChanged)="onFiltersFieldChange('match-date-from', $event)"
+                                           angular-mydatepicker/>
+                                    <span class="icon is-small is-right">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- FILTER DATE / TO -->
+                            <div class="field column filter-match-date-to is-6 p0-0">
+                                <div class="control has-icons-right is-size-7" [class.is-danger]="!validateFiltersSelected.match.date.to">
+                                    <input type="text"
+                                           class="input is-small"
+                                           placeholder="To date"
+                                           name="filter-match-date-to"
+                                           (click)="dpDateTo.toggleCalendar()"
+                                           #dpDateTo="angular-mydatepicker"
+                                           [(ngModel)]="filtersSelected.match.date.to"
+                                           [options]="datepickerOptions"
+                                           (dateChanged)="onFiltersFieldChange('match-date-to', $event)"
+                                           angular-mydatepicker/>
+                                    <span class="icon is-small is-right">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- FILTERS TOURNAMENT -->
+                        <h5><b>Tournament</b></h5>
+                        <div class="columns form-fields fields-tournament">
+
+                            <!-- FILTER TORUNAMENT / TYPE -->
+                            <div class="field column filter-tournament-type is-6 p0-0">
+                                <div class="control" [class.is-danger]="!validateFiltersSelected.tournament.name">
+                                    <angular2-multiselect
+                                            name="filter-tournament-type"
+                                            [data]="filters.tournament.name"
+                                            [(ngModel)]="filtersSelected.tournament.name"
+                                            [settings]="multiselectOptions.filter_tournament_name"
+                                            (onSelect)="onFiltersSelectChange('tournament-name', $event, 'select')"
+                                            (onSelectAll)="onFiltersSelectChange('tournament-name', $event, 'selectAll')"
+                                            (onDeSelect)="onFiltersSelectChange('tournament-name', $event, 'deSelect')"
+                                            (onDeSelectAll)="onFiltersSelectChange('tournament-name', $event, 'deSelectAll')"
+                                            (onClose)="onFiltersSelectClose('tournament-name')">
+                                    </angular2-multiselect>
+                                </div>
+                            </div>
+
+                            <!-- FILTER MATCH / ROUND -->
+                            <div class="field column filter-match-round is-6 p0-0">
+                                <div class="control" [class.is-danger]="!validateFiltersSelected.match.round">
+                                    <angular2-multiselect
+                                            name="filter-match-round"
+                                            [data]="filters.match.round"
+                                            [(ngModel)]="filtersSelected.match.round"
+                                            [settings]="multiselectOptions.filter_match_round"
+                                            (onSelect)="onFiltersSelectChange('match-round', $event, 'select')"
+                                            (onSelectAll)="onFiltersSelectChange('match-round', $event, 'selectAll')"
+                                            (onDeSelect)="onFiltersSelectChange('match-round', $event, 'deSelect')"
+                                            (onDeSelectAll)="onFiltersSelectChange('match-round', $event, 'deSelectAll')"
+                                            (onClose)="onFiltersSelectClose('match-round')">
+                                    </angular2-multiselect>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- FILTER TOURNAMENT -->
+                        <h5><b>Court type</b></h5>
+                        <div class="columns form-fields fields-court_type">
+
+                            <!-- FILTER TOURNAMENT / SURFACE -->
+                            <div class="field column filter-tournament-surface is-6 p0-0">
+                                <div class="control" [class.is-danger]="!validateFiltersSelected.tournament.surface">
+                                    <angular2-multiselect
+                                            name="filter-tournament-surface"
+                                            [data]="filters.tournament.surface"
+                                            [(ngModel)]="filtersSelected.tournament.surface"
+                                            [settings]="multiselectOptions.filter_tournament_surface"
+                                            (onSelect)="onFiltersSelectChange('tournament-surface', $event, 'select')"
+                                            (onSelectAll)="onFiltersSelectChange('tournament-surface', $event, 'selectAll')"
+                                            (onDeSelect)="onFiltersSelectChange('tournament-surface', $event, 'deSelect')"
+                                            (onDeSelectAll)="onFiltersSelectChange('tournament-surface', $event, 'deSelectAll')"
+                                            (onClose)="onFiltersSelectClose('tournament-surface')">
+                                    </angular2-multiselect>
+                                </div>
+                            </div>
+
+                            <!-- FILTER TOURNAMENT / ENV -->
+                            <div class="field column filter-tournament-env is-6 p0-0">
+                                <div class="control" [class.is-danger]="!validateFiltersSelected.tournament.env">
+                                    <angular2-multiselect
+                                            name="filter-tournament-env"
+                                            [data]="filters.tournament.env"
+                                            [(ngModel)]="filtersSelected.tournament.env"
+                                            [settings]="multiselectOptions.filter_tournament_env"
+                                            (onSelect)="onFiltersSelectChange('tournament-env', $event, 'select')"
+                                            (onSelectAll)="onFiltersSelectChange('tournament-env', $event, 'selectAll')"
+                                            (onDeSelect)="onFiltersSelectChange('tournament-env', $event, 'deSelect')"
+                                            (onDeSelectAll)="onFiltersSelectChange('tournament-env', $event, 'deSelectAll')"
+                                            (onClose)="onFiltersSelectClose('tournament-env')">
+                                    </angular2-multiselect>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <!-- INFO FINE seconda colonna -->
+
+                    <div class="column is-6 p0-10"> <!-- INFO TERZA COLONNA -->
+
+                        <div class="columns">
+
+                            <div class="column is-12 p10-10">
+
+                                <!-- FILTERS COMMON -->
+                                <h5><b>Common filters</b></h5>
+                                <div class="columns form-fields fields-common" *ngIf="formData.isValid && formData.results.smartdata && filtersSelected.smartdata.type.length && datasetSelected.length && filters.common.length">
+
+                                    <!-- FILTER COMMON -->
+                                    <div *ngFor="let filter of filters.common;" class="field column filter-common-{{ filter.id }} is-6 p0-0">
+                                        <div class="control is-size-6 columns">
+                                            <div class="column is-6 p5-5">
+                                                <span>{{ filter.itemName }}:</span>
+                                            </div>
+                                            <div class="column is-6 p5-5">
+                                                <angular2-multiselect
+                                                        name="filter-common-{{ filter.id }}"
+                                                        [data]="filter.values"
+                                                        [(ngModel)]="filtersSelected.common[filter.id].values"
+                                                        [settings]="multiselectOptions.filter_common"
+                                                        (onSelect)="onFiltersSelectChange('common-' + filter.id + '-values', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('common-' + filter.id + '-values', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('common-' + filter.id + '-values', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('common-' + filter.id + '-values', $event, 'deSelectAll')"
+                                                        (onClose)="onFiltersSelectClose('common-' + filter.id + '-values')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- FILTER COMMON / OUTCOME -->
+                                    <!--
+                                    <div class="field column filter-common-outcome is-12 p0-0">
+                                        <div class="control is-size-7">
+                                            <span>Outcome:</span>
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="filter-common-outcome-in"
+                                                       (change)="onFiltersCheckboxChange('common-outcome-won', 'IN', $event)">
+                                                IN
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="filter-common-outcome-ace"
+                                                       (change)="onFiltersCheckboxChange('common-outcome-ace', 'ACE', $event)">
+                                                ACE
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="filter-common-outcome-fault"
+                                                       value="fault"
+                                                       (change)="onFiltersCheckboxChange('common-outcome-fault', 'FAULT', $event)">
+                                                FAULT
+                                            </label>
+                                        </div>
+                                    </div>
+                                    -->
+
+                                    <!-- FILTER COMMON / SERVE SIDE -->
+                                    <!--
+                                    <div class="field column filter-common-serve_side is-12 p0-0">
+                                        <div class="control is-size-7">
+                                            <span>Serve side:</span>
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="filter-common-serve_side-ad"
+                                                       (change)="onFiltersCheckboxChange('common-serve_side-ad', 'Ad', $event)">
+                                                AD
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="filter-common-serve_side-deuce"
+                                                       (change)="onFiltersCheckboxChange('common-serve_side-deuce', 'Deuce', $event)">
+                                                DEUCE
+                                            </label>
+                                        </div>
+                                    </div>
+                                    -->
+
+                                    <!-- FILTER COMMON / SERVE TYPE -->
+                                    <!--
+                                    <div class="field column filter-common-serve_type is-12 p0-0">
+                                        <div class="control is-size-7">
+                                            <span>Serve type:</span>
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="filter-common-serve_type-first"
+                                                       (change)="onFiltersCheckboxChange('common-serve_type-first', '1st', $event)">
+                                                1ST
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="filter-common-serve_type-second"
+                                                       (change)="onFiltersCheckboxChange('common-serve_type-second', '2nd', $event)">
+                                                2ND
+                                            </label>
+                                        </div>
+                                    </div>
+                                    -->
+
+                                </div>
+
+                                <div class="columns form-fields fields-common" *ngIf="!formData.isValid || !formData.results.smartdata || !filtersSelected.smartdata.type.length || !datasetSelected.length || !filters.common.length">
+                                    <div class="field column filter-common-outcome is-12 p0-0">
+                                        <div class="control is-size-7">
+                                            <span class="placeholder">Select Smartdata first!</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FILTERS SPECIFIC -->
+                                <!--<h5><b>Specific filters</b></h5>
+                                <div class="columns form-fields fields-specific" [class.is-disabled]="!dataForm.results.smartdata || !dataSmartdataSelected.type.length">
+
+                                    &lt;!&ndash; FILTER SPECIFIC / IN &ndash;&gt;
+                                    <div class="field column filter-specific-in is-3 p0-0">
+                                        <div class="control">
+                                            <label class="checkbox is-size-7">
+                                                <input type="checkbox"
+                                                       name="filter-specific-in"
+                                                       value="in"
+                                                       [(ngModel)]="dataFiltersSelected.specific.in"
+                                                       (change)="onFiltersFieldChange('specific-in', dataFiltersSelected.specific.in)"
+                                                       hidden>
+                                                <span>In</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    &lt;!&ndash; FILTER SPECIFIC / OUT &ndash;&gt;
+                                    <div class="field column filter-specific-out is-3 p0-0">
+                                        <div class="control">
+                                            <label class="checkbox is-size-7">
+                                                <input type="checkbox"
+                                                       name="filter-specific-out"
+                                                       value="out"
+                                                       [(ngModel)]="dataFiltersSelected.specific.out"
+                                                       (change)="onFiltersFieldChange('specific-out', dataFiltersSelected.specific.out)"
+                                                       hidden>
+                                                <span>Out</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    &lt;!&ndash; FILTER SPECIFIC / NET &ndash;&gt;
+                                    <div class="field column filter-specific-net is-3 p0-0">
+                                        <div class="control">
+                                            <label class="checkbox is-size-7">
+                                                <input type="checkbox"
+                                                       name="filter-specific-net"
+                                                       value="net"
+                                                       [(ngModel)]="dataFiltersSelected.specific.net"
+                                                       (change)="onFiltersFieldChange('specific-net', dataFiltersSelected.specific.net)"
+                                                       hidden>
+                                                <span>Net</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    &lt;!&ndash; FILTER SPECIFIC / LET &ndash;&gt;
+                                    <div class="field column is-3 p0-0">
+                                        <div class="control">
+                                            <label class="checkbox is-size-7">
+                                                <input type="checkbox"
+                                                       name="filter-specific-let"
+                                                       value="let"
+                                                       [(ngModel)]="dataFiltersSelected.specific.let"
+                                                       (change)="onFiltersFieldChange('specific-let', dataFiltersSelected.specific.let)"
+                                                       hidden>
+                                                <span>Let</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>-->
+                            </div>
+
+                            <div class="column is-12 p10-0">
+
+                                <div class="columns">
+                                    <div class="column p5-5"></div>
+                                    <div class="column p5-5">
+                                        <p class="has-text-weight-bold is-size-7">Point Score</p>
+                                    </div>
+                                    <div class="column p5-5">
+                                        <p class="has-text-weight-bold is-size-7">Tie Break Score</p>
+                                    </div>
+                                    <div class="column p5-5">
+                                        <p class="has-text-weight-bold is-size-7">Game Score</p>
+                                    </div>
+                                    <div class="column p5-5">
+                                        <p class="has-text-weight-bold is-size-7">Set Score</p>
+                                    </div>
+                                </div>
+
+                                <div class="columns form-fields" [class.is-disabled]="true || !formData.isValid || !formData.results.smartdata || !filtersSelected.smartdata.type.length || !datasetSelected.length">
+                                    <div class="column p0-5"><p>Reference</p></div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / POINT / PLAYER REFERENCE -->
+                                        <div class="field filter-score-points-player_1 p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-points-player_1"
+                                                        [data]="filters.score.points.player_1"
+                                                        [(ngModel)]="filtersSelected.score.points.player_1"
+                                                        [settings]="multiselectOptions.filter_score_points_player_1"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-points-player_1', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-points-player_1', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-points-player_1', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-points-player_1', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / POINT / PLAYER REFERENCE TIE SCORE -->
+                                        <div class="field filter-score-points-player_1_tie p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-points-player_1_tie"
+                                                        [data]="filters.score.points.player_1_tie"
+                                                        [(ngModel)]="filtersSelected.score.points.player_1_tie"
+                                                        [settings]="multiselectOptions.filter_score_points_player_1_tie"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-points-player_1_tie', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-points-player_1_tie', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-points-player_1_tie', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-points-player_1_tie', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / GAME / PLAYER REFERENCE -->
+                                        <div class="field filter-score-game-player_1 p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-game-player_1"
+                                                        [data]="filters.score.game.player_1"
+                                                        [(ngModel)]="filtersSelected.score.game.player_1"
+                                                        [settings]="multiselectOptions.filter_score_game_player_1"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-game-player_1', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-game-player_1', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-game-player_1', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-game-player_1', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / SET / PLAYER REFERENCE -->
+                                        <div class="field filter-score-set-player_1 p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-set-player_1"
+                                                        [data]="filters.score.set.player_1"
+                                                        [(ngModel)]="filtersSelected.score.set.player_1"
+                                                        [settings]="multiselectOptions.filter_score_set_player_1"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-set-player_1', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-set-player_1', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-set-player_1', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-set-player_1', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="columns form-fields" [class.is-disabled]="true || !formData.isValid || !formData.results.smartdata || !filtersSelected.smartdata.type.length || !datasetSelected.length">
+                                    <div class="column p0-5"><p>Opponent</p></div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / POINT / PLAYER OPPONENT -->
+                                        <div class="field filter-score-points-player_2 p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-points-player_2"
+                                                        [data]="filters.score.points.player_2"
+                                                        [(ngModel)]="filtersSelected.score.points.player_2"
+                                                        [settings]="multiselectOptions.filter_score_points_player_2"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-points-player_2', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-points-player_2', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-points-player_2', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-points-player_2', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / POINT / PLAYER OPPONENT TIE SCORE -->
+                                        <div class="field p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-points-player_2_tie"
+                                                        [data]="filters.score.points.player_2_tie"
+                                                        [(ngModel)]="filtersSelected.score.points.player_2_tie"
+                                                        [settings]="multiselectOptions.filter_score_points_player_2_tie"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-points-player_2_tie', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-points-player_2_tie', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-points-player_2_tie', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-points-player_2_tie', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / GAME / PLAYER OPPONENT -->
+                                        <div class="field filter-score-game-player_2 p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-game-player_2"
+                                                        [data]="filters.score.game.player_2"
+                                                        [(ngModel)]="filtersSelected.score.game.player_2"
+                                                        [settings]="multiselectOptions.filter_score_game_player_2"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-game-player_2', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-game-player_2', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-game-player_2', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-game-player_2', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column p0-5">
+                                        <!-- FILTER SCORE / SET / PLAYER OPPONENT -->
+                                        <div class="field filter-score-set-player_2 p0-0">
+                                            <div class="control">
+                                                <angular2-multiselect
+                                                        name="filter-score-set-player_2"
+                                                        [data]="filters.score.set.player_2"
+                                                        [(ngModel)]="filtersSelected.score.set.player_2"
+                                                        [settings]="multiselectOptions.filter_score_set_player_2"
+                                                        (onSelect)="onFiltersSelectChange('filter-score-set-player_2', $event, 'select')"
+                                                        (onSelectAll)="onFiltersSelectChange('filter-score-set-player_2', $event, 'selectAll')"
+                                                        (onDeSelect)="onFiltersSelectChange('filter-score-set-player_2', $event, 'deSelect')"
+                                                        (onDeSelectAll)="onFiltersSelectChange('filter-score-set-player_2', $event, 'deSelectAll')">
+                                                </angular2-multiselect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- INFO FINE terza colonna -->
+
+                </div>
+
+                <!-- FILTER ACTIONS -->
+                <div class="columns filter-actions">
+                    <div class="actions-wrap is-size-7">
+                        <b>FILTERS:</b>
+                        <a rel="button" (click)="onFormReset(false)">Reset <img src="../../../assets/icons/svg/icon-refresh.svg" /></a>
+                        <label rel="button" for="toggle-filter-options">Collapse <img src="../../../assets/icons/svg/icon-arrow-chevron_up.svg" /></label>
+                    </div>
+                </div>
+
+                <!-- FILTER SMART DATA -->
+                <div class="columns filter-smartdata" [class.is-disabled]="!formData.isValid || !this.filtersSelected.player.player_1.length || !filtersSelected.player.player_2.length || !datasetSelected.length">
+
+                    <div class="column is-2 p20-20">
+                        <h3><b>Select <br>Smart Data</b></h3>
+                        <label *ngIf="formData.isValid && this.filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && filtersSelected.smartdata.type.length && datasetSelected.length" for="filter-smartdata-type" class="button is-small m10-0">
+                            <span class="icon">
+                                <i class="fa fa-times"></i>
+                            </span>
+                            <span>RESET</span>
+                        </label>
+                    </div>
+
+                    <div class="column control is-7 p10-10 border-r">
+                        <div class="column-wrap">
+                            <input type="radio"
+                                   id="filter-smartdata-type"
+                                   name="filter-smartdata-type"
+                                   (change)="onSmartdataTypeSelect(false)"
+                                   [checked]="!formData.isValid || !this.filtersSelected.player.player_1.length || !filtersSelected.player.player_2.length || !filtersSelected.smartdata.type.length || !datasetSelected.length"
+                                   hidden>
+                            <label class="radio p10-10"
+                                   *ngFor="let type of filters.smartdata.type; index as i">
+                                <input type="radio"
+                                       name="filter-smartdata-type"
+                                       (change)="onSmartdataTypeSelect(type)"
+                                       [checked]="formData.isValid && this.filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && datasetSelected.length && generalService.findIntoArrayofObject(type.id, filtersSelected.smartdata.type, 'id')"
+                                       hidden>
+                                <span class="radio-button">
+                                    <i><img [src]="'../../../assets/icons/svg/icon-smartdata-'+ type.id +'.svg'"></i>
+                                    {{ type.itemName }}
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="column is-3 p10-10"> <!-- FILTERS AGGREGATION -->
+
+                        <h5><b>Aggregate by</b></h5>
+                        <div class="form-fields fields-aggregation">
+
+                            <div class="columns">
+                                <!-- FILTER AGGREGATION / MATCH -->
+                                <div class="field column filter-smartdata-aggregation-match p0-0">
+                                    <div class="control" [class.is-disabled]="!generalService.findIntoArrayofObject('match', filters.smartdata.aggregation, 'id')" [class.is-danger]="!validateFiltersSelected.smartdata.aggregation.match">
+                                        <label class="checkbox is-size-7">
+                                            <input type="checkbox"
+                                                   name="filter-smartdata-aggregation"
+                                                   (change)="onFiltersCheckboxChange('smartdata-aggregation', 'match', $event)"
+                                                   hidden>
+                                            <span class="tag is-light">Match</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- FILTER AGGREGATION / SET -->
+                                <div class="field column filter-smartdata-aggregation-set p0-0">
+                                    <div class="control" [class.is-disabled]="!generalService.findIntoArrayofObject('set', filters.smartdata.aggregation, 'id')" [class.is-danger]="!validateFiltersSelected.smartdata.aggregation.set">
+                                        <label class="checkbox is-size-7">
+                                            <input type="checkbox"
+                                                   name="filter-smartdata-aggregation"
+                                                   (change)="onFiltersCheckboxChange('smartdata-aggregation', 'set', $event)"
+                                                   hidden>
+                                            <span class="tag is-light">Set</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- FILTER AGGREGATION / GAME -->
+                                <div class="field column filter-smartdata-aggregation-game p0-0">
+                                    <div class="control" [class.is-disabled]="!generalService.findIntoArrayofObject('game', filters.smartdata.aggregation, 'id')" [class.is-danger]="!validateFiltersSelected.smartdata.aggregation.game">
+                                        <label class="checkbox is-size-7">
+                                            <input type="checkbox"
+                                                   name="filter-smartdata-aggregation"
+                                                   (change)="onFiltersCheckboxChange('smartdata-aggregation', 'game', $event)"
+                                                   hidden>
+                                            <span class="tag is-light">Game</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FILTER AGGREGATION / ALL -->
+                            <div class="field filter-smartdata-aggregation-all p0-0">
+                                <div class="control" [class.is-disabled]="!generalService.findIntoArrayofObject('all', filters.smartdata.aggregation, 'id') || filtersSelected.player.player_2.length <= 1" [class.is-danger]="!validateFiltersSelected.smartdata.aggregation.all">
+                                    <label class="checkbox is-size-7">
+                                        <input type="checkbox"
+                                               name="filter-smartdata-aggregation-all"
+                                               (change)="onFiltersCheckboxChange('smartdata-aggregation', 'all', $event)">
+                                        Aggregate All
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <!-- BOARDS REPORT -->
+        <div class="columns row-report">
+            <div class="column report-sidebar is-2">
+                <div class="sidebar-menu">
+                    <h5><b>Report</b></h5>
+                    <label [class.is-active]="reportSelected[0].type == 'basic'" (click)="onReportTypeSelect('basic')">Basic</label>
+                    <!--<label [class.is-active]="dataReportSelected[0].type == 'alert'" (click)="onReportTypeSelect('alert')">Alert</label>
+                    <label [class.is-active]="dataReportSelected[0].type == 'kpis'" (click)="onReportTypeSelect('kpis')">Kpi's</label>
+                    <label [class.is-active]="dataReportSelected[0].type == 'ta'" (click)="onReportTypeSelect('ta')">Ta</label>-->
+                    <label [class.is-active]="reportSelected[0].type == 'custom'" (click)="onReportTypeSelect('custom')">Custom</label>
+                </div>
+                <div class="sidebar-footer">
+                    <a class="link has-text-white" href="#"><b>Need help?</b></a>
+                    <a class="link has-text-white" href="#">
+                        <img src="../../../../assets/icons/svg/icon-book.svg" />
+                        Tutorial
+                    </a>
+                    <a class="link has-text-white" href="#">
+                        <img src="../../../../assets/icons/svg/icon-help.svg" />
+                        HELP
+                    </a>
+                    <hr>
+                    <p class="link">
+                        <b>Follow us</b> <br>
+                        <a href="#" target="_blank"><img src="../../../../assets/icons/svg/icon-social-fb.svg" /></a>
+                        <a href="#" target="_blank"><img src="../../../../assets/icons/svg/icon-social-In.svg" /></a>
+                    </p>
+                    <hr>
+                    <p class="has-text-white">
+                        <b>Mas-Tech srl</b> <br>
+                        P. Iva 03487790366 <br>
+                        Via Cantone, 96 41032 Cavezzo (MO)
+                    </p>
+                </div>
+            </div>
+
+            <div class="column report-board is-10">
+                <div class="report-board-wrap">
+                    <div class="report-type" class="report-board-head">
+                        <div class="head-title">
+                            <h3>
+                                <input type="text"
+                                       name="report-title"
+                                       class="input"
+                                       [(ngModel)]="reportSelected[0].itemName">
+                                <angular2-multiselect
+                                        name="report-data"
+                                        [data]="report"
+                                        [(ngModel)]="reportSelected"
+                                        [settings]="multiselectOptions.report_data"
+                                        (onSelect)="onReportSelect($event, 'select')"
+                                        (onSelectAll)="onReportSelect($event, 'selectAll')"
+                                        (onDeSelect)="onReportSelect($event, 'deSelect')"
+                                        (onDeSelectAll)="onReportSelect($event, 'deSelectAll')">
+                                </angular2-multiselect>
+                                <button role="button" class="button is-small is-info" (click)="onReportSync(false)"><i class="fas fa-sync" [class.is-spinning]="syncReports"></i></button>
+                                <button *ngIf="reportSelected.length && reportSelected[0].id != 0" role="button" class="button is-small is-danger" (click)="onReportRemove()"><img src="../../../assets/icons/svg/icon-trash.svg" width="12px" /></button>
+                            </h3>
+                            <!--<p><i>Ultima modifica: 09 aprile 2020</i></p>-->
+                        </div>
+                        <div class="head-actions buttons are-small">
+                            <!--<button class="button is-outlined is-dark"><span>Edit</span> <span class="icon is-small"><img src="../../../assets/icons/svg/icon-document.svg"></span></button>-->
+                            <button [class.enabled]="reportSelected[0].type && ((((reportSelected[0].type !== 'custom' && formData.results.match.length) || (reportSelected[0].type === 'custom' && !reportSelected[0].data.custom.rows.length)) && filtersSelected.player.player_1.length && filtersSelected.player.player_2.length) || (reportSelected[0].data[reportSelected[0].type].rows.length))" class="button is-outlined is-dark" (click)="onReportSectionAdd()" *ngIf="reportSelected[0].type === 'custom'"><span>Add section</span> <span class="icon is-small"><i class="fas fa-plus"></i></span></button>
+                            <button [class.enabled]="reportSelected[0].type && ((((reportSelected[0].type !== 'custom' && formData.results.match.length) || (reportSelected[0].type === 'custom' && !reportSelected[0].data.custom.rows.length)) && filtersSelected.player.player_1.length && filtersSelected.player.player_2.length) || (reportSelected[0].data[reportSelected[0].type].rows.length))" class="button is-outlined is-dark" (click)="onReportNoteAdd()"><span>Add note</span> <span class="icon is-small"><img src="../../../assets/icons/svg/icon-pencil_reverse.svg"></span></button>
+                            <button [class.enabled]="reportSelected[0].type && ((((reportSelected[0].type !== 'custom' && formData.results.match.length) || (reportSelected[0].type === 'custom' && !reportSelected[0].data.custom.rows.length)) && filtersSelected.player.player_1.length && filtersSelected.player.player_2.length) || (reportSelected[0].data[reportSelected[0].type].rows.length))" class="button is-outlined is-dark" (click)="onReportExport()"><span>Export</span> <span class="icon is-small"><img src="../../../assets/icons/svg/icon-upload.svg"></span></button>
+                            <button [class.enabled]="reportSelected[0].type && ((((reportSelected[0].type !== 'custom' && formData.results.match.length) || (reportSelected[0].type === 'custom' && !reportSelected[0].data.custom.rows.length)) && filtersSelected.player.player_1.length && filtersSelected.player.player_2.length) || (reportSelected[0].data[reportSelected[0].type].rows.length)) && reportSelected[0].itemName.toUpperCase() !== 'NUOVO REPORT' && (reportSelected[0] || !generalService.findIntoArrayofObject(reportSelected[0].itemName, report, 'itemName'))" class="button is-outlined is-dark" (click)="onReportAdd()"><span>Save</span> <span class="icon is-small"><img src="../../../assets/icons/svg/icon-bookmark.svg"></span></button>
+                        </div>
+                    </div>
+
+                    <div id="report-body" class="report-board-body">
+
+                        <div *ngIf="(!reportSelected[0].id || !reportSelected[0].data[reportSelected[0].type].rows.length) && !reportSelected[0].type" class="report-waiting">
+                            Select report type.
+                        </div>
+
+                        <div *ngIf="(!reportSelected[0].id || !reportSelected[0].data[reportSelected[0].type].rows.length) && reportSelected[0].type && ((reportSelected[0].type !== 'custom' || (reportSelected[0].type === 'custom' && !reportSelected[0].data.custom.rows.length)) && (!filtersSelected.player.player_1.length || !filtersSelected.player.player_2.length))" class="report-waiting">
+                            Select reference and opponent(s) players.
+                        </div>
+
+                        <div *ngIf="(!reportSelected[0].id || !reportSelected[0].data[reportSelected[0].type].rows.length) && reportSelected[0].type && filtersSelected.player.player_1.length && filtersSelected.player.player_2.length && !formData.results.match.length" class="report-waiting">
+                            No results found.
+                        </div>
+
+                        <app-report *ngIf="(reportSelected[0].id && reportSelected[0].data[reportSelected[0].type].rows.length) || (reportSelected[0].type && ((((reportSelected.type !== 'custom' && formData.results.match.length && formData.results.report) || (reportSelected[0].type === 'custom' && !reportSelected[0].data.custom.rows.length)) && filtersSelected.player.player_1.length && filtersSelected.player.player_2.length) || (reportSelected[0].type === 'custom' && reportSelected[0].data.custom.rows.length)))" class="report-type" [addSection]="addSection"></app-report>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column board-right p0-0" [class.is-4]="!fullScreen" [class.is-12]="fullScreen">
+        <div class="columns">
+
+            <div class="column row-tennis_field is-12 p0-0">
+                <div class="columns">
+                    <div class="column is-12">
+                        <app-tennis-field
+                                [formData]="formData"
+                                [filtersSelected]="filtersSelected"
+                                [datasetSelected]="datasetSelected"
+                                [resultsData]="formData.results">
+                        </app-tennis-field>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

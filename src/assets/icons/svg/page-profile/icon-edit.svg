@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.226" height="16.91" viewBox="0 0 16.226 16.91">
+  <g id="Raggruppa_913" data-name="Raggruppa 913" transform="translate(0 0)">
+    <g id="Rettangolo_973" data-name="Rettangolo 973" transform="translate(0 3.702) rotate(-45)" fill="none" stroke="#fff" stroke-width="1">
+      <path d="M0,0H2.235a3,3,0,0,1,3,3V13.087a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" stroke="none"/>
+      <path d="M1,.5H2.235A2.5,2.5,0,0,1,4.735,3v9.087a.5.5,0,0,1-.5.5H1a.5.5,0,0,1-.5-.5V1A.5.5,0,0,1,1,.5Z" fill="none"/>
+    </g>
+    <g id="Poligono_23" data-name="Poligono 23" transform="translate(16.042 12.34) rotate(135)" fill="none">
+      <path d="M2.617,0,5.235,4.362H0Z" stroke="none"/>
+      <path d="M 2.61745810508728 1.943650245666504 L 1.766190767288208 3.362424612045288 L 3.468725204467773 3.362424612045288 L 2.61745810508728 1.943650245666504 M 2.61745810508728 4.76837158203125e-06 L 5.234918117523193 4.362424373626709 L -1.9073486328125e-06 4.362424373626709 L 2.61745810508728 4.76837158203125e-06 Z" stroke="none" fill="#fff"/>
+    </g>
+    <path id="Tracciato_4287" data-name="Tracciato 4287" d="M1440.546,271.531h14.568" transform="translate(-1439.387 -255.121)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+  </g>
+</svg>

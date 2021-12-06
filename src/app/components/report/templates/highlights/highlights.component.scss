@@ -1,0 +1,19 @@
+@import "../../../../../assets/scss/variables";
+
+.column-scroll {
+    max-height: 330px;
+    overflow: auto;
+}
+
+.columns {
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    &.active {
+        background-color: $color-blue;
+        border-radius: 8px;
+        * {
+            color: $color-white;
+        }
+    }
+}

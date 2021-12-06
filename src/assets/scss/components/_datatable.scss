@@ -1,0 +1,79 @@
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import "../variables";
+
+// ================== ADVANCED PLAYSER SELECT TABLE ==================
+.ngx-datatable.material.player-select-table .datatable-header .datatable-header-cell,
+.ngx-datatable.material.player-select-table .datatable-body .datatable-body-row .datatable-body-cell {
+    border-right: solid 1px #e8e8e8;
+}
+
+.ngx-datatable.material.player-select-table.multi-click-selection .datatable-body-row {
+    &.active {
+        &:hover {
+            .datatable-row-group {
+                background-color: darken($color-purple, 10%);
+            }
+        }
+
+        .datatable-row-group {
+            background-color: $color-purple;
+        }
+
+        * {
+            color: $color-white;
+        }
+    }
+
+    .datatable-row-group {
+        border-bottom: solid 1px $color-white;
+    }
+}
+
+// ================== DATASETS MANAGEMENT TABLE ==================
+.ngx-datatable.data-mgmt {
+    background-color: $color-gray;
+
+    .datatable-header {
+        padding-top: 10px;
+        border-bottom: 2px solid $color-gray-light-200;
+        background-color: $color-gray-dark-100;
+    }
+
+    .datatable-footer {
+        background-color: $color-gray-dark-100;
+
+        .datatable-pager .pager li.pages {
+            padding: 0 7px;
+            margin: 0 3px;
+            border-radius: 6px;
+
+            &.active {
+                background-color: $color-gray-light-200;
+            }
+        }
+    }
+
+    .datatable-header-cell, .datatable-footer-inner {
+        padding: 0 10px;
+    }
+
+    .datatable-body {
+        .empty-row {
+            padding: 10px;
+        }
+    }
+
+    .datatable-row-wrapper {
+        padding: 15px 10px;
+
+        &:not(:last-of-type) {
+            border-bottom: 2px solid $color-gray-light-200;
+        }
+    }
+}
+
+// Serve per i report/dataset manager
+.ngx-datatable.fixed-row.data-mgmt,
+.ngx-datatable.fixed-row.data-mgmt .datatable-scroll .datatable-body-row .datatable-body-cell {
+    overflow: visible;
+}

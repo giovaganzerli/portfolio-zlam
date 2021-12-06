@@ -1,0 +1,29 @@
+@import "../../../assets/scss/components/header";
+@import "../../../assets/scss/variables";
+
+.page-content {
+    padding-top: 52px;
+
+    .page-content-head {
+        align-items: center;
+        .search-input {
+            background-color: $color-gray;
+            border: solid 1px $color-white !important;
+            color: $color-white;
+            & + .icon {
+                color: #707070;
+            }
+        }
+        > .column:nth-of-type(3) {
+            margin-left: auto;
+        }
+    }
+
+    .dropdown-content.has-background-black {
+        min-width: 120px;
+    }
+
+    .dropdown-item {
+        cursor: pointer;
+    }
+}

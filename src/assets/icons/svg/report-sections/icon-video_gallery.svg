@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="35" viewBox="0 0 40 35">
+  <g id="Group_521" data-name="Group 521" transform="translate(-462 -271)">
+    <g id="Rectangle_266" data-name="Rectangle 266" transform="translate(462 271)" fill="none" stroke="#707070" stroke-width="1">
+      <rect width="40" height="27" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="39" height="26" rx="2.5" fill="none"/>
+    </g>
+    <g id="Polygon_2" data-name="Polygon 2" transform="translate(488 278) rotate(90)" fill="#fff">
+      <path d="M 12.07866191864014 9.5 L 0.9213384985923767 9.5 L 6.5 0.9174438714981079 L 12.07866191864014 9.5 Z" stroke="none"/>
+      <path d="M 6.5 1.834897994995117 L 1.842683792114258 9 L 11.15731620788574 9 L 6.5 1.834897994995117 M 6.5 0 L 13 10 L 0 10 L 6.5 0 Z" stroke="none" fill="#707070"/>
+    </g>
+    <path id="Path_2911" data-name="Path 2911" d="M-4040.716,3460.5h37.5" transform="translate(4503.97 -3157.701)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    <g id="Ellipse_402" data-name="Ellipse 402" transform="translate(470 300)" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="3" cy="3" r="3" stroke="none"/>
+      <circle cx="3" cy="3" r="2.5" fill="none"/>
+    </g>
+  </g>
+</svg>

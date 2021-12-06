@@ -1,0 +1,195 @@
+<div class="note-wrap" #noteBounds>
+    <div *ngFor="let nota of reportSelected[0].data[reportSelected[0].type].notes; index as i" class="nota resizable-widget"
+         [style]="'background-color: '+ nota.color"
+         [style.width]="nota.size.width +'px'"
+         [style.height]="nota.size.height +'px'"
+         #nota="ngResizable"
+         [position]="nota.coords"
+         [handle]="noteHandle"
+         [bounds]="noteBounds"
+         [trackPosition]="true"
+         [preventDefaultEvent]="false"
+         (endOffset)="onNoteMoveEnd($event, i)"
+         (rzStop)="onNoteResizeEnd($event, i)"
+         rzHandles="all"
+         ngDraggable
+         ngResizable>
+        <div class="nota-head">
+            <i class="fas fa-expand-arrows-alt" #noteHandle></i>
+            <i class="far fa-trash-alt" (click)="onNoteRemove(i)"></i>
+            <div class="colors">
+                <span class="color bg-blue" (click)="onNoteColorChange('#019DBA', i)"></span>
+                <span class="color bg-purple" (click)="onNoteColorChange('#8D6DBE', i)"></span>
+                <span class="color bg-yellow" (click)="onNoteColorChange('#FFED01', i)"></span>
+            </div>
+        </div>
+        <div class="nota-body">
+            <p>
+                <textarea
+                    class="nota-description"
+                    name="nota-description"
+                    cols="30"
+                    rows="10"
+                    (input)="onNoteDescriptionChange($event, i)"
+                    [ngModel]="reportSelected[0].data[reportSelected[0].type].notes[i].description"
+                >{{ nota.description }}</textarea>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="section-container" [sortablejs]="reportSelected[0].data[reportSelected[0].type].rows">
+
+    <section *ngFor="let section of reportSelected[0].data[reportSelected[0].type].rows; index as i" class="report-section section-type">
+        <input type="checkbox" [id]="'toggle-section-'+ i" checked hidden>
+        <div class="section-head" *ngIf="reportSelected[0].type === 'custom'">
+            <span class="head-handle">
+                <img src="../../../assets/icons/svg/icon-drag_handle.svg">
+            </span>
+            <span class="head-title">
+                <b>{{ section.type.itemName }}</b>
+            </span>
+            <span class="head-actions is-size-7" *ngIf="section.component.status != 'edit'">
+                <a rel="button" (click)="editComponent(i)" *ngIf="section.type.id === 'general_stats' || section.type.id === 'highlights' || section.type.id === 'summary'">
+                    Edit <img src="../../../assets/icons/svg/icon-pencil_reverse.svg" />
+                </a>
+                <a rel="button" (click)="onSectionRemove(i)">
+                    Remove <img src="../../../assets/icons/svg/icon-cross.svg" />
+                </a>
+                <label rel="button" [for]="'toggle-section-'+i">
+                    Collapse <img src="../../../assets/icons/svg/icon-arrow-chevron_up.svg" />
+                </label>
+            </span>
+        </div>
+        <div class="section-body" [class.bg-grigio]="(i % 2) == 1">
+
+            <app-match-info
+                    *ngIf="section.type.id === 'match_info'"
+                    [resultsData]="resultsData"
+                    [reportName]="reportSelected[0].type"
+                    [reportId]="reportSelected[0].id"
+                    [reportSelected]="section"
+                    [filtersSelected]="filtersSelected"
+                    (exportComponentEmit)="updateReportComponent(i, $event)"
+            ></app-match-info>
+
+            <app-general-stats
+                    *ngIf="section.type.id === 'general_stats'"
+                    [resultsData]="resultsData"
+                    [reportName]="reportSelected[0].type"
+                    [reportId]="reportSelected[0].id"
+                    [reportSelected]="section"
+                    [filtersSelected]="filtersSelected"
+                    (exportComponentEmit)="updateReportComponent(i, $event)"
+            ></app-general-stats>
+
+            <app-highlights
+                    *ngIf="section.type.id === 'highlights'"
+                    [resultsData]="resultsData"
+                    [reportName]="reportSelected[0].type"
+                    [reportId]="reportSelected[0].id"
+                    [reportSelected]="section"
+                    [filtersSelected]="filtersSelected"
+                    (exportComponentEmit)="updateReportComponent(i, $event)"
+            ></app-highlights>
+
+            <app-summary
+                    *ngIf="section.type.id === 'summary'"
+                    [resultsData]="resultsData"
+                    [reportName]="reportSelected[0].type"
+                    [reportId]="reportSelected[0].id"
+                    [reportSelected]="section"
+                    [filtersSelected]="filtersSelected"
+                    (exportComponentEmit)="updateReportComponent(i, $event)"
+            ></app-summary>
+
+            <app-insight
+                    *ngIf="section.type.id === 'insight'"
+                    [resultsData]="resultsData"
+                    [reportName]="reportSelected[0].type"
+                    [reportId]="reportSelected[0].id"
+                    [reportSelected]="section"
+                    [filtersSelected]="filtersSelected"
+                    (exportComponentEmit)="updateReportComponent(i, $event)"
+            ></app-insight>
+
+            <app-pictures *ngIf="section.type.id === 'pictures'"></app-pictures>
+
+            <app-smartdata
+                    *ngIf="section.type.id === 'smartdata'"
+                    [resultsData]="resultsData"
+                    [reportName]="reportSelected[0].type"
+                    [reportId]="reportSelected[0].id"
+                    [reportSelected]="section"
+                    [filtersSelected]="filtersSelected"
+                    (exportComponentEmit)="updateReportComponent(i, $event)"
+            ></app-smartdata>
+
+            <app-text-block *ngIf="section.type.id === 'text_block'"></app-text-block>
+
+            <app-video-gallery *ngIf="section.type.id === 'video_gallery'"></app-video-gallery>
+
+        </div>
+    </section>
+</div>
+
+<form *ngIf="reportSelected[0].type === 'custom' && resultsData.match && filtersSelected && filtersSelected.player.player_1.length && filtersSelected.player.player_2.length" id="formAddNewReportSection" novalidate>
+
+    <span class="report-add_new-button has-text-centered" [class.aperto]="builderSelected.add" *ngIf="reportSelected[0].type === 'custom'" (click)="toggleAddSection()">
+        <img src="../../../assets/icons/svg/icon-plus_circle_border.svg">
+        <b>ADD NEW SECTION</b>
+    </span>
+
+    <div class="report-add_new-fields form-fields" [class.aperto]="builderSelected.add">
+
+        <div *ngFor="let type of report; index as i" [class]="'field field-type field-type-'+ type.id" [class.disabled]="type.required.length && ((type.required.indexOf('match') !== -1 && !resultsData.match.length) || (type.required.indexOf('smartdata') !== -1 && !resultsData.smartdata))">
+
+            <div class="control">
+                <label [for]="'report-section-type-'+ type.id" (click)="onTypeSelect(type)">
+                    <span class="icon">
+                        <img [src]="'../../../assets/icons/svg/report-sections/icon-'+ type.id +'.svg'" />
+                    </span>
+                    <p><b>{{ type.itemName }}</b></p>
+                </label>
+            </div>
+
+            <div *ngIf="type.subtype.length" class="field-subtypes" [class.active]="checkbox.type && checkbox.type === type.id">
+                <div class="columns">
+
+                    <div class="column is-2 has-text-left">
+                        <p><img [src]="'../../../assets/icons/svg/report-sections/icon-'+ type.id +'.svg'" /></p>
+                        <p><b>{{ type.itemName }}</b></p>
+                        <p><i>{{ type.description }}</i></p>
+                    </div>
+
+                    <div class="column is-10 has-text-left">
+                        <div *ngFor="let subtype of type.subtype; index as i2" [class]="'field field-subtype field-subtype-'+ subtype.id">
+                            <div class="control">
+                                <label>
+                                    <input type="radio"
+                                           name="report-section-subtype"
+                                           [id]="'report-section-type-'+ type.id +'-subtype-'+ subtype.id"
+                                           [ngModel]="checkbox.subtype"
+                                           [value]="subtype.id"
+                                           (change)="onSubTypeSelect(subtype)"
+                                           hidden>
+                                    <span class="is-size-7">{{ subtype.itemName }}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-12 has-text-right">
+                        <label class="button is-small is-dark" (click)="onCancel()">Cancel</label>
+                        <label class="button is-small is-info" (click)="onSectionAdd()">Select</label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+<div id="reportBottom"></div>

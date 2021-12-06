@@ -1,0 +1,677 @@
+@import "../../../assets/scss/variables";
+// HEADER
+@import "../../../assets/scss/components/header";
+
+// UTILS
+.column.border-r{
+    border-right: solid 1px $color-white;
+}
+
+// BOARD
+
+.row-board {
+    padding-top: 52px;
+    > .col {
+        height: 100%;
+    }
+    .board-left {
+        min-height: 100vh;
+        overflow: auto;
+
+        &.d-none{
+            display: none;
+        }
+        // BOARD FILTERS
+
+        .row-filters {
+            #filterForm {
+                width: 100%;
+                &.is-disabled {
+                    .filter-options,
+                    .filter-smartdata .fields-aggregation {
+                        .field {
+                            .checkbox {
+                                color: $color-gray-light-100;
+                                pointer-events: none;
+                                span {
+                                    color: $color-gray-light-100;
+                                    background-color: $color-gray-light-300;
+                                }
+                                input[type="checkbox"] {
+                                    opacity: 0.5;
+                                }
+                            }
+                            .select {
+                                pointer-events: none;
+                                &:after {
+                                    border-color: $color-white !important;
+                                }
+                                select {
+                                    background-color: $color-gray-light-300;
+                                    option {
+                                        color: $color-gray-light-100;
+                                        background-color: $color-gray-light-300;
+                                    }
+                                }
+                            }
+                            .input {
+                                color: $color-gray-light-100;
+                                pointer-events: none;
+                                background-color: $color-gray-light-300;
+                            }
+                        }
+                    }
+                    .filter-smartdata {
+                        .radio {
+                            pointer-events: none;
+                            .radio-button {
+                                i {
+                                    background-color: $color-gray-light-300;
+                                    img {
+                                        filter: brightness(0.5);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                #toggle-filter-options:checked {
+                    & ~ .filter-options {
+                        height: 0;
+                        padding: 0 10px 0;
+                        margin-bottom: 40px;
+                        border-bottom: solid 1px transparent;
+                        overflow: hidden;
+                    }
+                    & ~ .filter-actions {
+                        border-top: solid 1px $color-white;
+                        label[for="toggle-filter-options"] img {
+                            transform: rotateX(-180deg);
+                        }
+                    }
+                }
+                .filter-options,
+                .filter-smartdata .fields-aggregation {
+                    padding: 20px 10px 40px;
+                    border-top: solid 1px $color-white;
+                    border-bottom: solid 1px $color-white;
+                    background-color: $color-gray-dark-100;
+                    transition: padding 0.4s ease-in-out;
+                    &.is-disabled {
+                        .field {
+                            .checkbox {
+                                color: $color-gray-light-100;
+                                pointer-events: none;
+                                span {
+                                    color: $color-gray-light-100;
+                                    background-color: $color-gray-light-300;
+                                }
+                                input[type="checkbox"] {
+                                    opacity: 0.5;
+                                }
+                            }
+                            .select {
+                                pointer-events: none;
+                                &:after {
+                                    border-color: $color-white !important;
+                                }
+                                select {
+                                    background-color: $color-gray-light-300;
+                                    option {
+                                        color: $color-gray-light-100;
+                                        background-color: $color-gray-light-300;
+                                    }
+                                }
+                            }
+                            .input {
+                                color: $color-gray-light-100;
+                                pointer-events: none;
+                                background-color: $color-gray-light-300;
+                            }
+                        }
+                    }
+
+                    h5:not(:first-of-type) {
+                        margin-top: 10px;
+                    }
+                    .form-fields {
+                        margin-top: 10px;
+                        &.is-disabled {
+                            .field {
+                                .checkbox {
+                                    color: $color-gray-light-100;
+                                    pointer-events: none;
+                                    span {
+                                        color: $color-gray-light-100;
+                                        background-color: $color-gray-light-300;
+                                    }
+                                    input[type="checkbox"] {
+                                        opacity: 0.5;
+                                    }
+                                }
+                                .select {
+                                    pointer-events: none;
+                                    &:after {
+                                        border-color: $color-white !important;
+                                    }
+                                    select {
+                                        background-color: $color-gray-light-300;
+                                        option {
+                                            color: $color-gray-light-100;
+                                            background-color: $color-gray-light-300;
+                                        }
+                                    }
+                                }
+                                .input {
+                                    color: $color-gray-light-100;
+                                    pointer-events: none;
+                                    background-color: $color-gray-light-300;
+                                }
+                            }
+                        }
+                    }
+                    .field {
+                        position: relative;
+                        //flex-grow: 1; //TODO capire perchè manda in banana la grid
+                        padding-right: 5px;
+                        margin-bottom: 5px;
+                        .control {
+                            &.is-disabled {
+                                .checkbox {
+                                    color: $color-gray-light-100;
+                                    pointer-events: none;
+                                    span {
+                                        color: $color-white-dark-100;
+                                        background-color: $color-gray-light-300;
+                                    }
+                                    input[type="checkbox"] {
+                                        opacity: 0.5;
+                                    }
+                                }
+                            }
+                            &.is-danger {
+                                .checkbox {
+                                    color: $color-red !important;
+                                    span {
+                                        color: $color-white-dark-100 !important;
+                                        background-color: $color-red !important;
+                                    }
+                                }
+                                .select {
+                                    &:after {
+                                        border-color: $color-white !important;
+                                    }
+                                    select {
+                                        background-color: $color-red;
+                                        option {
+                                            color: $color-white;
+                                            background-color: $color-red;
+                                        }
+                                    }
+                                }
+                                .input {
+                                    color: $color-white;
+                                    background-color: $color-red;
+                                }
+                            }
+                        }
+                        .checkbox {
+                            width: 100%;
+                            color: $color-white !important;
+                            span {
+                                display: block;
+                                padding: 8px;
+                                border-radius: 5px;
+                                color: $color-white;
+                                text-align: center;
+                                background-color: $color-gray-light-100;
+                            }
+                            input[type="checkbox"]:checked + span {
+                                background-color: $color-blue;
+                            }
+                        }
+                        .select {
+                            width: 100%;
+                            &:after {
+                                border-color: $color-white !important;
+                            }
+                            select {
+                                width: 100%;
+                                border: 0;
+                                color: #fff;
+                                background-color: $color-gray-light-100;
+                                option {
+                                    color: $color-gray;
+                                    padding: 10px;
+                                    background-color: $color-white-dark-100;
+                                }
+                            }
+                        }
+                        .input {
+                            border: 0;
+                            color: $color-white;
+                            background-color: $color-gray-light-100;
+                        }
+                    }
+                    .fields-player {
+                        .control {
+                            display: flex;
+                            align-items: center;
+                            .select {
+                                .icon {
+                                    color: $color-white;
+                                }
+                            }
+                            .player-icon {
+                                margin-left: 10px;
+                                img {
+                                    display: block;
+                                }
+                                span {
+                                    display: inline-block;
+                                    min-width: 40px;
+                                    max-width: 40px;
+                                    height: 40px;
+                                    border-radius: 100%;
+                                    background-size: cover;
+                                    background-position: center center;
+                                    background-repeat: no-repeat;
+                                }
+                            }
+                        }
+                        .filter-player_1 span {
+                            border: solid 3px $color-blue;
+                            background-color: $color-blue;
+                        }
+                        .filter-player_2 span {
+                            border: solid 3px $color-purple;
+                            background-color: $color-purple;
+                        }
+                        .filter-player_1,
+                        .filter-player_2 {
+                            .select-advanced {
+                                width: 100%;
+                            }
+                        }
+                        .filter-player-advanced {
+                            .input {
+                                max-width: calc(100% - 50px);
+                                border: dashed 1px $color-white;
+                                cursor: pointer;
+                                background-color: transparent;
+                                .icon {
+                                    color: $color-white !important;
+                                }
+                            }
+                        }
+                    }
+                    .fields-common {
+                        .control {
+                            //display: flex;
+                            //align-items: center;
+                            //justify-content: space-between;
+                            span {
+                                //margin-right: 15px;
+                                //max-width: 100px;
+                                &.placeholder {
+                                    display: block;
+                                    width: 100%;
+                                    max-width: 100%;
+                                    color: #979797;
+                                    border: dashed 1px;
+                                    padding: 3px 8px;
+                                    border-radius: 2px;
+                                }
+                            }
+                            .select-advanced {
+                                //flex-grow: 1;
+                                //max-width: 120px;
+                            }
+                            label {
+                                //width: 60px;
+                                color: $color-white !important;
+                                &:first-of-type {
+                                    //margin-left: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .filter-actions {
+                    position: relative;
+                    &.is-disabled {
+                        a {
+                            opacity: 0.5;
+                            pointer-events: none;
+                        }
+                    }
+                    .actions-wrap {
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        top: 0;
+                        left: 20px;
+                        padding: 5px 20px;
+                        border-radius: 50px;
+                        border: solid 2px $color-white;
+                        background-color: $color-gray-light-100;
+                        transform: translateY(-50%);
+                        b {
+                            padding: 5px 5px;
+                        }
+                        a, label {
+                            display: flex;
+                            align-items: center;
+                            padding: 5px 15px;
+                            cursor: pointer;
+                            img {
+                                margin-left: 10px;
+                            }
+                        }
+                        a {
+                            border-right: solid 1px;
+                        }
+                    }
+                }
+                .filter-smartdata {
+                    border-bottom: solid 1px $color-white;
+                    background-color: $color-gray-dark-100;
+                    &.is-disabled {
+                        .radio {
+                            pointer-events: none;
+                            .radio-button {
+                                i {
+                                    background-color: $color-gray-light-300;
+                                    img {
+                                        filter: brightness(0.5);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    > .column:nth-of-type(1) {
+                        padding-top: 40px;
+                    }
+                    > .column:nth-of-type(2) {
+                        padding-top: 30px;
+                        overflow: hidden;
+                        .column-wrap {
+                            display: flex;
+                            justify-content: flex-start;
+                            overflow-x: auto;
+                            padding-bottom: 20px;
+                            margin-bottom: -20px;
+                            .radio {
+                                display: flex;
+                                margin-left: 0;
+                                &.is-disabled {
+                                    display: none;
+                                }
+                                input[type="radio"]:checked ~ .radio-button{
+                                    i {
+                                        background-color: $color-blue;
+                                    }
+                                }
+                                .radio-button {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    max-width: 70px;
+                                    min-width: 70px;
+                                    margin: 0;
+                                    font-size: 12px;
+                                    text-align: center;
+                                    color: $color-white !important;
+                                    &:hover {
+                                        i {
+                                            background-color: $color-blue;
+                                        }
+                                    }
+                                    i {
+                                        margin-bottom: 5px;
+                                        border-radius: 100%;
+                                        img {
+                                            display: block;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                                .select-advanced.is-disabled {
+                                    opacity: 0.4;
+                                    pointer-events: none;
+                                }
+                            }
+                        }
+                    }
+                    > .column:nth-of-type(3) {
+                        > h5 {
+                            margin-top: 10px;
+                        }
+                        .fields-aggregation {
+                            padding: 20px 0px 0px;
+                            border: 0px !important;
+                            .columns {
+                                justify-content: space-between;
+                                .tag {
+                                    height: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .row-report {
+            flex-grow: 1;
+            .report-sidebar {
+                padding: 0;
+                .sidebar-menu {
+                    padding: 20px 20px;
+                    background-color: $color-gray-dark-100;
+                    &.is-disabled {
+                        label {
+                            opacity: 0.6;
+                            pointer-events: none;
+                        }
+                    }
+                    label {
+                        display: block;
+                        opacity: 0.5;
+                        padding-left: 15px;
+                        cursor: pointer;
+                        &:before {
+                            content: '>';
+                            opacity: 0;
+                            margin-right: 2px;
+                            margin-left: -15px;
+                        }
+                        &.is-active, &:hover {
+                            opacity: 1;
+                            font-weight: bold;
+                            &:before {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                .sidebar-footer {
+                    padding: 20px 20px;
+                    * {
+                        font-size: 14px;
+                    }
+                    .link {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        margin-bottom: 10px;
+                        b {
+                            width: 100%;
+                        }
+                        a {
+                            margin-top: 10px;
+                        }
+                        img {
+                            height: 20px;
+                            margin-right: 10px;
+                        }
+                    }
+                    hr {
+                        margin: 10px 0;
+                    }
+                }
+            }
+            .report-board {
+                padding: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                background-color: $color-white;
+                max-height: 800px;
+                .report-board-wrap.is-disabled {
+                    opacity: 0.6;
+                    pointer-events: none;
+                }
+                .report-board-head {
+                    position: sticky;
+                    top: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px 20px;
+                    background-color: $color-white-dark-100;
+                    z-index: 99;
+                    .head-title {
+                        flex-grow: 1;
+                        padding-right: 40px;
+                        h3 {
+                            display: flex;
+                            align-items: center;
+                            input {
+                                width: 100%;
+                                height: 33px;
+                                padding: 0px 15px;
+                                margin-right: 10px;
+                                font-size: 20px;
+                                color: $color-black;
+                                border: 0;
+                                border-radius: 5px;
+                                background-color: #ECECEC;
+                                &:read-only {
+                                    background-color: transparent;
+                                }
+                            }
+                            .button {
+                                margin-right: 5px;
+                            }
+                        }
+                        p {
+                            font-size: 14px;
+                            color: $color-gray-light-200;
+                        }
+                    }
+                    .head-actions {
+                        .button {
+                            opacity: 0.5;
+                            pointer-events: none;
+                            &:hover {
+                                color: $color-white !important;
+                                img {
+                                    filter: brightness(0) invert(1);
+                                }
+                            }
+                            &.enabled {
+                                opacity: 1;
+                                pointer-events: auto;
+                            }
+                        }
+                    }
+                }
+                .report-board-body {
+                    padding: 10px 20px;
+                    .report-waiting {
+                        width: 100%;
+                        color: $color-gray;
+                        padding: 10px 15px;
+                        margin-top: 20px;
+                    }
+                    .report-type {
+                        position: relative;
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                    app-report {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .board-right {
+        // max-height: calc(100vh - 46px);
+        min-height: 700px;
+        > .columns {
+            height: 100%;
+            flex-direction: column;
+            > .column {
+                position: relative;
+                z-index: 0;
+                .column-loader {
+                    display: flex;
+                    position: absolute;
+                    z-index: 100;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    .loader-type {
+                        width: 100%;
+                        text-align: center;
+                        padding: 20px 20px;
+                    }
+                }
+            }
+        }
+        .row-tennis_field {
+            background-color: $color-black;
+            flex-grow: 1;
+            > .columns {
+                height: 100%;
+            }
+            .column-loader {
+                .loader-type {
+                    padding-top: 40% !important;
+                    img {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+        .row-tennis_video {
+            max-height: 0;
+            padding-top: 70%;
+            background-image: url(../../../assets/images/placeholder/tennis_video.png);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            .column-loader {
+                background-color: rgba($color-black, 0.8);
+                .loader-type {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    &.type-waiting_selection {
+                        p {
+                            margin: 20px 0;
+                        }
+                        button {
+                            border: 0 !important;
+                            &:hover {
+                                background-color: $color-blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,422 @@
+<h5>
+    INSIGHT VIEW:
+    <b *ngIf="insightSelected.type.id === 'serve_placement' && insightSelected.side[0] === 'deuce'">SERVE ZONE S1 - S4</b>
+    <b *ngIf="insightSelected.type.id === 'serve_placement' && insightSelected.side[0] === 'ad'">SERVE ZONE S5 - S8</b>
+    <b *ngIf="insightSelected.type.id === 'return_contact_depth'">RETURN ZONE Z1 - Z5</b>
+    <b *ngIf="insightSelected.type.id === 'return_contact'">RETURN ZONE A, B, C, D</b>
+</h5>
+
+<div class="tabs">
+    <ul>
+        <li [class.is-active]="insightSelected.view.id === 'graph_bars'">
+            <a (click)="insightSelected.view.id = 'graph_bars'">
+                <span class="icon is-small">
+                    <img src="../../../../../assets/icons/svg/simulation/icon-insight-graph_bars.svg">
+                </span>
+                <span>Graph Bars</span>
+            </a>
+        </li>
+        <li [class.is-active]="insightSelected.view.id === 'shot_placement'">
+            <a (click)="insightSelected.view.id = 'shot_placement'">
+                <span class="icon is-small">
+                    <img src="../../../../../assets/icons/svg/simulation/icon-insight-shot_placement.svg">
+                </span>
+                <span>Shot Placement</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div [class.is-active]="insightSelected.view.id === 'graph_bars'" class="tab-content tab-garph_bars">
+
+    <div class="settings">
+        <div class="control setting-perc_distribution">
+            <b class="is-size-6">% distribution: </b>
+            <label class="radio">
+                <input type="radio" [ngModel]="insightSelected.settings.perc_distribution" name="setting-perc_distribution" value="zone" (change)="onSettingRadioChange('perc_distribution', 'zone')">
+                Zone
+            </label>
+            <label class="radio">
+                <input type="radio" [ngModel]="insightSelected.settings.perc_distribution" name="setting-perc_distribution" value="area" (change)="onSettingRadioChange('perc_distribution', 'area')">
+                Area
+            </label>
+        </div>
+    </div>
+
+    <!-- S1 - S8 -->
+    <div *ngIf="insightSelected.type.id === 'serve_placement'" #tennisFieldInsightGraphBars>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 416 402">
+            <defs>
+                <clipPath id="clip-path">
+                    <rect id="graph-line-mask" width="416" height="402" stroke-width="1" fill="#fff" stroke="#707070" transform="translate(56.907 0.155)"/>
+                </clipPath>
+            </defs>
+            <g id="icon-insight-graph_bars-serve-s1_s8" transform="translate(-63.999 -270)">
+                <g id="graph-line-wrap" transform="translate(7.093 269.845)" clip-path="url(#clip-path)">
+                    <g id="graph-line-mask-wrap" transform="translate(-194.692 -226.41)">
+                        <g id="tennis-field" attr.transform="translate({{ (insightSelected.side[0] === 'deuce') ? '255 2' : '2' }})">
+                            <g id="tennis-field-area-right" transform="translate(602.616) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                                <rect width="1115.867" height="79.19" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="1114.867" height="78.19" fill="none"/>
+                            </g>
+                            <g id="tennis-field-area-left" transform="translate(108.083) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                                <rect width="1115.867" height="79.19" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="1114.867" height="78.19" fill="none"/>
+                            </g>
+                            <g id="tennis-field-area-ref-3" transform="translate(525.357 557.066) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                                <rect width="301.961" height="210.529" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="300.961" height="209.529" fill="none"/>
+                            </g>
+                            <g id="tennis-field-area-opp-3" transform="translate(316.759 256.84) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                                <rect width="301.961" height="210.529" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="300.961" height="209.529" fill="none"/>
+                            </g>
+                            <g id="tennis-field-area-ref-2" transform="translate(316.759 557.066) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                                <rect width="301.961" height="210.529" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="300.961" height="209.529" fill="none"/>
+                            </g>
+                            <g id="tennis-field-area-opp-1" transform="translate(524.103) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                                <rect width="257.322" height="417.873" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="256.322" height="416.873" fill="none"/>
+                            </g>
+                            <g id="tennis-field-area-ref-1" transform="translate(525.357 857.291) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                                <rect width="258.576" height="419.127" stroke="none"/>
+                                <rect x="0.5" y="0.5" width="257.576" height="418.127" fill="none"/>
+                            </g>
+                            <path id="tennis-field-net" d="M0,0V605.047" transform="translate(614.704 557.066) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                            <g id="tennis-field-net-pole-right" transform="translate(625.793 551.859) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                                <circle cx="5.794" cy="5.794" r="5.794" stroke="none"/>
+                                <circle cx="5.794" cy="5.794" r="4.794" fill="none"/>
+                            </g>
+                            <g id="tennis-field-net-pole-left" transform="translate(11.589 551.859) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                                <circle cx="5.794" cy="5.794" r="5.794" stroke="none"/>
+                                <circle cx="5.794" cy="5.794" r="4.794" fill="none"/>
+                            </g>
+                            <path id="tennis-field-line-reference" d="M2372.057,223.428v9.162" transform="translate(-2056.153 882.499)" fill="none" stroke="#fff" stroke-width="1"/>
+                            <path id="tennis-field-line-opponent" d="M2372.057,223.428v9.162" transform="translate(-2056.153 -222.296)" fill="none" stroke="#fff" stroke-width="1"/>
+                        </g>
+                        <g id="graph-bar-perc-line-wrap" attr.transform="translate({{ (insightSelected.side[0] === 'deuce') ? '45 0' : '0' }})">
+                            <g *ngIf="insightSelected.side[0] === 'ad'" id="graph-bar-perc-line-5">
+                                <rect id="graph-bar-perc-line-bg-1" width="49" height="291" rx="2" transform="translate(321.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-1" transform="translate(338.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">5</tspan></text>
+                                <text id="graph-bar-perc-line-title-1" transform="translate(331.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s5.counts) ? (insightSelected.data.serve_placement.s5.points * 100 / insightSelected.data.serve_placement.s5.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-1" transform="translate(351.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-1" transform="translate(330.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s5.points }}/{{ insightSelected.data.serve_placement.s5.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-1" d="M8511.2,37h35.284" transform="translate(-8183.031 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                            <g *ngIf="insightSelected.side[0] === 'ad'" id="graph-bar-perc-line-6">
+                                <rect id="graph-bar-perc-line-bg-2" data-name="graph-bar-perc-line-bg" width="48" height="291" rx="2" transform="translate(372.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-2" data-name="graph-bar-perc-line-n" transform="translate(392.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">6</tspan></text>
+                                <text id="graph-bar-perc-line-title-2" data-name="graph-bar-perc-line-title" transform="translate(382.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s6.counts) ? (insightSelected.data.serve_placement.s6.points * 100 / insightSelected.data.serve_placement.s6.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-2" data-name="graph-bar-perc-line-title-perc" transform="translate(405.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-2" data-name="graph-bar-perc-line-subtitle" transform="translate(384.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s6.points }}/{{ insightSelected.data.serve_placement.s6.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-2" data-name="graph-bar-perc-line-base" d="M8511.2,37h35.284" transform="translate(-8132.375 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                            <g *ngIf="insightSelected.side[0] === 'ad'" id="graph-bar-perc-line-7">
+                                <rect id="graph-bar-perc-line-bg-3" data-name="graph-bar-perc-line-bg" width="49" height="291" rx="2" transform="translate(422.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-3" data-name="graph-bar-perc-line-n" transform="translate(442.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">7</tspan></text>
+                                <text id="graph-bar-perc-line-title-3" data-name="graph-bar-perc-line-title" transform="translate(431.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s7.counts) ? (insightSelected.data.serve_placement.s7.points * 100 / insightSelected.data.serve_placement.s7.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-3" data-name="graph-bar-perc-line-title-perc" transform="translate(454.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-3" data-name="graph-bar-perc-line-subtitle" transform="translate(434.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s7.points }}/{{ insightSelected.data.serve_placement.s7.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-3" data-name="graph-bar-perc-line-base" d="M8511.2,37h35.284" transform="translate(-8081.849 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                            <g *ngIf="insightSelected.side[0] === 'ad'" id="graph-bar-perc-line-8">
+                                <rect id="graph-bar-perc-line-bg-4" data-name="graph-bar-perc-line-bg" width="48" height="291" rx="2" transform="translate(473.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-4" data-name="graph-bar-perc-line-n" transform="translate(491.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">8</tspan></text>
+                                <text id="graph-bar-perc-line-title-4" data-name="graph-bar-perc-line-title" transform="translate(481.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s8.counts) ? (insightSelected.data.serve_placement.s8.points * 100 / insightSelected.data.serve_placement.s8.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-4" data-name="graph-bar-perc-line-title-perc" transform="translate(505.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-4" data-name="graph-bar-perc-line-subtitle" transform="translate(481.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s8.points }}/{{ insightSelected.data.serve_placement.s8.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-4" data-name="graph-bar-perc-line-base" d="M8511.2,37h35.284" transform="translate(-8031.222 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                            <g *ngIf="insightSelected.side[0] === 'deuce'" id="graph-bar-perc-line-1">
+                                <rect id="graph-bar-perc-line-bg-1" width="49" height="291" rx="2" transform="translate(321.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-1" transform="translate(338.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+                                <text id="graph-bar-perc-line-title-1" transform="translate(331.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s1.counts) ? (insightSelected.data.serve_placement.s1.points * 100 / insightSelected.data.serve_placement.s1.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-1" transform="translate(351.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-1" transform="translate(330.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s1.points }}/{{ insightSelected.data.serve_placement.s1.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-1" d="M8511.2,37h35.284" transform="translate(-8183.031 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                            <g *ngIf="insightSelected.side[0] === 'deuce'" id="graph-bar-perc-line-2">
+                                <rect id="graph-bar-perc-line-bg-2" data-name="graph-bar-perc-line-bg" width="48" height="291" rx="2" transform="translate(372.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-2" data-name="graph-bar-perc-line-n" transform="translate(392.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">2</tspan></text>
+                                <text id="graph-bar-perc-line-title-2" data-name="graph-bar-perc-line-title" transform="translate(382.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s2.counts) ? (insightSelected.data.serve_placement.s2.points * 100 / insightSelected.data.serve_placement.s2.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-2" data-name="graph-bar-perc-line-title-perc" transform="translate(405.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-2" data-name="graph-bar-perc-line-subtitle" transform="translate(384.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s2.points }}/{{ insightSelected.data.serve_placement.s2.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-2" data-name="graph-bar-perc-line-base" d="M8511.2,37h35.284" transform="translate(-8132.375 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                            <g *ngIf="insightSelected.side[0] === 'deuce'" id="graph-bar-perc-line-3">
+                                <rect id="graph-bar-perc-line-bg-3" data-name="graph-bar-perc-line-bg" width="49" height="291" rx="2" transform="translate(422.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-3" data-name="graph-bar-perc-line-n" transform="translate(442.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">3</tspan></text>
+                                <text id="graph-bar-perc-line-title-3" data-name="graph-bar-perc-line-title" transform="translate(431.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s3.counts) ? (insightSelected.data.serve_placement.s3.points * 100 / insightSelected.data.serve_placement.s3.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-3" data-name="graph-bar-perc-line-title-perc" transform="translate(454.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-3" data-name="graph-bar-perc-line-subtitle" transform="translate(434.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s3.points }}/{{ insightSelected.data.serve_placement.s3.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-3" data-name="graph-bar-perc-line-base" d="M8511.2,37h35.284" transform="translate(-8081.849 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                            <g *ngIf="insightSelected.side[0] === 'deuce'" id="graph-bar-perc-line-4">
+                                <rect id="graph-bar-perc-line-bg-4" data-name="graph-bar-perc-line-bg" width="48" height="291" rx="2" transform="translate(473.599 262.565)" fill="#fff" opacity="0.2"/>
+                                <text id="graph-bar-perc-line-n-4" data-name="graph-bar-perc-line-n" transform="translate(491.599 291.565)" fill="#fff" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">4</tspan></text>
+                                <text id="graph-bar-perc-line-title-4" data-name="graph-bar-perc-line-title" transform="translate(481.599 533.565)" fill="#fff" font-size="20" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.serve_placement.s4.counts) ? (insightSelected.data.serve_placement.s4.points * 100 / insightSelected.data.serve_placement.s4.counts).toFixed(0) : '0' }}</tspan></text>
+                                <text id="graph-bar-perc-line-title-perc-4" data-name="graph-bar-perc-line-title-perc" transform="translate(505.599 533.565)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                                <text id="graph-bar-perc-line-subtitle-4" data-name="graph-bar-perc-line-subtitle" transform="translate(481.599 545.565)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.serve_placement.s4.points }}/{{ insightSelected.data.serve_placement.s4.counts }}</tspan></text>
+                                <path id="graph-bar-perc-line-base-4" data-name="graph-bar-perc-line-base" d="M8511.2,37h35.284" transform="translate(-8031.222 472.732)" fill="none" stroke="#fff" stroke-width="1"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="graph-bar-perc-step-wrap" attr.transform="translate({{ (insightSelected.side[0] === 'deuce') ? '45 0' : '0' }})">
+                    <path id="graph-perc-step-0" d="M8511.2,37h223.914" transform="translate(-8391.119 516.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-10" d="M8511.2,37h223.914" transform="translate(-8391.119 496.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-20" d="M8511.2,37h223.914" transform="translate(-8391.119 476.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-30" d="M8511.2,37h223.914" transform="translate(-8391.119 455.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-40" d="M8511.2,37h223.914" transform="translate(-8391.119 435.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-50" d="M8511.2,37h223.914" transform="translate(-8391.119 415.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-60" d="M8511.2,37h223.914" transform="translate(-8391.119 395.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-70" d="M8511.2,37h223.914" transform="translate(-8391.119 375.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-80" d="M8511.2,37h223.914" transform="translate(-8391.119 354.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-90" d="M8511.2,37h223.914" transform="translate(-8391.119 334.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <path id="graph-perc-step-100" d="M8511.2,37h223.914" transform="translate(-8391.119 314.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                    <rect id="graph-bar-perc-line-active-1" x="148" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s1.counts) ? 160 - insightSelected.data.serve_placement.s1.points * 203 / insightSelected.data.serve_placement.s1.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s1.counts) ? insightSelected.data.serve_placement.s1.points * 203 / insightSelected.data.serve_placement.s1.counts : 0" width="20" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-active-2" x="198" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s2.counts) ? 160 - insightSelected.data.serve_placement.s2.points * 203 / insightSelected.data.serve_placement.s2.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s2.counts) ? insightSelected.data.serve_placement.s2.points * 203 / insightSelected.data.serve_placement.s2.counts : 0" width="22" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-active-3" x="249" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s3.counts) ? 160 - insightSelected.data.serve_placement.s3.points * 203 / insightSelected.data.serve_placement.s3.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s3.counts) ? insightSelected.data.serve_placement.s3.points * 203 / insightSelected.data.serve_placement.s3.counts : 0" width="20" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-active-4" x="299" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s4.counts) ? 160 - insightSelected.data.serve_placement.s4.points * 203 / insightSelected.data.serve_placement.s4.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s4.counts) ? insightSelected.data.serve_placement.s4.points * 203 / insightSelected.data.serve_placement.s4.counts : 0" width="20" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-active-5" x="148" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s5.counts) ? 160 - insightSelected.data.serve_placement.s5.points * 203 / insightSelected.data.serve_placement.s5.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s5.counts) ? insightSelected.data.serve_placement.s5.points * 203 / insightSelected.data.serve_placement.s5.counts : 0" width="20" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-active-6" x="198" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s6.counts) ? 160 - insightSelected.data.serve_placement.s6.points * 203 / insightSelected.data.serve_placement.s6.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s6.counts) ? insightSelected.data.serve_placement.s6.points * 203 / insightSelected.data.serve_placement.s6.counts : 0" width="22" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-active-7" x="249" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s7.counts) ? 160 - insightSelected.data.serve_placement.s7.points * 203 / insightSelected.data.serve_placement.s7.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s7.counts) ? insightSelected.data.serve_placement.s7.points * 203 / insightSelected.data.serve_placement.s7.counts : 0" width="20" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-active-8" x="299" y="394" attr.transform="translate(0 {{ (insightSelected.data.serve_placement.s8.counts) ? 160 - insightSelected.data.serve_placement.s8.points * 203 / insightSelected.data.serve_placement.s8.counts : 160 }})" [attr.height]="(insightSelected.data.serve_placement.s8.counts) ? insightSelected.data.serve_placement.s8.points * 203 / insightSelected.data.serve_placement.s8.counts : 0" width="20" fill="#019dba"/>
+                    <text id="graph-perc-txt-0" transform="translate(102 557)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">0%</tspan></text>
+                    <text id="graph-perc-txt-50" transform="translate(97 455)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">50%</tspan></text>
+                    <text id="graph-perc-txt-100" transform="translate(92 356)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">100%</tspan></text>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Z1 - Z5 -->
+    <div *ngIf="insightSelected.type.id === 'return_contact_depth'" #tennisFieldInsightGraphBars>
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 426 442">
+            <defs>
+                <clipPath id="clip-path">
+                    <rect id="graph-line-mask" width="426" height="420" stroke-width="1" fill="#fff" stroke="#707070" transform="translate(-0.243 -0.08)"/>
+                </clipPath>
+            </defs>
+            <g id="icon-insight-graph_bars-serve-z1_z5" transform="translate(-1457.757 -212.92)">
+                <g id="graph-line-mask-wrap" transform="translate(1458 235)" clip-path="url(#clip-path)">
+                    <g id="tennis-field" transform="translate(39.258 88.156)">
+                        <g id="tennis-field-area-right" transform="translate(337.609) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="625.153" height="44.365" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="624.153" height="43.365" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-left" transform="translate(60.552) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="625.153" height="44.365" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="624.153" height="43.365" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-ref-3" transform="translate(294.326 312.091) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="169.171" height="117.947" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="168.171" height="116.947" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-opp-3" transform="translate(177.461 143.892) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="169.171" height="117.947" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="168.171" height="116.947" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-ref-2" transform="translate(177.461 312.091) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="169.171" height="117.947" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="168.171" height="116.947" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-opp-1" transform="translate(294.326) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="144.864" height="234.812" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="143.864" height="233.812" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-ref-1" transform="translate(294.326 480.289) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="144.864" height="234.812" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="143.864" height="233.812" fill="none"/>
+                        </g>
+                        <path id="tennis-field-net" d="M0,0V338.971" transform="translate(344.382 312.091) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                        <g id="tennis-field-net-pole-right" transform="translate(350.594 309.174) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                            <circle cx="3.246" cy="3.246" r="3.246" stroke="none"/>
+                            <circle cx="3.246" cy="3.246" r="2.246" fill="none"/>
+                        </g>
+                        <g id="tennis-field-net-pole-left" transform="translate(6.492 309.174) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                            <circle cx="3.246" cy="3.246" r="3.246" stroke="none"/>
+                            <circle cx="3.246" cy="3.246" r="2.246" fill="none"/>
+                        </g>
+                        <path id="tennis-field-decoration-ref" d="M2372.057,223.428v5.133" transform="translate(-2195.075 396.156)" fill="none" stroke="#fff" stroke-width="1"/>
+                        <path id="tennis-field-decoration-opp" d="M2372.057,223.428v5.133" transform="translate(-2195.075 -222.794)" fill="none" stroke="#fff" stroke-width="1"/>
+                    </g>
+                </g>
+                <g id="graph-bar-perc-line-5" transform="translate(1420.757 -1.08)">
+                    <path id="graph-bar-perc-line-base-5" d="M0,0H31.679" transform="translate(93.015 247.363) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                    <rect id="graph-bar-perc-line-bg-5" width="405" height="40" rx="4" transform="translate(45 243)" fill="#fff" opacity="0.2"/>
+                    <text id="graph-bar-perc-line-pretitle-5" transform="translate(53 254)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 5</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-5" transform="translate(53.318 279.64)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact_depth.z5.points }}/{{ insightSelected.data.return_contact_depth.z5.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-5" width="17.021" [attr.height]="(insightSelected.data.return_contact_depth.z5.counts) ? insightSelected.data.return_contact_depth.z5.points * 322 / insightSelected.data.return_contact_depth.z5.counts : 0" attr.transform="translate({{ (insightSelected.data.return_contact_depth.z5.counts) ? 94 + insightSelected.data.return_contact_depth.z5.points * 322 / insightSelected.data.return_contact_depth.z5.counts : 94 }} 255) rotate(90)" fill="#019dba"/>
+                    <text id="graph-bar-perc-line-title-5" transform="translate(52.318 268.565)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact_depth.z5.counts) ? (insightSelected.data.return_contact_depth.z5.points * 100 / insightSelected.data.return_contact_depth.z5.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-title-perc-5" transform="translate(61.828 268.021)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                </g>
+                <g id="graph-bar-perc-line-4" transform="translate(1420.757 -1.08)">
+                    <path id="graph-bar-perc-line-base-4" d="M0,0H31.679" transform="translate(93.015 288.023) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+                    <rect id="graph-bar-perc-line-active-4" width="17.021" [attr.height]="(insightSelected.data.return_contact_depth.z4.counts) ? insightSelected.data.return_contact_depth.z4.points * 322 / insightSelected.data.return_contact_depth.z4.counts : 0" attr.transform="translate({{ (insightSelected.data.return_contact_depth.z4.counts) ? 94 + insightSelected.data.return_contact_depth.z4.points * 322 / insightSelected.data.return_contact_depth.z4.counts : 94 }} 295.756) rotate(90)" fill="#019dba"/>
+                    <rect id="graph-bar-perc-line-bg-4" width="405" height="40" rx="4" transform="translate(45 284)" fill="#fff" opacity="0.2"/>
+                    <text id="graph-bar-perc-line-pretitle-4" transform="translate(53 295)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 4</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-4" transform="translate(53.318 320.3)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact_depth.z4.points }}/{{ insightSelected.data.return_contact_depth.z4.counts }}</tspan></text>
+                    <text id="graph-bar-perc-line-title-4" transform="translate(52.318 309.225)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact_depth.z4.counts) ? (insightSelected.data.return_contact_depth.z4.points * 100 / insightSelected.data.return_contact_depth.z4.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-title-perc-4" transform="translate(71.828 308.681)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                </g>
+                <g id="graph-bar-perc-line-3">
+                    <rect id="graph-bar-perc-line-bg-3" width="405" height="74" rx="4" transform="translate(1465.757 323.92)" fill="#fff" opacity="0.2"/>
+                    <text id="graph-bar-perc-line-pretitle-3" transform="translate(1473.757 350.92)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 3</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-3" transform="translate(1474.075 375.956)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact_depth.z3.points }}/{{ insightSelected.data.return_contact_depth.z3.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-3" width="17.021" [attr.height]="(insightSelected.data.return_contact_depth.z3.counts) ? insightSelected.data.return_contact_depth.z3.points * 322 / insightSelected.data.return_contact_depth.z3.counts : 0" attr.transform="translate({{ (insightSelected.data.return_contact_depth.z3.counts) ? 1515 + insightSelected.data.return_contact_depth.z3.points * 322 / insightSelected.data.return_contact_depth.z3.counts : 1515 }} 349.521) rotate(90)" fill="#019dba"/>
+                    <text id="graph-bar-perc-line-title-3" transform="translate(1474.075 364.881)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact_depth.z3.counts) ? (insightSelected.data.return_contact_depth.z3.points * 100 / insightSelected.data.return_contact_depth.z3.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-title-perc-3" transform="translate(1493.095 364.337)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                </g>
+                <g id="graph-bar-perc-line-2">
+                    <rect id="graph-bar-perc-line-bg-2" width="405" height="68" rx="4" transform="translate(1465.757 398.92)" fill="#fff" opacity="0.2"/>
+                    <text id="graph-bar-perc-line-pretitle-2" transform="translate(1473.757 422.92)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 2</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-2" transform="translate(1474.075 447.82)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact_depth.z2.points }}/{{ insightSelected.data.return_contact_depth.z2.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-2" width="17.021" [attr.height]="(insightSelected.data.return_contact_depth.z2.counts) ? insightSelected.data.return_contact_depth.z2.points * 322 / insightSelected.data.return_contact_depth.z2.counts : 0" attr.transform="translate({{ (insightSelected.data.return_contact_depth.z2.counts) ? 1515 + insightSelected.data.return_contact_depth.z2.points * 322 / insightSelected.data.return_contact_depth.z2.counts : 1515 }} 422.331) rotate(90)" fill="#019dba"/>
+                    <text id="graph-bar-perc-line-title-2" transform="translate(1474.075 436.745)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact_depth.z2.counts) ? (insightSelected.data.return_contact_depth.z2.points * 100 / insightSelected.data.return_contact_depth.z2.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-title-perc-2" transform="translate(1493.095 436.201)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                </g>
+                <g id="graph-bar-perc-line-1">
+                    <rect id="graph-bar-perc-line-bg-1" width="405" height="164" rx="4" transform="translate(1465.757 467.92)" fill="#fff" opacity="0.2"/>
+                    <text id="graph-bar-perc-line-pretitle" transform="translate(1473.757 536.92)" fill="#fff" font-size="9" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">ZONE 1</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-1" transform="translate(1474.075 562.236)" fill="#fff" font-size="10" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact_depth.z1.points }}/{{ insightSelected.data.return_contact_depth.z1.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-1" width="17.021" [attr.height]="(insightSelected.data.return_contact_depth.z1.counts) ? insightSelected.data.return_contact_depth.z1.points * 322 / insightSelected.data.return_contact_depth.z1.counts : 0" attr.transform="translate({{ (insightSelected.data.return_contact_depth.z1.counts) ? 1515 + insightSelected.data.return_contact_depth.z1.points * 322 / insightSelected.data.return_contact_depth.z1.counts : 1515 }} 536.747) rotate(90)" fill="#019dba"/>
+                    <text id="graph-bar-perc-line-title-1" transform="translate(1473.075 552.161)" fill="#fff" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact_depth.z1.counts) ? (insightSelected.data.return_contact_depth.z1.points * 100 / insightSelected.data.return_contact_depth.z1.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-title-perc-1" transform="translate(1482.585 550.617)" fill="#fff" font-size="8" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                </g>
+                <path id="graph-perc-step-0" d="M0,0H426.716" transform="translate(1514.257 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-10" d="M0,0H426.716" transform="translate(1543.256 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-20" d="M0,0H426.716" transform="translate(1572.257 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-30" d="M0,0H426.716" transform="translate(1609.828 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-40" d="M0,0H426.716" transform="translate(1642.783 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-50" d="M0,0H426.716" transform="translate(1674.641 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-60" d="M0,0H426.716" transform="translate(1706.497 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-70" d="M0,0H426.716" transform="translate(1738.354 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-80" d="M0,0H426.716" transform="translate(1770.211 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-90" d="M0,0H426.716" transform="translate(1806.023 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-100" d="M0,0H426.716" transform="translate(1835.024 228.205) rotate(90)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <text id="graph-perc-txt-0" transform="translate(1509 224.92)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">0%</tspan></text>
+                <text id="graph-perc-txt-50" transform="translate(1667 220.92)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">50%</tspan></text>
+                <text id="graph-perc-txt-100" transform="translate(1824 220.92)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">100%</tspan></text>
+            </g>
+        </svg>
+    </div>
+
+    <!-- A - D -->
+    <div *ngIf="insightSelected.type.id === 'return_contact'" #tennisFieldInsightGraphBars>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 555 508">
+            <defs>
+                <clipPath id="clip-path">
+                    <rect id="graph-line-mask" width="555" height="508" fill="#fff" stroke="#707070" stroke-width="1"/>
+                </clipPath>
+            </defs>
+            <g id="icon-insight-graph_bars-serve-a_d" transform="translate(27 -131)">
+                <g id="graph-line-mask-wrap" transform="translate(-27 131)" clip-path="url(#clip-path)">
+                    <g id="tennis-field" transform="translate(31.206 25.515)">
+                        <g id="tennis-field-area-right" transform="translate(473.766 0) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="877.276" height="62.258" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="876.276" height="61.258" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-left" transform="translate(84.973 0) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="877.276" height="62.258" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="876.276" height="61.258" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-ref-3" transform="translate(413.027 437.956) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="237.397" height="165.514" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="236.397" height="164.514" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-opp-3" transform="translate(249.031 205.924) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="233.397" height="165.514" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="232.397" height="164.514" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-ref-2" transform="translate(249.031 437.956) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="237.397" height="165.514" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="236.397" height="164.514" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-opp-1" transform="translate(413.027 0) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="207.288" height="329.511" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="206.288" height="328.511" fill="none"/>
+                        </g>
+                        <g id="tennis-field-area-ref-1" transform="translate(413.027 673.988) rotate(90)" fill="none" stroke="#fff" stroke-width="1">
+                            <rect width="203.288" height="329.511" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="202.288" height="328.511" fill="none"/>
+                        </g>
+                        <path id="tennis-field-net" d="M0,0V475.678" transform="translate(483.27 437.956) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                        <g id="tennis-field-net-pole-right" transform="translate(491.988 433.863) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                            <circle cx="4.555" cy="4.555" r="4.555" stroke="none"/>
+                            <circle cx="4.555" cy="4.555" r="3.555" fill="none"/>
+                        </g>
+                        <g id="tennis-field-net-pole-left" transform="translate(9.111 433.863) rotate(90)" fill="none" stroke="#fff" stroke-width="2">
+                            <circle cx="4.555" cy="4.555" r="4.555" stroke="none"/>
+                            <circle cx="4.555" cy="4.555" r="3.555" fill="none"/>
+                        </g>
+                        <path id="tennis-field-decoration-ref" d="M2372.057,223.428v7.2" transform="translate(-2123.698 646.033)" fill="none" stroke="#fff" stroke-width="1"/>
+                        <path id="tennis-field-decoration-opp" d="M2372.057,223.428v7.2" transform="translate(-2123.698 -222.538)" fill="none" stroke="#fff" stroke-width="1"/>
+                    </g>
+                </g>
+                <g *ngIf="insightSelected.side[0] === 'deuce'" id="graph-bar-perc-line-a">
+                    <rect id="graph-bar-perc-line-bg-a" width="78" height="430" rx="2" transform="translate(91 160)" fill="#fff" opacity="0.33"/>
+                    <text id="graph-bar-perc-line-n-a" transform="translate(123 185)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">A</tspan></text>
+                    <text id="graph-bar-perc-line-title-a" transform="translate(108 558)" fill="#fff" font-size="31" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact.a.counts) ? (insightSelected.data.return_contact.a.points * 100 / insightSelected.data.return_contact.a.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-perc-a" transform="translate(139 558)" fill="#fff" font-size="17" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-a" transform="translate(106 577)" fill="#fff" font-size="12" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact.a.points }}/{{ insightSelected.data.return_contact.a.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-a" x="114" y="363" width="31" [attr.height]="(insightSelected.data.return_contact.a.counts) ? insightSelected.data.return_contact.a.points * 318 / insightSelected.data.return_contact.a.counts : 0" attr.transform="translate(0 {{ (insightSelected.data.return_contact.a.counts) ? 160 - insightSelected.data.return_contact.a.points * 318 / insightSelected.data.return_contact.a.counts : 160 }})" fill="#019dba"/>
+                    <path id="graph-bar-perc-line-base-a" d="M8511.2,37h55.2" transform="translate(-8408.63 484.809)" fill="none" stroke="#fff" stroke-width="1"/>
+                </g>
+                <g *ngIf="insightSelected.side[0] === 'deuce'" id="graph-bar-perc-line-b">
+                    <rect id="graph-bar-perc-line-bg-b" width="78" height="430" rx="2" transform="translate(172 160)" fill="#fff" opacity="0.33"/>
+                    <text id="graph-bar-perc-line-n-b" transform="translate(212 185)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">B</tspan></text>
+                    <text id="graph-bar-perc-line-title-b" transform="translate(186 558)" fill="#fff" font-size="31" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact.b.counts) ? (insightSelected.data.return_contact.b.points * 100 / insightSelected.data.return_contact.b.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-perc-b" transform="translate(222 558)" fill="#fff" font-size="17" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-b" transform="translate(187 577)" fill="#fff" font-size="12" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact.b.points }}/{{ insightSelected.data.return_contact.b.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-b" x="195" y="363" width="31" [attr.height]="(insightSelected.data.return_contact.b.counts) ? insightSelected.data.return_contact.b.points * 318 / insightSelected.data.return_contact.b.counts : 0" attr.transform="translate(0 {{ (insightSelected.data.return_contact.b.counts) ? 160 - insightSelected.data.return_contact.b.points * 318 / insightSelected.data.return_contact.b.counts : 160 }})" fill="#019dba"/>
+                    <path id="graph-bar-perc-base-b" d="M8511.2,37h55.2" transform="translate(-8327.63 484.809)" fill="none" stroke="#fff" stroke-width="1"/>
+                </g>
+                <g *ngIf="insightSelected.side[0] === 'ad'" id="graph-bar-perc-line-c">
+                    <rect id="graph-bar-perc-line-bg-c" width="79" height="430" rx="2" transform="translate(254 160)" fill="#fff" opacity="0.33"/>
+                    <text id="graph-bar-perc-line-n-c" transform="translate(293 185)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">C</tspan></text>
+                    <text id="graph-bar-perc-line-title-c" transform="translate(267 558)" fill="#fff" font-size="31" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact.c.counts) ? (insightSelected.data.return_contact.c.points * 100 / insightSelected.data.return_contact.c.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-perc-c" transform="translate(302 558)" fill="#fff" font-size="17" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-c" transform="translate(269 577)" fill="#fff" font-size="12" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact.c.points }}/{{ insightSelected.data.return_contact.c.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-c" x="277" y="363" width="31" [attr.height]="(insightSelected.data.return_contact.c.counts) ? insightSelected.data.return_contact.c.points * 318 / insightSelected.data.return_contact.c.counts : 0" attr.transform="translate(0 {{ (insightSelected.data.return_contact.c.counts) ? 160 - insightSelected.data.return_contact.c.points * 318 / insightSelected.data.return_contact.c.counts : 160 }})" fill="#019dba"/>
+                    <path id="graph-bar-perc-line-base-c" d="M8511.2,37h55.2" transform="translate(-8245.63 484.809)" fill="none" stroke="#fff" stroke-width="1"/>
+                </g>
+                <g *ngIf="insightSelected.side[0] === 'ad'" id="graph-bar-perc-line-d">
+                    <text id="graph-bar-perc-line-n-d" transform="translate(371 185)" fill="#fff" font-size="11" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">D</tspan></text>
+                    <rect id="graph-bar-perc-line-bg-d" width="79" height="430" rx="2" transform="translate(335 160)" fill="#fff" opacity="0.33"/>
+                    <text id="graph-bar-perc-line-title-d" transform="translate(351 558)" fill="#fff" font-size="31" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">{{ (insightSelected.data.return_contact.d.counts) ? (insightSelected.data.return_contact.d.points * 100 / insightSelected.data.return_contact.d.counts).toFixed(0) : '0' }}</tspan></text>
+                    <text id="graph-bar-perc-line-perc-d" transform="translate(387 558)" fill="#fff" font-size="17" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">%</tspan></text>
+                    <text id="graph-bar-perc-line-subtitle-d" transform="translate(354 577)" fill="#fff" font-size="12" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">{{ insightSelected.data.return_contact.d.points }}/{{ insightSelected.data.return_contact.d.counts }}</tspan></text>
+                    <rect id="graph-bar-perc-line-active-d" x="362" y="363" width="31" [attr.height]="(insightSelected.data.return_contact.d.counts) ? insightSelected.data.return_contact.d.points * 318 / insightSelected.data.return_contact.d.counts : 0" attr.transform="translate(0 {{ (insightSelected.data.return_contact.d.counts) ? 160 - insightSelected.data.return_contact.d.points * 318 / insightSelected.data.return_contact.d.counts : 160 }})" fill="#019dba"/>
+                    <path id="graph-bar-perc-line-base-d" d="M8511.2,37h55.2" transform="translate(-8160.63 484.809)" fill="none" stroke="#fff" stroke-width="1"/>
+                </g>
+                <path id="graph-perc-step-0" d="M8511.2,37h359.916" transform="translate(-8437.119 484.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-10" d="M8511.2,37h359.916" transform="translate(-8437.119 452.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-20" d="M8511.2,37h359.916" transform="translate(-8437.119 421.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-30" d="M8511.2,37h359.916" transform="translate(-8437.119 389.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-40" d="M8511.2,37h359.916" transform="translate(-8437.119 358.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-50" d="M8511.2,37h359.916" transform="translate(-8437.119 326.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-60" d="M8511.2,37h359.916" transform="translate(-8437.119 295.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-70" d="M8511.2,37h359.916" transform="translate(-8437.119 263.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-80" d="M8511.2,37h359.916" transform="translate(-8437.119 231.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-90" d="M8511.2,37h359.916" transform="translate(-8437.119 200.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <path id="graph-perc-step-100" d="M8511.2,37h359.916" transform="translate(-8437.119 168.5)" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+                <text id="graph-perc-txt-0" transform="translate(57 525)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">0%</tspan></text>
+                <text id="graph-perc-txt-50" transform="translate(51 367)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">50%</tspan></text>
+                <text id="graph-perc-txt-100" transform="translate(46 210)" fill="#fff" font-size="9" font-family="Roboto-Light, Roboto" font-weight="300"><tspan x="0" y="0">100%</tspan></text>
+            </g>
+        </svg>
+    </div>
+
+</div>
+
+<div [class.is-active]="insightSelected.view.id === 'shot_placement'" class="tab-content tab-shot_placement">
+    COMING SOON
+    <div #tennisFieldInsightShotPlacement></div>
+</div>
+
+<br>
+<div class="buttons is-right">
+    <button class="button is-info is-small" (click)="insightEmit.emit()">CLOSE</button>
+</div>

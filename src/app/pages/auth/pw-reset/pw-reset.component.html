@@ -1,0 +1,73 @@
+<form id="pwreset" #pwresetForm="ngForm" (ngSubmit)="pwresetForm.form.valid && onSubmit(pwresetForm)" novalidate>
+    <h1 class="form-title"><img src="../../../../assets/icons/svg/icon-logo_login.svg" alt="ZLAM - Interactive Smart Data Analysis®" /></h1>
+    <div class="form-fields">
+
+        <div *ngIf="formData.message" class="notification" [class.is-danger]="formData.status === 3" [class.is-success]="formData.status === 2">
+            <p>{{ formData.message }}</p>
+        </div>
+
+        <div class="field">
+            <div class="control has-icons-left">
+                <input class="input" type="email" name="email" [(ngModel)]="formData.data.email" #email="ngModel" [ngClass]="{ 'is-danger': pwresetForm.submitted && email.invalid }" required placeholder="Email *">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope-open"></i>
+                </span>
+            </div>
+            <p *ngIf="pwresetForm.submitted && email.invalid" class="help is-danger">email address not valid or already exist</p>
+        </div>
+
+        <div class="field">
+            <div class="control has-icons-left">
+                <input class="input" type="text" name="code" [(ngModel)]="formData.data.code" #code="ngModel" [ngClass]="{ 'is-danger': pwresetForm.submitted && code.invalid }" required placeholder="Verification Code *">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-certificate"></i>
+                </span>
+            </div>
+            <p *ngIf="pwresetForm.submitted && code.invalid" class="help is-danger">Code is invalid</p>
+        </div>
+
+        <div class="field">
+            <div class="control has-icons-left">
+                <input class="input" type="password" name="password" [(ngModel)]="formData.data.password" #password="ngModel" [ngClass]="{ 'is-danger': pwresetForm.submitted && password.invalid }" required placeholder="New Password *">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </div>
+            <p *ngIf="pwresetForm.submitted && password.invalid" class="help is-danger">Password is invalid or too simple</p>
+        </div>
+
+        <div class="field">
+            <div class="control has-text-right">
+                <span class="has-text-left">
+                    Not work? <a href="/auth/password-forgot">Request new code</a>
+                </span>
+                <button class="button is-danger has-text-white" [ngClass]="{ 'is-loading': pwresetForm.submitted && formData.status == 1 }">Sigin</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="page-footer">
+    <div class="columns row-ai-top">
+        <div class="column col-info is-4">
+            <h5><b>Mas-Tech srl</b></h5>
+            <p>P. Iva 03487790366 <br>Via Cantone, 96 41032 Cavezzo (MO)</p>
+        </div>
+        <div class="column col-links is-8">
+            <a class="link has-text-white" href="#">Need help?</a>
+            <a class="link has-text-white" href="#">
+                <img src="../../../../assets/icons/svg/icon-book.svg" />
+                Tutorial
+            </a>
+            <a class="link has-text-white" href="#">
+                <img src="../../../../assets/icons/svg/icon-help.svg" />
+                HELP
+            </a>
+            <span class="link">
+                Follow us
+                <a href="#" target="_blank"><img src="../../../../assets/icons/svg/icon-social-fb.svg" /></a>
+                <a href="#" target="_blank"><img src="../../../../assets/icons/svg/icon-social-In.svg" /></a>
+            </span>
+        </div>
+    </div>
+</div>

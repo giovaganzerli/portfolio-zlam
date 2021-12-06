@@ -1,0 +1,199 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+
+        <a class="navbar-item navbar-logo p10-20" href="/dashboard">
+            <img src="../../../assets/icons/svg/icon-logo_dashboard.svg" height="40">
+        </a>
+
+        <!-- HEADER DATASET SELECT -->
+        <div class="navbar-item navbar-select_dataset">
+
+        </div>
+
+        <!-- HEADER INBOX MESSAGES -->
+        <a role="button" class="navbar-item navbar-inbox">
+            <img src="../../../assets/icons/svg/icon-mail.svg" height="40">
+        </a>
+
+        <!-- HEADER PROFILE -->
+        <a role="button" class="navbar-item navbar-profile" href="/profile">
+            {{ user.meta.name +' '+ user.meta.family_name }} <span class="profile-pic" [style.backgroundImage]="'url('+ user.profilePicUrl +')'"></span>
+        </a>
+
+        <!-- HEADER MENU TOGGLE -->
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a role="button" class="navbar-item navbar-link navbar-burger is-arrowless">
+                <i class="fas fa-bars"></i>
+            </a>
+
+            <div class="navbar-dropdown is-right">
+                <a class="navbar-item" href="/dashboard">
+                    Dashboard
+                </a>
+                <a class="navbar-item" href="/profile">
+                    Profile
+                </a>
+                <a class="navbar-item" href="/datasets-management">
+                    Datasets
+                </a>
+                <a class="navbar-item" href="/reports-management">
+                    Reports
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item" (click)="logout()">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="columns page-content">
+
+    <div class="column is-12 has-background-grey">
+        <div class="columns page-content-head">
+            <div class="column is-4 border-right">
+                <h1 class="is-size-2">Reports Management</h1>
+            </div>
+
+            <div class="column is-2">
+                <h2 class="is-size-4"><span class="is-size-2">{{reports.length}}</span> Reports saved</h2>
+            </div>
+
+            <div class="column is-2">
+                <div class="control has-icons-right">
+                    <input class="input is-rounded search-input" type="text" placeholder="Search dataset" (keyup)="filterTable($event)">
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="column is-12 p30-20 page-content-body has-background-grey">
+
+        <ngx-datatable
+            #table
+            class="data-mgmt"
+            [columns]="columns"
+            [rows]="rows"
+            [columnMode]="'flex'"
+            [limit]="10"
+            [headerHeight]="50"
+            [footerHeight]="50">
+
+            <ngx-datatable-column name="Name" [flexGrow]="2">
+                <ng-template ngx-datatable-header-template>
+                    Name
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Name }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Type" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Type
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Type }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Note" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Note
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Note }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Shared" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Shared
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Shared }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Last modified" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Last modified
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Last_modified }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Status" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Status
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Status }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Actions" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <i><img [src]="'../../../assets/icons/svg/icon-dots.svg'"></i>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content has-background-black">
+                                <span class="dropdown-item" (click)="editReport(row.id)">
+                                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-edit.svg'"></i>
+                                    Edit
+                                </span>
+                                <span class="dropdown-item" (click)="deleteReport(row.id)">
+                                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-trash.svg'"></i>
+                                    Delete
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+
+        </ngx-datatable>
+
+    </div>
+
+</div>
+
+<div class="modal" [class.is-active]="modalVisible">
+    <div class="modal-background" (click)="toggleModal()"></div>
+    <div class="modal-card">
+
+        <!-- MODAL HEADER -->
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit report</p>
+            <button class="delete" aria-label="close" (click)="toggleModal()"></button>
+        </header>
+
+        <!-- MODAL BODY -->
+        <section class="modal-card-body">
+            <form id="uploadDatasetForm">
+                <div class="columns form-fields">
+                    <div class="column field field-dataset-name is-6">
+                        <p><b>NAME</b></p>
+                        <div class="control">
+                            <input type="text"
+                                   name="field-dataset-name"
+                                   class="input"
+                                   placeholder="Insert Dataset Name"
+                                   [(ngModel)]="tmpReport.itemName">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <footer class="modal-card-foot has-text-right">
+            <button class="button is-info" (click)="formSubmit()" [disabled]="!tmpReport.itemName">Update report</button>
+            <button class="button" (click)="toggleModal()">Cancel</button>
+        </footer>
+
+    </div>
+</div>

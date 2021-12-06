@@ -1,0 +1,59 @@
+<div class="columns">
+
+    <div class="column is-12">
+        <p class="has-text-weight-bold has-text-grey">{{ reportSelected.type.itemName }}</p>
+        <p><i class="has-text-grey">{{ reportSelected.subtype.itemName }}</i></p> <br>
+        <p><img src="../../../../../assets/icons/svg/general-stats/{{ reportSelected.subtype.id }}.svg" /></p>
+    </div>
+
+    <div class="column is-12">
+
+        <p *ngIf="reportSelected.component.status === 'edit'" class="has-text-weight-bold has-text-grey-dark">Select stats</p>
+
+        <div *ngIf="reportSelected.component.status === 'edit'">
+            <div class="general_stats-subtypes">
+                <!--<p *ngFor="let stat of dataReportSelected.component.data; index as i" (click)="onComponentInsert(stat)" [class.active]="generalService.findIntoArrayofObject(stat.id, dataReportSelected.component.selected, 'id')" class="general_stats-subtype has-text-dark">{{ stat.itemName }}</p>-->
+                <div *ngFor="let stat of reportSelected.component.data; index as i" class="general_stats-subtype">
+                    <div class="control">
+                        <label>
+                            <input type="checkbox"
+                                   name="general_stats-subtype"
+                                   [id]="'general_stats-subtype-'+ stat.id"
+                                   [checked]="generalService.findIntoArrayofObject(stat.id, reportSelected.component.selected, 'id')"
+                                   [value]="stat.id"
+                                   (change)="onComponentInsert(stat)"
+                                   hidden>
+                            <span class="is-size-7">
+                                <b>{{ stat.itemName }} <br></b>
+                                <i *ngFor="let group of stat.group; index as i2">{{ group.itemName + ', ' }}</i>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="reportSelected.component.status === 'view'" class="general_stats-rows">
+            <app-general-stats-rows
+                [rowsType]="reportSelected.subtype.id"
+                [rowsData]="reportSelected.component.submitted.generic[0]"
+                [settings]="reportSelected.component.settings"
+                (exportRowEmit)="onRowUpdated('generic', $event, 0)"
+                >
+            </app-general-stats-rows>
+            <app-general-stats-rows
+                *ngFor="let group of reportSelected.component.submitted.grouped; index as i"
+                [rowsType]="reportSelected.subtype.id"
+                [rowsData]="group"
+                [settings]="reportSelected.component.settings"
+                (exportRowEmit)="onRowUpdated('grouped', $event, i)"
+                >
+            </app-general-stats-rows>
+        </div>
+
+        <div *ngIf="reportSelected.component.status === 'edit'" class="column is-12 has-text-right">
+            <button class="button is-primary" (click)="onComponentSave()" [disabled]="!reportSelected.component.selected.length">Apply</button>
+        </div>
+
+    </div>
+</div>

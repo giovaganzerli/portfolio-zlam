@@ -1,0 +1,201 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+
+        <a class="navbar-item navbar-logo p10-20" href="/dashboard">
+            <img src="../../../assets/icons/svg/icon-logo_dashboard.svg" height="40">
+        </a>
+
+        <!-- HEADER DATASET SELECT -->
+        <div class="navbar-item navbar-select_dataset">
+
+        </div>
+
+        <!-- HEADER INBOX MESSAGES -->
+        <a role="button" class="navbar-item navbar-inbox">
+            <img src="../../../assets/icons/svg/icon-mail.svg" height="40">
+        </a>
+
+        <!-- HEADER PROFILE -->
+        <a role="button" class="navbar-item navbar-profile" href="/profile">
+            {{ user.meta.name +' '+ user.meta.family_name }} <span class="profile-pic" [style.backgroundImage]="'url('+ user.profilePicUrl +')'"></span>
+        </a>
+
+        <!-- HEADER MENU TOGGLE -->
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a role="button" class="navbar-item navbar-link navbar-burger is-arrowless">
+                <i class="fas fa-bars"></i>
+            </a>
+
+            <div class="navbar-dropdown is-right">
+                <a class="navbar-item" href="/dashboard">
+                    Dashboard
+                </a>
+                <a class="navbar-item" href="/profile">
+                    Profile
+                </a>
+                <a class="navbar-item" href="/datasets-management">
+                    Datasets
+                </a>
+                <a class="navbar-item" href="/reports-management">
+                    Reports
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item" (click)="logout()">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="columns page-content">
+
+    <div class="column is-12 has-background-grey">
+        <div class="columns page-content-head">
+            <div class="column is-4 border-right">
+                <h1 class="is-size-2">Datasets Management</h1>
+            </div>
+
+            <div class="column is-2">
+                <h2 class="is-size-4"><span class="is-size-2">{{datasets.length}}</span> Datasets in archive</h2>
+            </div>
+
+            <div class="column is-2 border-right">
+                <div class="control has-icons-right">
+                    <input class="input is-rounded search-input" type="text" placeholder="Search dataset" (keyup)="filterTable($event)">
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="column is-2">
+                <button class="button is-grey-light" (click)="uploadNewDataset()">
+                    <i class="mr-10"><img src="../../../assets/icons/svg/simulation/icon-add_to_report.svg"></i>
+                    Upload new dataset
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="column page-content-body is-12 p30-20 has-background-grey">
+
+        <ngx-datatable
+            #table
+            class="data-mgmt pb-50"
+            [columns]="columns"
+            [rows]="rows"
+            [columnMode]="'flex'"
+            [limit]="10"
+            [headerHeight]="50"
+            [footerHeight]="50">
+
+            <ngx-datatable-column name="Name" [flexGrow]="2">
+                <ng-template ngx-datatable-header-template>
+                    Name
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Name }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Player 1" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Player 1
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Player_1 }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Player 2" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Player 2
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Player_2 }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Tournament" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Tournament
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Tournament }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Date" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Date
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Date }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Round" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Round
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Round }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Note" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Note
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Note }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Last modified" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Last modified
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Last_modified }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Status" [flexGrow]="1">
+                <ng-template ngx-datatable-header-template>
+                    Status
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row.Status }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Actions" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <i><img [src]="'../../../assets/icons/svg/icon-dots.svg'"></i>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content has-background-black">
+                                <span class="dropdown-item" (click)="editDataset(row.id)">
+                                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-edit.svg'"></i>
+                                    Edit
+                                </span>
+                                <span class="dropdown-item" (click)="deleteDataset(row.id)">
+                                    <i class="mr-10"><img [src]="'../../../assets/icons/svg/page-profile/icon-trash.svg'"></i>
+                                    Delete
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+
+        </ngx-datatable>
+
+    </div>
+
+</div>
+
+<!-- UPLOAD DATASET -->
+<app-uploads-dataset
+        [toggle]="isEditing"
+        [datasetToEdit]="tmpDataset"
+        (toggleEmit)="toggleModal($event)"
+        (datasetEmit)="uploadDatasetSubmit($event)"
+></app-uploads-dataset>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+    <g transform="translate(-1328 -194)">
+        <g transform="translate(1348 219)" fill="none" stroke="#fff" stroke-width="1.2">
+            <circle cx="7" cy="7" r="7" stroke="none"/>
+            <circle cx="7" cy="7" r="6.4" fill="none"/>
+        </g>
+        <line x1="5.65" y2="5.65" transform="translate(1352.293 223.293)" fill="none" stroke="#fff"
+              stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.2"/>
+        <line x2="5.65" y2="5.65" transform="translate(1352.293 223.293)" fill="none" stroke="#fff"
+              stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.2"/>
+        <g transform="translate(578 -185)">
+            <g transform="translate(22)">
+                <g transform="translate(736 387)" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="36" cy="36" r="36" stroke="none"/>
+                    <circle cx="36" cy="36" r="35" fill="none"/>
+                </g>
+                <ellipse cx="9.031" cy="9.031" rx="9.031" ry="9.031" transform="translate(761.134 415.357)" fill="none"
+                         stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                <path d="M243.654,99.518s-5.4-2.432-6.97,2.889c-1.134,3.84-6.361,5.763-10.093,2.865"
+                      transform="translate(535.264 322.648)" fill="none" stroke="#fff" stroke-miterlimit="10"
+                      stroke-width="1"/>
+                <line x2="25.069" transform="translate(738.5 430.559)" fill="none" stroke="#fff" stroke-linecap="round"
+                      stroke-miterlimit="10" stroke-width="1"/>
+                <line x2="14.936" transform="translate(777.149 430.559)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line y1="0.059" x2="27.351" transform="translate(779.149 427.5)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x2="24" transform="translate(737.5 427.5)" fill="none" stroke="#fff" stroke-linecap="round"
+                      stroke-miterlimit="10" stroke-width="1"/>
+                <line x2="55.499" transform="translate(749.001 436.244)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x1="7.552" y2="7.552" transform="translate(755.04 436.319)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x1="11.874" y2="11.874" transform="translate(768.33 436.319)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x1="10.759" y2="10.759" transform="translate(778.25 436.319)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x1="10.759" y2="10.759" transform="translate(759.628 436.319)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x2="8.737" y2="8.737" transform="translate(778.25 436.319)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x2="11.094" y2="11.094" transform="translate(769.444 436.319)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x2="11.325" y2="11.325" transform="translate(760.637 436.319)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <line x2="9.533" y2="9.533" transform="translate(752.895 437.38)" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                <path d="M-4180.738,1543.38a61.47,61.47,0,0,1,19.535-15.1" transform="translate(4956.585 -1126.485)"
+                      fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1" stroke-dasharray="3 3"/>
+            </g>
+        </g>
+    </g>
+</svg>

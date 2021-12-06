@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+    <g transform="translate(-444 -379)">
+        <g transform="translate(452 387)" fill="none" stroke="#fff" stroke-width="2">
+            <circle cx="36" cy="36" r="36" stroke="none"/>
+            <circle cx="36" cy="36" r="35" fill="none"/>
+        </g>
+        <path d="M0,0H47.336" transform="translate(472.152 438.398)" fill="none" stroke="#fff" stroke-linecap="round"
+              stroke-width="1.2"/>
+        <path d="M0,0H15.428" transform="translate(465.095 441.398)" fill="none" stroke="#fff" stroke-linecap="round"
+              stroke-width="1.2"/>
+        <path d="M0,0H15.428" transform="translate(483.095 441.398)" fill="none" stroke="#fff" stroke-linecap="round"
+              stroke-width="1.2"/>
+        <path d="M19.376.63S13.248-2.131,11.462,3.91C10.172,8.272,4.239,10.456,0,7.163"
+              transform="matrix(-0.819, -0.574, 0.574, -0.819, 491.499, 435.822)" fill="none" stroke="#fff"
+              stroke-miterlimit="10" stroke-width="1.2"/>
+        <g transform="translate(459.816 405.539)">
+            <circle cx="10.254" cy="10.254" r="10.254" transform="matrix(0.342, -0.94, 0.94, 0.342, 12.619, 28.416)"
+                    fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.2"/>
+            <path d="M6.041,1565.165a65.722,65.722,0,0,1,14.4,12.165" transform="translate(-6.041 -1565.165)"
+                  fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.2" stroke-dasharray="4"/>
+        </g>
+        <g transform="translate(496 406)" fill="none" stroke="#fff" stroke-width="1.2">
+            <circle cx="7" cy="7" r="7" stroke="none"/>
+            <circle cx="7" cy="7" r="6.4" fill="none"/>
+        </g>
+        <g transform="translate(500.293 410.293)">
+            <line x1="2.207" y2="2.443" transform="translate(3 3.207)" fill="none" stroke="#fff" stroke-linecap="round"
+                  stroke-miterlimit="10" stroke-width="1.2"/>
+            <path d="M2.841,2.871,5.65,5.65" transform="translate(-3)" fill="none" stroke="#fff" stroke-linecap="round"
+                  stroke-width="1.2"/>
+        </g>
+    </g>
+</svg>
